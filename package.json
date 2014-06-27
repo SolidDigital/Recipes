@@ -1,6 +1,6 @@
 {
   "name": "solid-recipes",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Recipes and patterns for common tasks.",
   "main": "index.js",
   "scripts": {
