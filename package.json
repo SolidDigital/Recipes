@@ -32,6 +32,7 @@
     "grunt-build-gh-pages": "^1.0.3",
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-copy": "^0.5.0",
-    "grunt-shell": "^0.7.0"
+    "grunt-shell": "^0.7.0",
+    "matchdep": "^0.3.0"
   }
 }

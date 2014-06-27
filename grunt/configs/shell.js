@@ -6,10 +6,16 @@ module.exports = function(grunt) {
         options : {
             stdout : true,
             stderr : true,
-            failOnError : true
+            failOnError : true,
+            execOptions: {
+                cwd: './app'
+            }
         },
-        'build' : {
+        build : {
             command : 'jekyll build'
+        },
+        server : {
+            command : 'jekyll serve'
         }
     });
 };

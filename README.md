@@ -1,2 +1,2 @@
-To use locally cd into app and run `jekyll server`.
+To use locally cd into app and run `grunt serve`.
 To deploy run `grunt deploy`.

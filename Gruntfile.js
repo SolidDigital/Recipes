@@ -2,11 +2,7 @@
 module.exports = function(grunt) {
     'use strict';
 
-    grunt.initConfig({
-        portToUse : 3000,
-        warning : { readme : 'Compiled file. Do not edit directly. '},
-        pkg: grunt.file.readJSON('package.json')
-    });
+    grunt.initConfig({});
 
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
     grunt.loadTasks('grunt/configs');
