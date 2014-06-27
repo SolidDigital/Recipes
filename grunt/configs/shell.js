@@ -12,9 +12,19 @@ module.exports = function(grunt) {
             }
         },
         build : {
+            options : {
+                execOptions: {
+                    cwd: './app'
+                }
+            },
             command : 'jekyll build'
         },
         server : {
+            options : {
+                execOptions: {
+                    cwd: './app'
+                }
+            },
             command : 'jekyll serve --watch'
         }
     });
