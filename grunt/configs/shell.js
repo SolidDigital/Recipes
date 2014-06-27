@@ -15,7 +15,7 @@ module.exports = function(grunt) {
             command : 'jekyll build'
         },
         server : {
-            command : 'jekyll serve'
+            command : 'jekyll serve --watch'
         }
     });
 };
