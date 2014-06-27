@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+        <title>Jekyll Bootstrap</title>
+        <description>Jekyll Bootstrap - Name Lastname</description>
+        <link>http://username.github.io</link>
+        <link>http://username.github.io</link>
+        <lastBuildDate>2014-06-26T23:47:31-07:00</lastBuildDate>
+        <pubDate>2014-06-26T23:47:31-07:00</pubDate>
+        <ttl>1800</ttl>
+
+
+        <item>
+                <title>Intro</title>
+                <description>&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;world&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;goals&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;recipe book&lt;/li&gt;
+&lt;li&gt;exploratory tests&lt;/li&gt;
+&lt;li&gt;runnable samples&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;masseuse&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;starting a new project&lt;/li&gt;
+&lt;li&gt;from start to deploy - example&lt;/li&gt;
+&lt;li&gt;workers (do not use - name appropriately and break into multiple amds)&lt;/li&gt;
+&lt;li&gt;refactoring a view to first create private methods, then grouping them, then extracting to amds&lt;/li&gt;
+&lt;li&gt;validation&lt;/li&gt;
+&lt;li&gt;modals&lt;/li&gt;
+&lt;li&gt;naming conventions&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;promises&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;differences between Q / $&lt;/li&gt;
+&lt;li&gt;chaining&lt;/li&gt;
+&lt;li&gt;error handling&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;rivets&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;binders &lt;/li&gt;
+&lt;li&gt;existing masseuse ones&lt;/li&gt;
+&lt;li&gt;filters&lt;/li&gt;
+&lt;li&gt;adapters&lt;/li&gt;
+&lt;li&gt;if / unless&lt;/li&gt;
+&lt;li&gt;formatters&lt;/li&gt;
+&lt;li&gt;existing masseuse ones&lt;/li&gt;
+&lt;li&gt;rivets&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;gh as a library&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;creating static pages&lt;/li&gt;
+&lt;li&gt;creating custom endpoints&lt;/li&gt;
+&lt;li&gt;using gh core separately (queries)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;requirejs&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;testing&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;browser&lt;/li&gt;
+&lt;li&gt;unit&lt;/li&gt;
+&lt;li&gt;integration&lt;/li&gt;
+&lt;li&gt;node&lt;/li&gt;
+&lt;li&gt;unit&lt;/li&gt;
+&lt;li&gt;integration&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;grunt&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;paths.json&lt;/li&gt;
+&lt;li&gt;release notes&lt;/li&gt;
+&lt;li&gt;deploy&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;heroku&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;foundation&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;sass&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;mixins&lt;/li&gt;
+&lt;li&gt;https://github.com/davidtheclark/scut&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;jade&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;mixins&lt;/li&gt;
+&lt;li&gt;blocks&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+                <link>http://username.github.io/lessons/2014/06/26/intro</link>
+                <guid>http://username.github.io/lessons/2014/06/26/intro</guid>
+                <pubDate>2014-06-26T00:00:00-07:00</pubDate>
+        </item>
+
+
+</channel>
+</rss>
