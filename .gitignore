@@ -1,0 +1,4 @@
+app/_theme_packages/*
+build/*
+.idea/*
+.DS_Store
