@@ -1,0 +1,4 @@
+app/_theme_packages/*
+build/*
+node_modules/*
+.idea/*
