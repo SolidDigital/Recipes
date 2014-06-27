@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Jekyll Bootstrap</title>
+ <link href="http://solid-interactive.github.io/recipes/" rel="self"/>
+ <link href="http://solid-interactive.github.io/recipes"/>
+ <updated>2014-06-27T10:23:18-07:00</updated>
+ <id>http://solid-interactive.github.io/recipes</id>
+ <author>
+   <name>Name Lastname</name>
+   <email>blah@email.test</email>
+ </author>
+
+ 
+ 
+</feed>

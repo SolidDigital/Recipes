@@ -1,0 +1,9 @@
+
+http://solid-interactive.github.io/recipes/archive.html
+http://solid-interactive.github.io/recipes/atom.xml
+http://solid-interactive.github.io/recipes/categories.html
+http://solid-interactive.github.io/recipes/index.html
+http://solid-interactive.github.io/recipes/pages.html
+http://solid-interactive.github.io/recipes/rss.xml
+http://solid-interactive.github.io/recipes/sitemap.txt
+http://solid-interactive.github.io/recipes/tags.html
