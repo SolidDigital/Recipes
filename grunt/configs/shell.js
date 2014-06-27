@@ -6,10 +6,7 @@ module.exports = function(grunt) {
         options : {
             stdout : true,
             stderr : true,
-            failOnError : true,
-            execOptions: {
-                cwd: './app'
-            }
+            failOnError : true
         },
         build : {
             options : {
