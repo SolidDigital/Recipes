@@ -14,7 +14,7 @@ module.exports = function(grunt) {
                     cwd: './app'
                 }
             },
-            command : 'jekyll build'
+            command : 'jekyll build --safe'
         },
         server : {
             options : {
