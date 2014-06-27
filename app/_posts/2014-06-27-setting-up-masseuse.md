@@ -1,0 +1,40 @@
+---
+layout: post
+title: "Setting up masseuse"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
+
+1. See if grunt init masseuse is installed
+
+    ```bash
+    grunt-init masseuse
+    ```
+
+2. Install grunt-init if not installed
+
+    ```bash
+    npm install -g grunt-init
+    ```
+
+3. Install masseuse template into grunt-init directory
+ 
+    ```bash
+    git clone git@github.com:Solid-Interactive/grunt-init-masseuse.git ~/.grunt-init/masseuse
+    ```
+
+4. Set up project scaffolding
+    
+    ```bash
+    grunt-init masseuse
+    ```
+    
+5. Install dependencies
+
+    ```bash
+    npm install && bower install
+    ```
+    
+6.

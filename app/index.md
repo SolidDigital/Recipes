@@ -9,13 +9,15 @@ tagline: "Introduction"
 hello('world');
 ```
 
+* [TO DO's](2014/06/27/to-dos/) 
+
 * goals
     * recipe book
     * exploratory tests
     * runnable samples
 
 * masseuse
-    * starting a new project
+    * [starting a new project](2014/06/27/setting-up-masseuse/)
         * from start to deploy - example
     * workers (do not use - name appropriately and break into multiple amds)
         * refactoring a view to first create private methods, then grouping them, then extracting to amds
