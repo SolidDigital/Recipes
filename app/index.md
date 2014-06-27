@@ -3,6 +3,7 @@ layout: page
 title : hello
 tagline: "Introduction"
 ---
+{% include JB/setup %}
 
 ```javascript
 hello('world');
