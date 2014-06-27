@@ -1,0 +1,30 @@
+{
+  "name": "solid-recipes",
+  "version": "0.0.0",
+  "description": "Recipes and patterns for common tasks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pajtai/recipes.git"
+  },
+  "keywords": [
+    "recipes",
+    "javascript",
+    "node",
+    "masseuse",
+    "grasshopper",
+    "promises",
+    "jquery",
+    "backbone",
+    "underscore"
+  ],
+  "author": "Solid Interactive",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pajtai/recipes/issues"
+  },
+  "homepage": "https://github.com/pajtai/recipes"
+}
