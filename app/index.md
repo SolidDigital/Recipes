@@ -17,7 +17,7 @@ hello('world');
     * runnable samples
 
 * masseuse
-    * [starting a new project](2014/06/27/setting-up-masseuse/)
+    * [starting a new project]({{ site.JB.BASE_PATH }}/2014/06/27/setting-up-masseuse/)
         * from start to deploy - example
     * workers (do not use - name appropriately and break into multiple amds)
         * refactoring a view to first create private methods, then grouping them, then extracting to amds
