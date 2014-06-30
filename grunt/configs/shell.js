@@ -22,7 +22,7 @@ module.exports = function(grunt) {
                     cwd: './app'
                 }
             },
-            command : 'jekyll serve --watch'
+            command : 'jekyll serve --watch --config "_config.local.yml"'
         }
     });
 };
