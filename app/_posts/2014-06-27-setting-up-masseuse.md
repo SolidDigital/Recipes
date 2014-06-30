@@ -37,4 +37,12 @@ tags: []
     npm install && bower install
     ```
     
-6.
+6. Test your install
+
+    ```bash
+    grunt server
+    ```
+    
+7. (Optional) [Setup git repository and release branches](/2014/06/30/setup-git-and-release-branches/)
+    
+    ```
