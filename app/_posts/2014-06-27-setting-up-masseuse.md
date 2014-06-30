@@ -43,6 +43,6 @@ tags: []
     grunt server
     ```
     
-7. (Optional) [Setup git repository and release branches]({% site.JB.BASE_PATH %}/2014/06/30/setup-git-and-release-branches/)
+7. (Optional) [Setup git repository and release branches]({ site.JB.BASE_PATH }/2014/06/30/setup-git-and-release-branches/)
     
     ```
