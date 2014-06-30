@@ -4,7 +4,7 @@
  <title>Jekyll Bootstrap</title>
  <link href="http://solid-interactive.github.io/Recipes/" rel="self"/>
  <link href="http://solid-interactive.github.io/Recipes"/>
- <updated>2014-06-30T12:49:52-07:00</updated>
+ <updated>2014-06-30T12:56:53-07:00</updated>
  <id>http://solid-interactive.github.io/Recipes</id>
  <author>
    <name>Name Lastname</name>
@@ -83,7 +83,7 @@
 &lt;li&gt;&lt;p&gt;Test your install&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;grunt server
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;(Optional) &lt;a href=&quot;/2014/06/30/setup-git-and-release-branches/&quot;&gt;Setup git repository and release branches&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;(Optional) &lt;a href=&quot;%7B%20site.JB.BASE_PATH%20%7D/2014/06/30/setup-git-and-release-branches/&quot;&gt;Setup git repository and release branches&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </content>
  </entry>
