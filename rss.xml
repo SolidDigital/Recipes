@@ -5,10 +5,45 @@
         <description>Jekyll Bootstrap - Name Lastname</description>
         <link>http://solid-interactive.github.io/Recipes</link>
         <link>http://solid-interactive.github.io/Recipes</link>
-        <lastBuildDate>2014-06-27T11:15:44-07:00</lastBuildDate>
-        <pubDate>2014-06-27T11:15:44-07:00</pubDate>
+        <lastBuildDate>2014-06-30T12:49:52-07:00</lastBuildDate>
+        <pubDate>2014-06-30T12:49:52-07:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Setup Git and release branches</title>
+                <description>&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Initialize git repository.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git init &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; git add -A &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; git commit -m &lt;span class=&quot;s1&quot;&gt;&amp;#39;initial structure&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Create repo in either gitlab or github, then copy paste that sucker.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Add a remote repository if desired.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git remote add origin git://github.com/Solid-Interactive/YourNewApp.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Add &lt;a href=&quot;https://github.com/visionmedia/git-extras&quot;&gt;git extras&lt;/a&gt; by visionmedia. &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;brew install git-extras
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unlink pre-commit hooks if installed.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mv .git/hooks/pre-commit .git/hooks/pre-commit.bkp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Create orphan branches (uses gh-pages from the previous step). This creates an orphan branch called gh-pages.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git gh-pages
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Relink pre-commit hooks.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mv .git/hooks/pre-commit.bkp .git/hooks/pre-commit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Rename gh-pages branch to either stage or production.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git branch -m &amp;lt;oldname&amp;gt; &amp;lt;newname&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Push that new branch to origin.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git push -u origin stage
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+                <link>http://solid-interactive.github.io/Recipes/2014/06/30/setup-git-and-release-branches</link>
+                <guid>http://solid-interactive.github.io/Recipes/2014/06/30/setup-git-and-release-branches</guid>
+                <pubDate>2014-06-30T00:00:00-07:00</pubDate>
+        </item>
 
         <item>
                 <title>To Do's</title>
@@ -40,9 +75,11 @@
 &lt;li&gt;&lt;p&gt;Install dependencies&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;npm install &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; bower install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Test your install&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;grunt server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;(Optional) &lt;a href=&quot;/2014/06/30/setup-git-and-release-branches/&quot;&gt;Setup git repository and release branches&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-
-&lt;p&gt;6.&lt;/p&gt;
 </description>
                 <link>http://solid-interactive.github.io/Recipes/2014/06/27/setting-up-masseuse</link>
                 <guid>http://solid-interactive.github.io/Recipes/2014/06/27/setting-up-masseuse</guid>

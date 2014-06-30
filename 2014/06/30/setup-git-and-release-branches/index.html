@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>
       
-        To Do's - 
+        Setup Git and release branches - 
       
       Jekyll Bootstrap
     </title>
@@ -144,26 +144,49 @@
           
 <div class="page-header">
   <h1>
-    To Do's 
+    Setup Git and release branches 
     
   </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <ul>
-<li><code>[ ]</code> Add optional SCSS support to grunt-init masseuse template.</li>
-<li><code>[ ]</code> Add optional Jade support to grunt-init masseuse template.</li>
-</ul>
+    <ol>
+<li><p>Initialize git repository.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git init <span class="o">&amp;&amp;</span> git add -A <span class="o">&amp;&amp;</span> git commit -m <span class="s1">&#39;initial structure&#39;</span>
+</code></pre></div></li>
+<li><p>Create repo in either gitlab or github, then copy paste that sucker.</p></li>
+<li><p>Add a remote repository if desired.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git remote add origin git://github.com/Solid-Interactive/YourNewApp.git
+</code></pre></div></li>
+<li><p>Add <a href="https://github.com/visionmedia/git-extras">git extras</a> by visionmedia. </p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">brew install git-extras
+</code></pre></div></li>
+<li><p>Unlink pre-commit hooks if installed.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">mv .git/hooks/pre-commit .git/hooks/pre-commit.bkp
+</code></pre></div></li>
+<li><p>Create orphan branches (uses gh-pages from the previous step). This creates an orphan branch called gh-pages.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git gh-pages
+</code></pre></div></li>
+<li><p>Relink pre-commit hooks.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">mv .git/hooks/pre-commit.bkp .git/hooks/pre-commit
+</code></pre></div></li>
+<li><p>Rename gh-pages branch to either stage or production.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git branch -m &lt;oldname&gt; &lt;newname&gt;
+</code></pre></div></li>
+<li><p>Push that new branch to origin.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git push -u origin stage
+</code></pre></div></li>
+</ol>
 
     <hr>
     <div class="pagination btn-group">
       
-        <a class="btn prev" href="http://solid-interactive.github.io/Recipes/2014/06/27/setting-up-masseuse" title="Setting up masseuse">&larr; Previous</a>
+        <a class="btn prev" href="http://solid-interactive.github.io/Recipes/2014/06/27/to-dos" title="To Do's">&larr; Previous</a>
       
         <a class="btn" href="http://solid-interactive.github.io/Recipes/archive.html">Archive</a>
       
-        <a class="btn next" href="http://solid-interactive.github.io/Recipes/2014/06/30/setup-git-and-release-branches" title="Setup Git and release branches">Next &rarr;</a>
+        <a class="btn next disabled">Next &rarr;</a>
       
     </div>
     <hr>
@@ -173,7 +196,7 @@
   <div class="span4">
     <section>
       <h4>Published</h4>
-      <div class="date"><span>27 June 2014</span></div>
+      <div class="date"><span>30 June 2014</span></div>
     </section>
          
              
