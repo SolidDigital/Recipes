@@ -5,8 +5,8 @@
         <description>Jekyll Bootstrap - Name Lastname</description>
         <link>http://solid-interactive.github.io/Recipes</link>
         <link>http://solid-interactive.github.io/Recipes</link>
-        <lastBuildDate>2014-06-30T12:56:53-07:00</lastBuildDate>
-        <pubDate>2014-06-30T12:56:53-07:00</pubDate>
+        <lastBuildDate>2014-06-30T12:58:04-07:00</lastBuildDate>
+        <pubDate>2014-06-30T12:58:04-07:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -78,7 +78,7 @@
 &lt;li&gt;&lt;p&gt;Test your install&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;grunt server
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;(Optional) &lt;a href=&quot;%7B%20site.JB.BASE_PATH%20%7D/2014/06/30/setup-git-and-release-branches/&quot;&gt;Setup git repository and release branches&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;(Optional) &lt;a href=&quot;http://solid-interactive.github.io/Recipes/2014/06/30/setup-git-and-release-branches/&quot;&gt;Setup git repository and release branches&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
                 <link>http://solid-interactive.github.io/Recipes/2014/06/27/setting-up-masseuse</link>
