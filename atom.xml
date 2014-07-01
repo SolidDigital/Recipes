@@ -4,13 +4,30 @@
  <title>Jekyll Bootstrap</title>
  <link href="http://solid-interactive.github.io/Recipes/" rel="self"/>
  <link href="http://solid-interactive.github.io/Recipes"/>
- <updated>2014-06-30T12:59:02-07:00</updated>
+ <updated>2014-07-01T12:41:59-07:00</updated>
  <id>http://solid-interactive.github.io/Recipes</id>
  <author>
    <name>Name Lastname</name>
    <email>blah@email.test</email>
  </author>
 
+ 
+ <entry>
+   <title>Setup heroku for staging</title>
+   <link href="http://solid-interactive.github.io/Recipes/2014/07/01/setup-heroku-for-staging"/>
+   <updated>2014-07-01T00:00:00-07:00</updated>
+   <id>http://solid-interactive.github.io/Recipes/2014/07/01/setup-heroku-for-staging</id>
+   <content type="html">&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Install &lt;a href=&quot;https://toolbelt.heroku.com/&quot;&gt;heroku toolbelt.&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://dashboard.heroku.com/apps&quot;&gt;Create an app.&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;heroku create masseuse-example
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Update buildGhPages config&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Setup Git and release branches</title>
@@ -25,6 +42,9 @@
 &lt;li&gt;&lt;p&gt;Add a remote repository if desired.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git remote add origin git://github.com/Solid-Interactive/YourNewApp.git
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Push master&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt; git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Add &lt;a href=&quot;https://github.com/visionmedia/git-extras&quot;&gt;git extras&lt;/a&gt; by visionmedia. &lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;brew install git-extras
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
@@ -34,14 +54,17 @@
 &lt;li&gt;&lt;p&gt;Create orphan branches (uses gh-pages from the previous step). This creates an orphan branch called gh-pages.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git gh-pages
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Copy &lt;code&gt;.gitignore&lt;/code&gt; from master, add, then commit it.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git checkout master -- .gitignore &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; git add .gitignore &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; git commit -m &lt;span class=&quot;s1&quot;&gt;&amp;#39;Added .gitignore&amp;#39;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Relink pre-commit hooks.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mv .git/hooks/pre-commit.bkp .git/hooks/pre-commit
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Rename gh-pages branch to either stage or production.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git branch -m &amp;lt;oldname&amp;gt; &amp;lt;newname&amp;gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git branch -m &amp;lt;oldName&amp;gt; &amp;lt;newName&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Push that new branch to origin.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git push -u origin stage
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git push -u origin &amp;lt;newName&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </content>
@@ -55,6 +78,7 @@
    <content type="html">&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;[ ]&lt;/code&gt; Add optional SCSS support to grunt-init masseuse template.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;[ ]&lt;/code&gt; Add optional Jade support to grunt-init masseuse template.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[ ]&lt;/code&gt; Add out of the box support for heroku with buildGhPages&lt;/li&gt;
 &lt;/ul&gt;
 </content>
  </entry>

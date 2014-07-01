@@ -159,6 +159,9 @@
 <li><p>Add a remote repository if desired.</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">git remote add origin git://github.com/Solid-Interactive/YourNewApp.git
 </code></pre></div></li>
+<li><p>Push master</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"> git push -u origin master
+</code></pre></div></li>
 <li><p>Add <a href="https://github.com/visionmedia/git-extras">git extras</a> by visionmedia. </p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">brew install git-extras
 </code></pre></div></li>
@@ -168,14 +171,17 @@
 <li><p>Create orphan branches (uses gh-pages from the previous step). This creates an orphan branch called gh-pages.</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">git gh-pages
 </code></pre></div></li>
+<li><p>Copy <code>.gitignore</code> from master, add, then commit it.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git checkout master -- .gitignore <span class="o">&amp;&amp;</span> git add .gitignore <span class="o">&amp;&amp;</span> git commit -m <span class="s1">&#39;Added .gitignore&#39;</span> 
+</code></pre></div></li>
 <li><p>Relink pre-commit hooks.</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">mv .git/hooks/pre-commit.bkp .git/hooks/pre-commit
 </code></pre></div></li>
 <li><p>Rename gh-pages branch to either stage or production.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">git branch -m &lt;oldname&gt; &lt;newname&gt;
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git branch -m &lt;oldName&gt; &lt;newName&gt;
 </code></pre></div></li>
 <li><p>Push that new branch to origin.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">git push -u origin stage
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git push -u origin &lt;newName&gt;
 </code></pre></div></li>
 </ol>
 
@@ -186,7 +192,7 @@
       
         <a class="btn" href="http://solid-interactive.github.io/Recipes/archive.html">Archive</a>
       
-        <a class="btn next disabled">Next &rarr;</a>
+        <a class="btn next" href="http://solid-interactive.github.io/Recipes/2014/07/01/setup-heroku-for-staging" title="Setup heroku for staging">Next &rarr;</a>
       
     </div>
     <hr>
