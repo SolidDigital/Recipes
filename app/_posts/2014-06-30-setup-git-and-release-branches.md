@@ -20,6 +20,12 @@ tags: []
     ```bash
     git remote add origin git://github.com/Solid-Interactive/YourNewApp.git
     ```
+    
+1. Push master
+
+     ```bash
+     git push -u origin master
+     ```
         
 1. Add [git extras](https://github.com/visionmedia/git-extras) by visionmedia. 
 
@@ -39,6 +45,12 @@ tags: []
     git gh-pages
     ```
 
+1. Copy `.gitignore` from master, add, then commit it.
+
+    ```bash
+    git checkout master -- .gitignore && git add .gitignore && git commit -m 'Added .gitignore' 
+    ```
+
 1. Relink pre-commit hooks.
 
     ```bash
@@ -48,12 +60,12 @@ tags: []
 1. Rename gh-pages branch to either stage or production.
 
     ```bash
-    git branch -m <oldname> <newname>
+    git branch -m <oldName> <newName>
     ```
     
 1. Push that new branch to origin.
 
     ```bash
-    git push -u origin stage
+    git push -u origin <newName>
     ```
     
