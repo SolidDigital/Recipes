@@ -13,11 +13,17 @@ tags: []
 1. [Create an app.](https://dashboard.heroku.com/apps)
     
     ```bash
-    heroku create masseuse-example
+    heroku create < appName >
+    ```
+    
+1. Add Heroku remote to git
+
+    ```bash
+    heroku git:remote -a < appName >
     ```
 
-1. Update buildGhPages config
-    
+1. Deploy
+
     ```bash
-    
+    grunt deploy
     ```
