@@ -154,10 +154,13 @@
     <ol>
 <li><p>Install <a href="https://toolbelt.heroku.com/">heroku toolbelt.</a></p></li>
 <li><p><a href="https://dashboard.heroku.com/apps">Create an app.</a></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">heroku create masseuse-example
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">heroku create &lt; appName &gt;
 </code></pre></div></li>
-<li><p>Update buildGhPages config</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">
+<li><p>Add Heroku remote to git</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">heroku git:remote -a &lt; appName &gt;
+</code></pre></div></li>
+<li><p>Deploy</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">grunt deploy
 </code></pre></div></li>
 </ol>
 

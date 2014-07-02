@@ -4,7 +4,7 @@
  <title>Jekyll Bootstrap</title>
  <link href="http://solid-interactive.github.io/Recipes/" rel="self"/>
  <link href="http://solid-interactive.github.io/Recipes"/>
- <updated>2014-07-01T12:41:59-07:00</updated>
+ <updated>2014-07-02T16:46:11-07:00</updated>
  <id>http://solid-interactive.github.io/Recipes</id>
  <author>
    <name>Name Lastname</name>
@@ -20,10 +20,13 @@
    <content type="html">&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Install &lt;a href=&quot;https://toolbelt.heroku.com/&quot;&gt;heroku toolbelt.&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://dashboard.heroku.com/apps&quot;&gt;Create an app.&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;heroku create masseuse-example
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;heroku create &amp;lt; appName &amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Update buildGhPages config&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;
+&lt;li&gt;&lt;p&gt;Add Heroku remote to git&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;heroku git:remote -a &amp;lt; appName &amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Deploy&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;grunt deploy
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </content>
@@ -79,6 +82,9 @@
 &lt;li&gt;&lt;code&gt;[ ]&lt;/code&gt; Add optional SCSS support to grunt-init masseuse template.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;[ ]&lt;/code&gt; Add optional Jade support to grunt-init masseuse template.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;[ ]&lt;/code&gt; Add out of the box support for heroku with buildGhPages&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[ ]&lt;/code&gt; Update template to use &lt;code&gt;buildGhPages&lt;/code&gt; and not &lt;code&gt;build_gh_pages&lt;/code&gt; in the config for &lt;code&gt;buildGhPages&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[ ]&lt;/code&gt; Update buildGhPages stage subtask to use the staging and not production branch.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[ ]&lt;/code&gt; Update deploy task to use grunt prompt and to have appropriate behavior for prod &amp;amp; stage&lt;/li&gt;
 &lt;/ul&gt;
 </content>
  </entry>
