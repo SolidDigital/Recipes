@@ -45,4 +45,4 @@ tags: []
     
 7. (Optional) [Setup git repository and release branches]({{ site.JB.BASE_PATH }}/2014/06/30/setup-git-and-release-branches/)
     
-    ```
+8. (Optional) [Setup and deploy to Heroku]({{ site.JB.BASE_PATH }}/2014/07/01/setup-heroku-for-staging/)
