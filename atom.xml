@@ -4,7 +4,7 @@
  <title>Jekyll Bootstrap</title>
  <link href="http://solid-interactive.github.io/Recipes/" rel="self"/>
  <link href="http://solid-interactive.github.io/Recipes"/>
- <updated>2014-07-02T16:46:11-07:00</updated>
+ <updated>2014-07-03T12:41:06-07:00</updated>
  <id>http://solid-interactive.github.io/Recipes</id>
  <author>
    <name>Name Lastname</name>
@@ -114,6 +114,7 @@
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;grunt server
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;(Optional) &lt;a href=&quot;http://solid-interactive.github.io/Recipes/2014/06/30/setup-git-and-release-branches/&quot;&gt;Setup git repository and release branches&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;(Optional) &lt;a href=&quot;http://solid-interactive.github.io/Recipes/2014/07/01/setup-heroku-for-staging/&quot;&gt;Setup and deploy to Heroku&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </content>
  </entry>
