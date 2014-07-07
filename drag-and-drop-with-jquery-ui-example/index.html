@@ -153,6 +153,39 @@
   <div class="span8">
     <p><a href="http://solid-interactive.github.io/masseuse-examples/drag-and-drop">Sample code</a></p>
 
+<p>The interesting thing about drag and drop, is that the DOM gets out of sync with Rivets.
+When sorting with jquery ui, Rivets does not know about the sort. So, we sync the collection on our own. </p>
+
+<p>Jquery Ui Drag and drop provides an <a href="http://api.jqueryui.com/sortable/#event-update">update</a> event when you have stopped sorting and the dom is done updating.
+We use this callback to re-synchronize the dom and the collection.</p>
+
+<p>When you initialize the sortable element, you can pass a callback for specific events.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$sortable</span><span class="p">.</span><span class="nx">sortable</span><span class="p">({</span>
+    <span class="nx">update</span> <span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">debounce</span><span class="p">(</span><span class="nx">_update</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">$sortable</span><span class="p">),</span> <span class="mi">50</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>The update method iterates over the dom and resets the collection with the new order.
+The collection reset needs to be silent, as we do not want rivets to re-render the dom when we reset.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">_update</span><span class="p">(</span><span class="nx">$sortable</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">fruits</span> <span class="o">=</span> <span class="p">[],</span>
+        <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+
+    <span class="nx">$sortable</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">fruits</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;modelid&#39;</span><span class="p">));</span>
+    <span class="p">});</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">reset</span><span class="p">(</span><span class="nx">fruits</span><span class="p">,</span> <span class="p">{</span><span class="nx">silent</span> <span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Important:
+The html needs to have the model&#39;s id on the sortable item somewhere. The important line is the <code>data-rv-modelid</code>.
+We use the models <code>cid</code> as that is unique to each model.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">&quot;sortable&quot;</span> <span class="na">class=</span><span class="s">&quot;ui-sortable&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;ui-state-default&quot;</span> <span class="na">data-rv-each-fruit=</span><span class="s">&quot;collection:&quot;</span> <span class="na">data-rv-modelid=</span><span class="s">&quot;fruit.cid&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div>
     <hr>
     <div class="pagination btn-group">
       

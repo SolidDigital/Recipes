@@ -153,6 +153,24 @@
   <div class="span8">
     <p><a href="http://solid-interactive.github.io/masseuse-examples/async-render">Example code</a></p>
 
+<p>beforeRender and afterRender are optionally async. If <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length">beforeRender.length</a> is 1 or greater, and $.Deferred() will be passed in, and the life cycle will only continue once it is resolved.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">masseuse</span><span class="p">.</span><span class="nx">BaseView</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">beforeRender</span> <span class="o">:</span> <span class="nx">beforeRender</span>
+<span class="p">});</span>
+</code></pre></div>
+<h4>Synchronous</h4>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">beforeRender</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">doStuffQuickly</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4>Asynchronous</h4>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">beforeRender</span><span class="p">(</span><span class="nx">$deferred</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">doStuffThatTakeALongTime</span><span class="p">()</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">$deferred</span><span class="p">.</span><span class="nx">resolve</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>When you make beforeRender async, it will not move onto the render method until its deferred is resolved.</p>
+
     <hr>
     <div class="pagination btn-group">
       
