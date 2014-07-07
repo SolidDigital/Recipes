@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Setup Git and release branches"
-description: ""
-category: 
-tags: []
+description: "Setting up a git project to use orphan branches for staging and production deploys."
+category: "setup"
+tags: ["git", "gh-pages", "staging", "production", "orphan branches", "git extras"]
 ---
 {% include JB/setup %}
 

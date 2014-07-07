@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Setting up masseuse"
-description: ""
-category: 
-tags: []
+description: "How to begin a masseuse project."
+category: "setup"
+tags: ["backbone", "masseuse", "git", "gh-pages", "deploy", "grunt-init"]
 ---
 {% include JB/setup %}
 
@@ -43,6 +43,6 @@ tags: []
     grunt server
     ```
     
-7. (Optional) [Setup git repository and release branches]({{ site.JB.BASE_PATH }}/2014/06/30/setup-git-and-release-branches/)
+7. (Optional) [Setup git repository and release branches]({{ site.JB.BASE_PATH }}/setup-git-and-release-branches/)
     
-8. (Optional) [Setup and deploy to Heroku]({{ site.JB.BASE_PATH }}/2014/07/01/setup-heroku-for-staging/)
+8. (Optional) [Setup and deploy to Heroku]({{ site.JB.BASE_PATH }}/setup-heroku-for-staging/)

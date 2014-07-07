@@ -1,15 +1,11 @@
 ---
 layout: page
-title : hello
-tagline: "Introduction"
+title : "Overview:"
+tagline: "things to cover"
 ---
 {% include JB/setup %}
 
-```javascript
-hello('world');
-```
-
-* [TO DO's](2014/06/27/to-dos/) 
+* [TO DO's]({{ site.JB.BASE_PATH }}/to-dos/) 
 
 * goals
     * recipe book
@@ -17,11 +13,11 @@ hello('world');
     * runnable samples
 
 * masseuse
-    * [starting a new project]({{ site.JB.BASE_PATH }}/2014/06/27/setting-up-masseuse/)
+    * [starting a new project]({{ site.JB.BASE_PATH }}/setting-up-masseuse)
         * from start to deploy - example
     * views
-        * [Async render example](http://solid-interactive.github.io/masseuse-examples/async-render)
-        * [Drag and drop with jQuery UI example](http://solid-interactive.github.io/masseuse-examples/drag-and-drop)
+        * [Async render example]({{ site.JB.BASE_PATH }}/async-render-example)
+        * [Drag and drop with jQuery UI example]({{ site.JB.BASE_PATH }}/drag-and-drop-with-jquery-ui-example)
         * Lifecycle and hooks
         * Child views
         * default options
@@ -54,10 +50,10 @@ hello('world');
     * error handling
 * rivets
     * keypaths
-    * [Child view binder example](http://solid-interactive.github.io/masseuse-examples/new-child-view-binder)
-    * [Two way binding example](http://solid-interactive.github.io/masseuse-examples/two-way-binding)
-    * [Rivets Binder example]()
-    * [Rivets Formatters example]()
+    * [Child view binder example]({{ site.JB.BASE_PATH }}/child-view-binder-example)
+    * [Two way binding example]({{ site.JB.BASE_PATH }}/two-way-binding-example)
+    * [Rivets Binder example]({{ site.JB.BASE_PATH }}/rivets-binder-example)
+    * [Rivets Formatters example]({{ site.JB.BASE_PATH }}/rivets-formatters-example)
     * binders 
         * existing masseuse ones
     * filters
