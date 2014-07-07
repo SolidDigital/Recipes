@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>
       
-        Setting up masseuse - 
+        Setup heroku for staging - 
       
       Jekyll Bootstrap
     </title>
@@ -144,7 +144,7 @@
           
 <div class="page-header">
   <h1>
-    Setting up masseuse 
+    Setup heroku for staging 
     
   </h1>
 </div>
@@ -152,36 +152,26 @@
 <div class="row">
   <div class="span8">
     <ol>
-<li><p>See if grunt init masseuse is installed</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">grunt-init masseuse
+<li><p>Install <a href="https://toolbelt.heroku.com/">heroku toolbelt.</a></p></li>
+<li><p><a href="https://dashboard.heroku.com/apps">Create an app.</a></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">heroku create &lt; appName &gt;
 </code></pre></div></li>
-<li><p>Install grunt-init if not installed</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">npm install -g grunt-init
+<li><p>Add Heroku remote to git</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">heroku git:remote -a &lt; appName &gt;
 </code></pre></div></li>
-<li><p>Install masseuse template into grunt-init directory</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">git clone git@github.com:Solid-Interactive/grunt-init-masseuse.git ~/.grunt-init/masseuse
+<li><p>Deploy</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">grunt deploy
 </code></pre></div></li>
-<li><p>Set up project scaffolding</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">grunt-init masseuse
-</code></pre></div></li>
-<li><p>Install dependencies</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">npm install <span class="o">&amp;&amp;</span> bower install
-</code></pre></div></li>
-<li><p>Test your install</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">grunt server
-</code></pre></div></li>
-<li><p>(Optional) <a href="http://solid-interactive.github.io/Recipes/2014/06/30/setup-git-and-release-branches/">Setup git repository and release branches</a></p></li>
-<li><p>(Optional) <a href="http://solid-interactive.github.io/Recipes/2014/07/01/setup-heroku-for-staging/">Setup and deploy to Heroku</a></p></li>
 </ol>
 
     <hr>
     <div class="pagination btn-group">
       
-        <a class="btn disabled prev">&larr; Previous</a>
+        <a class="btn prev" href="http://solid-interactive.github.io/Recipes/setup-git-and-release-branches" title="Setup Git and release branches">&larr; Previous</a>
       
         <a class="btn" href="http://solid-interactive.github.io/Recipes/archive.html">Archive</a>
       
-        <a class="btn next" href="http://solid-interactive.github.io/Recipes/2014/06/27/to-dos" title="To Do's">Next &rarr;</a>
+        <a class="btn next" href="http://solid-interactive.github.io/Recipes/async-render-example" title="Async render example">Next &rarr;</a>
       
     </div>
     <hr>
@@ -191,7 +181,7 @@
   <div class="span4">
     <section>
       <h4>Published</h4>
-      <div class="date"><span>27 June 2014</span></div>
+      <div class="date"><span>01 July 2014</span></div>
     </section>
          
              

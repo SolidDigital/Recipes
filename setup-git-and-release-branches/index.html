@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <title>
       
-        Pages - 
+        Setup Git and release branches - 
       
       Jekyll Bootstrap
     </title>
-    
+    <meta name="description" content="Setting up a git project to use orphan branches for staging and production deploys.">
     <meta name="author" content="Name Lastname">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- HTML5 shim, for IE6-8 support of HTML elements -->
@@ -82,7 +82,7 @@
     
       
       	
-      	<li class="active"><a href="http://solid-interactive.github.io/Recipes/pages.html" class="active">Pages</a></li>
+      	<li><a href="http://solid-interactive.github.io/Recipes/pages.html">Pages</a></li>
       	
       
     
@@ -142,92 +142,105 @@
       <div class="container">
         <div class="content">
           
-<div class="page-header-wrapper">
-	<div class="page-header">
-  		<h1>Pages </h1>
-  	</div>
+<div class="page-header">
+  <h1>
+    Setup Git and release branches 
+    
+  </h1>
 </div>
 
 <div class="row">
-  <div class="span12">
+  <div class="span8">
+    <ol>
+<li><p>Initialize git repository.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git init <span class="o">&amp;&amp;</span> git add -A <span class="o">&amp;&amp;</span> git commit -m <span class="s1">&#39;initial structure&#39;</span>
+</code></pre></div></li>
+<li><p>Create repo in either gitlab or github, then copy paste that sucker.</p></li>
+<li><p>Add a remote repository if desired.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git remote add origin git://github.com/Solid-Interactive/YourNewApp.git
+</code></pre></div></li>
+<li><p>Push master</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"> git push -u origin master
+</code></pre></div></li>
+<li><p>Add <a href="https://github.com/visionmedia/git-extras">git extras</a> by visionmedia. </p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">brew install git-extras
+</code></pre></div></li>
+<li><p>Unlink pre-commit hooks if installed.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">mv .git/hooks/pre-commit .git/hooks/pre-commit.bkp
+</code></pre></div></li>
+<li><p>Create orphan branches (uses gh-pages from the previous step). This creates an orphan branch called gh-pages.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git gh-pages
+</code></pre></div></li>
+<li><p>Copy <code>.gitignore</code> from master, add, then commit it.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git checkout master -- .gitignore <span class="o">&amp;&amp;</span> git add .gitignore <span class="o">&amp;&amp;</span> git commit -m <span class="s1">&#39;Added .gitignore&#39;</span> 
+</code></pre></div></li>
+<li><p>Relink pre-commit hooks.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">mv .git/hooks/pre-commit.bkp .git/hooks/pre-commit
+</code></pre></div></li>
+<li><p>Rename gh-pages branch to either stage or production.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git branch -m &lt;oldName&gt; &lt;newName&gt;
+</code></pre></div></li>
+<li><p>Push that new branch to origin.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git push -u origin &lt;newName&gt;
+</code></pre></div></li>
+</ol>
+
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="http://solid-interactive.github.io/Recipes/to-dos" title="To Do's">&larr; Previous</a>
+      
+        <a class="btn" href="http://solid-interactive.github.io/Recipes/archive.html">Archive</a>
+      
+        <a class="btn next" href="http://solid-interactive.github.io/Recipes/setup-heroku-for-staging" title="Setup heroku for staging">Next &rarr;</a>
+      
+    </div>
+    <hr>
     
-
-<h2>All Pages</h2>
-<ul>
-
-
+  </div>
+  
+  <div class="span4">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>30 June 2014</span></div>
+    </section>
+    
+      <section>
+        <h4>Category</h4>
+        <span class="category">
+          setup
+        </span>
+      </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
 
 
   
-    
-      
-      	
-      	<li><a href="http://solid-interactive.github.io/Recipes/archive.html">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="http://solid-interactive.github.io/Recipes/atom.xml">Atom Feed</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="http://solid-interactive.github.io/Recipes/categories.html">Categories</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="http://solid-interactive.github.io/Recipes/index.html">Overview:</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li class="active"><a href="http://solid-interactive.github.io/Recipes/pages.html" class="active">Pages</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="http://solid-interactive.github.io/Recipes/rss.xml">RSS Feed</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="http://solid-interactive.github.io/Recipes/sitemap.txt">Sitemap</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="http://solid-interactive.github.io/Recipes/tags.html">Tags</a></li>
-      	
-      
+     
+    	<li><a href="http://solid-interactive.github.io/Recipes/tags.html#git-ref">git <span>2</span></a></li>
+     
+    	<li><a href="http://solid-interactive.github.io/Recipes/tags.html#gh-pages-ref">gh-pages <span>2</span></a></li>
+     
+    	<li><a href="http://solid-interactive.github.io/Recipes/tags.html#staging-ref">staging <span>1</span></a></li>
+     
+    	<li><a href="http://solid-interactive.github.io/Recipes/tags.html#production-ref">production <span>1</span></a></li>
+     
+    	<li><a href="http://solid-interactive.github.io/Recipes/tags.html#orphan branches-ref">orphan branches <span>1</span></a></li>
+     
+    	<li><a href="http://solid-interactive.github.io/Recipes/tags.html#git extras-ref">git extras <span>1</span></a></li>
     
   
 
 
 
-</ul>
-
+        </ul>
+      </section>
+             
   </div>
 </div>
 
