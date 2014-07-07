@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 http://username.github.io/archive.html
 http://username.github.io/atom.xml
 http://username.github.io/categories.html
@@ -9,3 +10,18 @@ http://username.github.io/sitemap.txt
 http://username.github.io/tags.html
 
 http://username.github.io/lessons/2014/06/26/intro
+=======
+http://solid-interactive.github.io/Recipes/archive.html
+http://solid-interactive.github.io/Recipes/atom.xml
+http://solid-interactive.github.io/Recipes/categories.html
+http://solid-interactive.github.io/Recipes/index.html
+http://solid-interactive.github.io/Recipes/pages.html
+http://solid-interactive.github.io/Recipes/rss.xml
+http://solid-interactive.github.io/Recipes/sitemap.txt
+http://solid-interactive.github.io/Recipes/tags.html
+
+http://solid-interactive.github.io/Recipes/2014/07/01/setup-heroku-for-staging
+http://solid-interactive.github.io/Recipes/2014/06/30/setup-git-and-release-branches
+http://solid-interactive.github.io/Recipes/2014/06/27/to-dos
+http://solid-interactive.github.io/Recipes/2014/06/27/setting-up-masseuse
+>>>>>>> 5a36520f960990cf4c5c19d09e199343c140041d

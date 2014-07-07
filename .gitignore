@@ -2,4 +2,7 @@ app/_theme_packages/*
 build/*
 node_modules/*
 .idea/*
+<<<<<<< HEAD
 .DS_Store
+=======
+>>>>>>> 5a36520f960990cf4c5c19d09e199343c140041d
