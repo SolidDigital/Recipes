@@ -11,14 +11,13 @@ markdown: redcarpet
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
 #
-title : Jekyll Bootstrap
+title : Solid Recipes
 tagline: Site Tagline
 author :
-  name : Name Lastname
-  email : blah@email.test
+  name : Solid Interactive
+  email : postmaster@thinksolid.com
   github : username
-  twitter : username
-  feedburner : feedname
+  twitter : thinksolid
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt
