@@ -14,7 +14,8 @@ tagline: "things to cover"
 
 * masseuse
     * [starting a new project]({{ site.JB.BASE_PATH }}/setting-up-masseuse)
-        * from start to deploy - example
+        * [setting up the git repository and release branches]({{ site.JB.BASE_PATH }}/setup-git-and-release-branches)
+        * [setting up heroku for staging]({{ site.JB.BASE_PATH }}/setup-heroku-for-staging)
     * views
         * [Async render example]({{ site.JB.BASE_PATH }}/async-render-example)
         * [Drag and drop with jQuery UI example]({{ site.JB.BASE_PATH }}/drag-and-drop-with-jquery-ui-example)
