@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-        <title>Jekyll Bootstrap</title>
-        <description>Jekyll Bootstrap - Name Lastname</description>
+        <title>Solid Recipes</title>
+        <description>Solid Recipes - Solid Interactive</description>
         <link>http://solid-interactive.github.io/Recipes</link>
         <link>http://solid-interactive.github.io/Recipes</link>
-        <lastBuildDate>2014-07-08T07:44:24-07:00</lastBuildDate>
-        <pubDate>2014-07-08T07:44:24-07:00</pubDate>
+        <lastBuildDate>2014-07-08T07:48:22-07:00</lastBuildDate>
+        <pubDate>2014-07-08T07:48:22-07:00</pubDate>
         <ttl>1800</ttl>
 
 
