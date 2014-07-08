@@ -68,8 +68,13 @@ tagline: "things to cover"
     * creating static pages
     * creating custom endpoints
     * using gh core separately (queries)
+    * using bridgetown to create responses
+    * creating a namespaced api
 
-
+* git
+    * undoing things with reflog
+    * editing using git rebase -i
+    * checking local and global configs
 * requirejs
     * path aliases
 * testing
@@ -91,3 +96,7 @@ tagline: "things to cover"
 * jade
     * mixins
     * blocks
+* shell
+    * checking what is using port
+    * shortcuting with && and ||
+    * cp -R
