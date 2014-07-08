@@ -16,7 +16,7 @@ tagline: Site Tagline
 author :
   name : Solid Interactive
   email : postmaster@thinksolid.com
-  github : username
+  github : Solid-Interactive
   twitter : thinksolid
 
 # The production_url is only used when full-domain names are needed
