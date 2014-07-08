@@ -5,8 +5,8 @@
         <description>Jekyll Bootstrap - Name Lastname</description>
         <link>http://solid-interactive.github.io/Recipes</link>
         <link>http://solid-interactive.github.io/Recipes</link>
-        <lastBuildDate>2014-07-08T07:41:39-07:00</lastBuildDate>
-        <pubDate>2014-07-08T07:41:39-07:00</pubDate>
+        <lastBuildDate>2014-07-08T07:44:24-07:00</lastBuildDate>
+        <pubDate>2014-07-08T07:44:24-07:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -179,7 +179,6 @@ We use the models &lt;code&gt;cid&lt;/code&gt; as that is unique to each model.&
                 <description>&lt;h3&gt;TODO:&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;[ ]&lt;/code&gt; update grunt init shell task to point to staging and not stage&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;[ ]&lt;/code&gt; Add optional SCSS support to grunt-init masseuse template.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;[ ]&lt;/code&gt; Add optional Jade support to grunt-init masseuse template.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;[ ]&lt;/code&gt; Update deploy task to use grunt prompt and to have appropriate behavior for production &amp;amp; staging&lt;/li&gt;
@@ -188,6 +187,7 @@ We use the models &lt;code&gt;cid&lt;/code&gt; as that is unique to each model.&
 &lt;h3&gt;DONE:&lt;/h3&gt;
 
 &lt;ul&gt;
+&lt;li&gt;&lt;code&gt;[x]&lt;/code&gt; update grunt init shell task to point to staging and not stage&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;[x]&lt;/code&gt; Add out of the box support for heroku with buildGhPages&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;[x]&lt;/code&gt; Update buildGhPages stage subtask to use the staging and not production branch.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;[x]&lt;/code&gt; Update template to use &lt;code&gt;buildGhPages&lt;/code&gt; and not &lt;code&gt;build_gh_pages&lt;/code&gt; in the config for &lt;code&gt;buildGhPages&lt;/code&gt;&lt;/li&gt;
