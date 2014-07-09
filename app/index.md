@@ -37,7 +37,8 @@ tagline: "things to cover"
     * models
         * [Validation example]()
         * proxy/computed/observer properties
-        
+    * router
+        * example with beforeRouting, onRouterFail, etc.
     * workers (do not use - name appropriately and break into multiple amds)
         * refactoring a view to first create private methods, then grouping them, then extracting to amds
     * modals
