@@ -82,3 +82,7 @@ function go() {
 ```
 
 In all cases the general idea is to put the gist of things at the top of the file and the details below.
+
+Private methods should be prefixed with `_`. Methods that are not truly private (enclosed), should not be 
+prefixed. Private methods may be placed below the public methods they are called from or at the bottom of
+the file.
