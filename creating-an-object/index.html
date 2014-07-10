@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>
       
-        Two way binding example - 
+        Creating an object - 
       
       Solid Recipes
     </title>
@@ -138,23 +138,88 @@
           
 <div class="page-header">
   <h1>
-    Two way binding example 
+    Creating an object 
     
   </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p><a href="http://solid-interactive.github.io/masseuse-examples/two-way-binding">Sample code</a></p>
+    <p>When creating a larger object, it is important to separate the list of fields and methods from the definition of the fields.
+Doing this allows a quick scan of the top of the file to see what may be available on the object and taking more time
+by scrolling down will lead you to the details of the object.</p>
+
+<p>Example of a new object:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">return</span> <span class="p">{</span>
+    <span class="nx">send</span> <span class="o">:</span> <span class="nx">send</span><span class="p">,</span>
+    <span class="nx">receive</span> <span class="o">:</span> <span class="nx">receive</span><span class="p">,</span>
+    <span class="nx">go</span> <span class="o">:</span> <span class="nx">go</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">send</span><span class="p">()</span> <span class="p">{</span> 
+    <span class="p">...</span> 
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">receive</span><span class="p">()</span> <span class="p">{</span> 
+    <span class="p">...</span> 
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">go</span><span class="p">()</span> <span class="p">{</span> 
+    <span class="p">...</span> 
+<span class="p">}</span>
+</code></pre></div>
+<p>Defining an object and modifying the prototype follows a similar pattern. There are two options:</p>
+
+<p>Option 1 - adding directly to the prototype</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Thing</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">send</span> <span class="o">=</span> <span class="nx">send</span><span class="p">;</span>
+<span class="nx">Thing</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">receive</span> <span class="o">=</span> <span class="nx">receive</span><span class="p">;</span>
+<span class="nx">Thing</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">go</span> <span class="o">=</span> <span class="nx">go</span><span class="p">;</span>
+
+<span class="k">return</span> <span class="nx">Thing</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">Thing</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">send</span><span class="p">()</span> <span class="p">{</span> 
+    <span class="p">...</span> 
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">receive</span><span class="p">()</span> <span class="p">{</span> 
+    <span class="p">...</span> 
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">go</span><span class="p">()</span> <span class="p">{</span> 
+    <span class="p">...</span> 
+<span class="p">}</span>
+</code></pre></div>
+<p>Option 2 - creating an object to add to the prototype</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">_</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">Thing</span><span class="p">.</span><span class="nx">prototype</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">send</span> <span class="o">:</span> <span class="nx">send</span>
+    <span class="nx">receive</span> <span class="o">:</span> <span class="nx">receive</span><span class="p">,</span>
+    <span class="nx">go</span> <span class="o">:</span> <span class="nx">go</span>
+<span class="p">});</span>
+
+<span class="k">return</span> <span class="nx">Thing</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">Thing</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">send</span><span class="p">()</span> <span class="p">{</span> 
+    <span class="p">...</span> 
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">receive</span><span class="p">()</span> <span class="p">{</span> 
+    <span class="p">...</span> 
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">go</span><span class="p">()</span> <span class="p">{</span> 
+    <span class="p">...</span> 
+<span class="p">}</span>
+</code></pre></div>
+<p>In all cases the general idea is to put the gist of things at the top of the file and the details below.</p>
 
     <hr>
     <div class="pagination btn-group">
       
-        <a class="btn prev" href="http://solid-interactive.github.io/Recipes/rivets-formatters-example" title="Rivets Formatters example">&larr; Previous</a>
+        <a class="btn prev" href="http://solid-interactive.github.io/Recipes/two-way-binding-example" title="Two way binding example">&larr; Previous</a>
       
         <a class="btn" href="http://solid-interactive.github.io/Recipes/archive.html">Archive</a>
       
-        <a class="btn next" href="http://solid-interactive.github.io/Recipes/creating-an-object" title="Creating an object">Next &rarr;</a>
+        <a class="btn next disabled">Next &rarr;</a>
       
     </div>
     <hr>
@@ -164,13 +229,13 @@
   <div class="span4">
     <section>
       <h4>Published</h4>
-      <div class="date"><span>07 July 2014</span></div>
+      <div class="date"><span>10 July 2014</span></div>
     </section>
     
       <section>
         <h4>Category</h4>
         <span class="category">
-          examples
+          style
         </span>
       </section>
          
@@ -184,9 +249,9 @@
 
   
      
-    	<li><a href="http://solid-interactive.github.io/Recipes/tags.html#rivets-ref">rivets <span>5</span></a></li>
+    	<li><a href="http://solid-interactive.github.io/Recipes/tags.html#javascript-ref">javascript <span>1</span></a></li>
      
-    	<li><a href="http://solid-interactive.github.io/Recipes/tags.html#examples-ref">examples <span>4</span></a></li>
+    	<li><a href="http://solid-interactive.github.io/Recipes/tags.html#objects-ref">objects <span>1</span></a></li>
     
   
 
