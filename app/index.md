@@ -45,6 +45,9 @@ tagline: "things to cover"
         * directory structure
         * file names
         * path aliases
+* javascript
+    * style
+        * [creating an object]({{ site.JB.BASE_PATH }}/creating-an-object)
 * promises
     * differences between Q / $
     * chaining
