@@ -35,7 +35,7 @@ tagline: "things to cover"
             * Collection
     * channels
     * models
-        * [Validation example]()
+        * [Validation example]({{ site.JB.BASE_PATH }}/validation)
         * proxy/computed/observer properties
     * router
         * example with beforeRouting, onRouterFail, etc.
