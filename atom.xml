@@ -4,13 +4,39 @@
  <title>Solid Recipes</title>
  <link href="http://solid-interactive.github.io/Recipes/" rel="self"/>
  <link href="http://solid-interactive.github.io/Recipes"/>
- <updated>2014-07-14T12:45:53-07:00</updated>
+ <updated>2014-07-15T12:46:02-07:00</updated>
  <id>http://solid-interactive.github.io/Recipes</id>
  <author>
    <name>Solid Interactive</name>
    <email>postmaster@thinksolid.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Lifecycle</title>
+   <link href="http://solid-interactive.github.io/Recipes/lifecycle"/>
+   <updated>2014-07-15T00:00:00-07:00</updated>
+   <id>http://solid-interactive.github.io/Recipes/lifecycle</id>
+   <content type="html">&lt;h2&gt;Word, a masseuse view has a lifecycle.&lt;/h2&gt;
+
+&lt;p&gt;After you call start on a view, these are the things that happen.
+1. beforeRender
+1. render
+1. afterRender&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Method: beforeRender&lt;/li&gt;
+&lt;li&gt;Lifecycle event fired: beforeRenderDone&lt;/li&gt;
+&lt;li&gt;Deferred progress : beforeRenderDone&lt;/li&gt;
+&lt;li&gt;Method: render&lt;/li&gt;
+&lt;li&gt;Lifecycle event fired: renderDone&lt;/li&gt;
+&lt;li&gt;Deferred progress : renderDone&lt;/li&gt;
+&lt;li&gt;Method: afterRender&lt;/li&gt;
+&lt;li&gt;Lifecycle event fired: afterRenderDone&lt;/li&gt;
+&lt;li&gt;Deferred progress : afterRenderDone&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Validation</title>

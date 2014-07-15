@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <title>
       
-        Archive - 
+        Lifecycle - 
       
       Solid Recipes
     </title>
-    
+    <meta name="description" content="">
     <meta name="author" content="Solid Interactive">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- HTML5 shim, for IE6-8 support of HTML elements -->
@@ -58,7 +58,7 @@
     
       
       	
-      	<li class="active"><a href="http://solid-interactive.github.io/Recipes/archive.html" class="active">Archive</a></li>
+      	<li><a href="http://solid-interactive.github.io/Recipes/archive.html">Archive</a></li>
       	
       
     
@@ -136,224 +136,82 @@
       <div class="container">
         <div class="content">
           
-<div class="page-header-wrapper">
-	<div class="page-header">
-  		<h1>Archive </h1>
-  	</div>
+<div class="page-header">
+  <h1>
+    Lifecycle 
+    
+  </h1>
 </div>
 
 <div class="row">
-  <div class="span12">
+  <div class="span8">
+    <h2>Word, a masseuse view has a lifecycle.</h2>
+
+<p>After you call start on a view, these are the things that happen.
+1. beforeRender
+1. render
+1. afterRender</p>
+
+<ol>
+<li>Method: beforeRender</li>
+<li>Lifecycle event fired: beforeRenderDone</li>
+<li>Deferred progress : beforeRenderDone</li>
+<li>Method: render</li>
+<li>Lifecycle event fired: renderDone</li>
+<li>Deferred progress : renderDone</li>
+<li>Method: afterRender</li>
+<li>Lifecycle event fired: afterRenderDone</li>
+<li>Deferred progress : afterRenderDone</li>
+</ol>
+
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="http://solid-interactive.github.io/Recipes/validation" title="Validation">&larr; Previous</a>
+      
+        <a class="btn" href="http://solid-interactive.github.io/Recipes/archive.html">Archive</a>
+      
+        <a class="btn next disabled">Next &rarr;</a>
+      
+    </div>
+    <hr>
     
+  </div>
+  
+  <div class="span4">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>15 July 2014</span></div>
+    </section>
+    
+      <section>
+        <h4>Category</h4>
+        <span class="category">
+          examples
+        </span>
+      </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
 
 
-
-
-
   
-    
-    
-    
-    
-  
-    
-      <h2>2014</h2>
-      <h3>July</h3>
-      <ul>
-    
-  
-    <li><span>July 15, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/lifecycle">Lifecycle</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July 14, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/validation">Validation</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July 10, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/creating-an-object">Creating an object</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  7, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/two-way-binding-example">Two way binding example</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  7, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/rivets-formatters-example">Rivets Formatters example</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  7, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/rivets-binder-example">Rivets Binder example</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  7, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/drag-and-drop-with-jquery-ui-example">Drag and drop with jQuery UI example</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  7, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/child-view-binder-example">Child view binder example</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  7, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/async-render-example">Async render example</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  1, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/setup-heroku-for-staging">Setup heroku for staging</a></li>
-  
-    
-          
-        
-          </ul>
-          <h3>June</h3>
-          <ul>
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>June 30, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/setup-git-and-release-branches">Setup Git and release branches</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>June 27, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/to-dos">To Do's</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>June 27, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/setting-up-masseuse">Setting up masseuse</a></li>
-  
-    
-      </ul>
+     
+    	<li><a href="http://solid-interactive.github.io/Recipes/tags.html#masseuse-ref">masseuse <span>2</span></a></li>
+     
+    	<li><a href="http://solid-interactive.github.io/Recipes/tags.html#lifecycle methods-ref">lifecycle methods <span>1</span></a></li>
     
   
 
 
+
+        </ul>
+      </section>
+             
   </div>
 </div>
 

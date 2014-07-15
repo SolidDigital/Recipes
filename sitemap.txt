@@ -8,6 +8,7 @@ http://solid-interactive.github.io/Recipes/rss.xml
 http://solid-interactive.github.io/Recipes/sitemap.txt
 http://solid-interactive.github.io/Recipes/tags.html
 
+http://solid-interactive.github.io/Recipes/lifecycle
 http://solid-interactive.github.io/Recipes/validation
 http://solid-interactive.github.io/Recipes/creating-an-object
 http://solid-interactive.github.io/Recipes/two-way-binding-example
