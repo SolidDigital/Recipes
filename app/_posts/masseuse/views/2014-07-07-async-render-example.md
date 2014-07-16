@@ -35,3 +35,6 @@ function beforeRender($deferred) {
 ```
 
 When you make beforeRender async, it will not move onto the render method until its deferred is resolved.
+
+If the deferred is rejected, it will not move on to the next lifecycle,
+and it will trigger the `start` methods fail handler.

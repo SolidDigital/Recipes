@@ -20,6 +20,7 @@ tagline: "things to cover"
         * [Async render example]({{ site.JB.BASE_PATH }}/async-render-example)
         * [Drag and drop with jQuery UI example]({{ site.JB.BASE_PATH }}/drag-and-drop-with-jquery-ui-example)
         * [Lifecycle]({{ site.JB.BASE_PATH }}/lifecycle) 
+        * [Plugins]({{ site.JB.BASE_PATH }}/masseuse-plugins)
         * hooks
         * Child views
         * default options
