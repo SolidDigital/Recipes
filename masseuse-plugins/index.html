@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>
       
-        Lifecycle - 
+        masseuse plugins - 
       
       Solid Recipes
     </title>
@@ -138,55 +138,39 @@
           
 <div class="page-header">
   <h1>
-    Lifecycle 
+    masseuse plugins 
     
   </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <h2>Word, a masseuse view has a lifecycle.</h2>
+    <p>Masseuse plugins is an array of methods that can be defined in <code>options.plugins</code>.</p>
 
-<p>After you call start on a view, the following methods are called</p>
+<p>All methods in the plugins array are called in order on <code>view.initialize()</code>.
+The <code>options</code> object is passed into the plugin method, and the context of the
+plugin method is the instance of the view.</p>
 
-<ol>
-<li>beforeRender
+<p>This is a chance to customize the view by setting up life cycle event listeners
+when a plugin method is called.</p>
 
-<ul>
-<li>Noop by default. Views can override to customize behavior.</li>
-<li>Optionally <a href="http://solid-interactive.github.io/Recipes/async-render-example">async</a>. </li>
-</ul></li>
-<li>render
-
-<ul>
-<li>Runs templating and overwrites or appends into <code>view.$el</code> depending on the value and existence of <code>options.appendTo</code> or <code>options.prependTo</code></li>
-</ul></li>
-<li>afterRender
-
-<ul>
-<li>Noop by default. Views can override to customize behavior. </li>
-<li>Optionally <a href="http://solid-interactive.github.io/Recipes/async-render-example">async</a>.</li>
-</ul></li>
-</ol>
-
-<p>The following events are fired:
-1. Lifecycle event fired: beforeRenderDone
-1. Lifecycle event fired: renderDone
-1. Lifecycle event fired: afterRenderDone</p>
-
-<p>The deferred object returned by <code>view.start()</code> is notified:
-1. Deferred progress : beforeRenderDone
-1. Deferred progress : renderDone
-1. Deferred progress : afterRenderDone</p>
-
+<p>For example, a simple plugin could do something like below:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">options</span><span class="p">.</span><span class="nx">plugins</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">listenTo</span><span class="p">(</span><span class="s1">&#39;beforeRenderDone&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="c1">// DO WORK    </span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">];</span>
+</code></pre></div>
     <hr>
     <div class="pagination btn-group">
       
-        <a class="btn prev" href="http://solid-interactive.github.io/Recipes/validation" title="Validation">&larr; Previous</a>
+        <a class="btn prev" href="http://solid-interactive.github.io/Recipes/lifecycle" title="Lifecycle">&larr; Previous</a>
       
         <a class="btn" href="http://solid-interactive.github.io/Recipes/archive.html">Archive</a>
       
-        <a class="btn next" href="http://solid-interactive.github.io/Recipes/masseuse-plugins" title="masseuse plugins">Next &rarr;</a>
+        <a class="btn next disabled">Next &rarr;</a>
       
     </div>
     <hr>
@@ -196,36 +180,9 @@
   <div class="span4">
     <section>
       <h4>Published</h4>
-      <div class="date"><span>15 July 2014</span></div>
+      <div class="date"><span>16 July 2014</span></div>
     </section>
-    
-      <section>
-        <h4>Category</h4>
-        <span class="category">
-          examples
-        </span>
-      </section>
          
-    
-      <section>
-        <h4>Tags</h4>
-        <ul class="tag_box">
-          
-          
-
-
-  
-     
-    	<li><a href="http://solid-interactive.github.io/Recipes/tags.html#masseuse-ref">masseuse <span>2</span></a></li>
-     
-    	<li><a href="http://solid-interactive.github.io/Recipes/tags.html#lifecycle methods-ref">lifecycle methods <span>1</span></a></li>
-    
-  
-
-
-
-        </ul>
-      </section>
              
   </div>
 </div>

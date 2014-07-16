@@ -5,31 +5,71 @@
         <description>Solid Recipes - Solid Interactive</description>
         <link>http://solid-interactive.github.io/Recipes</link>
         <link>http://solid-interactive.github.io/Recipes</link>
-        <lastBuildDate>2014-07-15T12:46:02-07:00</lastBuildDate>
-        <pubDate>2014-07-15T12:46:02-07:00</pubDate>
+        <lastBuildDate>2014-07-16T13:08:05-07:00</lastBuildDate>
+        <pubDate>2014-07-16T13:08:05-07:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>masseuse plugins</title>
+                <description>&lt;p&gt;Masseuse plugins is an array of methods that can be defined in &lt;code&gt;options.plugins&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;All methods in the plugins array are called in order on &lt;code&gt;view.initialize()&lt;/code&gt;.
+The &lt;code&gt;options&lt;/code&gt; object is passed into the plugin method, and the context of the
+plugin method is the instance of the view.&lt;/p&gt;
+
+&lt;p&gt;This is a chance to customize the view by setting up life cycle event listeners
+when a plugin method is called.&lt;/p&gt;
+
+&lt;p&gt;For example, a simple plugin could do something like below:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;plugins&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;listenTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;beforeRenderDone&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// DO WORK    &lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+                <link>http://solid-interactive.github.io/Recipes/masseuse-plugins</link>
+                <guid>http://solid-interactive.github.io/Recipes/masseuse-plugins</guid>
+                <pubDate>2014-07-16T00:00:00-07:00</pubDate>
+        </item>
 
         <item>
                 <title>Lifecycle</title>
                 <description>&lt;h2&gt;Word, a masseuse view has a lifecycle.&lt;/h2&gt;
 
-&lt;p&gt;After you call start on a view, these are the things that happen.
-1. beforeRender
-1. render
-1. afterRender&lt;/p&gt;
+&lt;p&gt;After you call start on a view, the following methods are called&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Method: beforeRender&lt;/li&gt;
-&lt;li&gt;Lifecycle event fired: beforeRenderDone&lt;/li&gt;
-&lt;li&gt;Deferred progress : beforeRenderDone&lt;/li&gt;
-&lt;li&gt;Method: render&lt;/li&gt;
-&lt;li&gt;Lifecycle event fired: renderDone&lt;/li&gt;
-&lt;li&gt;Deferred progress : renderDone&lt;/li&gt;
-&lt;li&gt;Method: afterRender&lt;/li&gt;
-&lt;li&gt;Lifecycle event fired: afterRenderDone&lt;/li&gt;
-&lt;li&gt;Deferred progress : afterRenderDone&lt;/li&gt;
+&lt;li&gt;beforeRender
+
+&lt;ul&gt;
+&lt;li&gt;Noop by default. Views can override to customize behavior.&lt;/li&gt;
+&lt;li&gt;Optionally &lt;a href=&quot;http://solid-interactive.github.io/Recipes/async-render-example&quot;&gt;async&lt;/a&gt;. &lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;render
+
+&lt;ul&gt;
+&lt;li&gt;Runs templating and overwrites or appends into &lt;code&gt;view.$el&lt;/code&gt; depending on the value and existence of &lt;code&gt;options.appendTo&lt;/code&gt; or &lt;code&gt;options.prependTo&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;afterRender
+
+&lt;ul&gt;
+&lt;li&gt;Noop by default. Views can override to customize behavior. &lt;/li&gt;
+&lt;li&gt;Optionally &lt;a href=&quot;http://solid-interactive.github.io/Recipes/async-render-example&quot;&gt;async&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;The following events are fired:
+1. Lifecycle event fired: beforeRenderDone
+1. Lifecycle event fired: renderDone
+1. Lifecycle event fired: afterRenderDone&lt;/p&gt;
+
+&lt;p&gt;The deferred object returned by &lt;code&gt;view.start()&lt;/code&gt; is notified:
+1. Deferred progress : beforeRenderDone
+1. Deferred progress : renderDone
+1. Deferred progress : afterRenderDone&lt;/p&gt;
 </description>
                 <link>http://solid-interactive.github.io/Recipes/lifecycle</link>
                 <guid>http://solid-interactive.github.io/Recipes/lifecycle</guid>
@@ -237,6 +277,9 @@ We use the models &lt;code&gt;cid&lt;/code&gt; as that is unique to each model.&
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;When you make beforeRender async, it will not move onto the render method until its deferred is resolved.&lt;/p&gt;
+
+&lt;p&gt;If the deferred is rejected, it will not move on to the next lifecycle,
+and it will trigger the &lt;code&gt;start&lt;/code&gt; methods fail handler.&lt;/p&gt;
 </description>
                 <link>http://solid-interactive.github.io/Recipes/async-render-example</link>
                 <guid>http://solid-interactive.github.io/Recipes/async-render-example</guid>
