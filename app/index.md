@@ -17,9 +17,9 @@ tagline: "things to cover"
         * [setting up the git repository and release branches]({{ site.JB.BASE_PATH }}/setup-git-and-release-branches)
         * [setting up heroku for staging]({{ site.JB.BASE_PATH }}/setup-heroku-for-staging)
     * views
-        * [Async render example]({{ site.JB.BASE_PATH }}/async-render-example)
         * [Drag and drop with jQuery UI example]({{ site.JB.BASE_PATH }}/drag-and-drop-with-jquery-ui-example)
-        * [Lifecycle]({{ site.JB.BASE_PATH }}/lifecycle) 
+        * [Lifecycle]({{ site.JB.BASE_PATH }}/lifecycle)
+            * [Async render example]({{ site.JB.BASE_PATH }}/async-render-example)
         * [Plugins]({{ site.JB.BASE_PATH }}/masseuse-plugins)
         * hooks
         * Child views
