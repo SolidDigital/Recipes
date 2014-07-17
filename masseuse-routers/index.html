@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <title>
       
-        Overview: - 
+        masseuse routers - 
       
       Solid Recipes
     </title>
-    
+    <meta name="description" content="">
     <meta name="author" content="Solid Interactive">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- HTML5 shim, for IE6-8 support of HTML elements -->
@@ -136,198 +136,116 @@
       <div class="container">
         <div class="content">
           
-<div class="page-header-wrapper">
-	<div class="page-header">
-  		<h1>Overview:  <small>things to cover</small></h1>
-  	</div>
+<div class="page-header">
+  <h1>
+    masseuse routers 
+    
+  </h1>
 </div>
 
 <div class="row">
-  <div class="span12">
-    <ul>
-<li><p><a href="http://solid-interactive.github.io/Recipes/to-dos/">TO DO&#39;s</a> </p></li>
-<li><p>goals</p>
+  <div class="span8">
+    <p>Absolute Basic Router:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">masseuse</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">excludeFromBeforeRouting</span> <span class="o">:</span> <span class="p">[</span><span class="s1">&#39;thisrouteis/excluded/:id&#39;</span><span class="p">],</span>
+    <span class="nx">routes</span> <span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;thisrouteis/excluded/:id&#39;</span> <span class="o">:</span> <span class="s1">&#39;excluded&#39;</span>
+        <span class="s1">&#39;*catchall&#39;</span> <span class="o">:</span> <span class="s1">&#39;someMethodThatCalledLoadMainContent&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">beforeRouting</span> <span class="o">:</span> <span class="nx">beforeRouting</span><span class="p">,</span>
+    <span class="nx">onRouteFail</span> <span class="o">:</span> <span class="nx">onRouteFail</span><span class="p">,</span>
+    <span class="nx">loadMainContent</span> <span class="o">:</span> <span class="nx">loadMainContent</span>
 
-<ul>
-<li>recipe book</li>
-<li>exploratory tests</li>
-<li>runnable samples</li>
-</ul></li>
-<li><p>masseuse</p>
+<span class="p">});</span>
+</code></pre></div>
+<h2>excludeFromBeforeRouting</h2>
 
-<ul>
-<li><a name="masseuse-start"></a> <a href="http://solid-interactive.github.io/Recipes/setting-up-masseuse">starting a new project</a>
+<h2>routes</h2>
 
-<ul>
-<li><a href="http://solid-interactive.github.io/Recipes/setup-git-and-release-branches">setting up the git repository and release branches</a></li>
-<li><a href="http://solid-interactive.github.io/Recipes/setup-heroku-for-staging">setting up heroku for staging</a></li>
-</ul></li>
-<li><a href="http://solid-interactive.github.io/Recipes/masseuse-routers">routers</a></li>
-<li>views
+<p><a href="http://backbonejs.org/#Router-routes">See backbone docs</a>
+The &#39;catchall&#39; should contain at least one character after the star(and should be the last route in the routes obj).</p>
 
-<ul>
-<li><a href="http://solid-interactive.github.io/Recipes/drag-and-drop-with-jquery-ui-example">Drag and drop with jQuery UI example</a></li>
-<li><a href="http://solid-interactive.github.io/Recipes/lifecycle">Lifecycle</a>
+<p>TODO: issue a pull request(Routes order is not guaraneed?)</p>
 
-<ul>
-<li><a href="http://solid-interactive.github.io/Recipes/async-render-example">Async render example</a></li>
-</ul></li>
-<li><a href="http://solid-interactive.github.io/Recipes/masseuse-plugins">Plugins</a></li>
-<li>hooks</li>
-<li>Child views</li>
-<li>default options
+<h2>beforeRouting</h2>
 
-<ul>
-<li>viewOptions field</li>
-</ul></li>
-<li>options.js
+<p>Is a noop, if you define it, you must return a promise.
+The promise that is returned, determines if you can pass, or if you shall not pass.</p>
 
-<ul>
-<li>Listeners</li>
-<li>Rivets options</li>
-<li>Events</li>
-<li>viewContext</li>
-<li>Model</li>
-<li>Model defaults</li>
-<li>appendTo</li>
-<li>wrapper</li>
-<li>Collection</li>
-</ul></li>
-</ul></li>
-<li>channels</li>
-<li>models
+<p>This is useful for things like auth.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">beforeRouting</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">$deferred</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">Deferred</span><span class="p">()</span>
 
-<ul>
-<li><a href="http://solid-interactive.github.io/Recipes/validation">Validation example</a></li>
-<li>proxy/computed/observer properties</li>
-</ul></li>
-<li>router
+    <span class="c1">// If the deferred is resolved, then you can rage on.</span>
+    <span class="c1">// If the deferred is rejected, then onRouteFail will be called.</span>
 
-<ul>
-<li>example with beforeRouting, onRouterFail, etc.</li>
-</ul></li>
-<li>workers (do not use - name appropriately and break into multiple amds)
+    <span class="k">return</span> <span class="nx">$deferred</span><span class="p">.</span><span class="nx">promise</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2>onRouteFail</h2>
 
-<ul>
-<li>refactoring a view to first create private methods, then grouping them, then extracting to amds</li>
-</ul></li>
-<li>modals</li>
-<li>naming conventions
+<p>This method is called if the beforeRouting deferred is rejected.<br>
+It is useful for logging people out, displaying an error page, etc. </p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">onRouteFail</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// this guy will be called when you reject beforeRouting deferred.</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Modularization
+BeforeRouting
+ExcludeFromBeforeRouting - global or per router
+onRouterFail
+loadMainContent
+Push State
+create and link to working example</p>
 
-<ul>
-<li>directory structure</li>
-<li>file names</li>
-<li>path aliases</li>
-</ul></li>
-</ul></li>
-<li><p>javascript</p>
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="http://solid-interactive.github.io/Recipes/masseuse-plugins" title="masseuse plugins">&larr; Previous</a>
+      
+        <a class="btn" href="http://solid-interactive.github.io/Recipes/archive.html">Archive</a>
+      
+        <a class="btn next disabled">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+  </div>
+  
+  <div class="span4">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>17 July 2014</span></div>
+    </section>
+    
+      <section>
+        <h4>Category</h4>
+        <span class="category">
+          examples
+        </span>
+      </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
 
-<ul>
-<li>style
 
-<ul>
-<li><a href="http://solid-interactive.github.io/Recipes/creating-an-object">creating an object</a></li>
-</ul></li>
-</ul></li>
-<li><p>promises</p>
+  
+     
+    	<li><a href="http://solid-interactive.github.io/Recipes/tags.html#masseuse-ref">masseuse <span>3</span></a></li>
+     
+    	<li><a href="http://solid-interactive.github.io/Recipes/tags.html#routers-ref">routers <span>1</span></a></li>
+    
+  
 
-<ul>
-<li>differences between Q / $</li>
-<li>chaining</li>
-<li>error handling</li>
-</ul></li>
-<li><p>rivets</p>
 
-<ul>
-<li>keypaths</li>
-<li><a href="http://solid-interactive.github.io/Recipes/child-view-binder-example">Child view binder example</a></li>
-<li><a href="http://solid-interactive.github.io/Recipes/two-way-binding-example">Two way binding example</a></li>
-<li><a href="http://solid-interactive.github.io/Recipes/rivets-binder-example">Rivets Binder example</a></li>
-<li><a href="http://solid-interactive.github.io/Recipes/rivets-formatters-example">Rivets Formatters example</a></li>
-<li>binders 
 
-<ul>
-<li>existing masseuse ones</li>
-</ul></li>
-<li>filters</li>
-<li>adapters</li>
-<li>if / unless</li>
-<li>components</li>
-<li>formatters
-
-<ul>
-<li>existing masseuse ones</li>
-</ul></li>
-<li>rivets</li>
-<li>iteration</li>
-</ul></li>
-<li><p>gh as a library</p>
-
-<ul>
-<li>creating static pages</li>
-<li>creating custom endpoints</li>
-<li>using gh core separately (queries)</li>
-<li>using bridgetown to create responses</li>
-<li>creating a namespaced api</li>
-</ul></li>
-<li><p>git</p>
-
-<ul>
-<li>undoing things with reflog</li>
-<li>editing using git rebase -i</li>
-<li>checking local and global configs</li>
-</ul></li>
-<li><p>requirejs</p>
-
-<ul>
-<li>path aliases</li>
-</ul></li>
-<li><p>testing</p>
-
-<ul>
-<li>browser
-
-<ul>
-<li>unit</li>
-<li>integration</li>
-</ul></li>
-<li>node<br>
-
-<ul>
-<li>unit</li>
-<li>integration</li>
-</ul></li>
-</ul></li>
-<li><p>grunt</p>
-
-<ul>
-<li>paths.json</li>
-<li>release notes</li>
-<li>deploy</li>
-</ul></li>
-<li><p>heroku</p></li>
-<li><p>foundation</p></li>
-<li><p>sass</p>
-
-<ul>
-<li>mixins</li>
-<li>https://github.com/davidtheclark/scut</li>
-</ul></li>
-<li><p>jade</p>
-
-<ul>
-<li>mixins</li>
-<li>blocks</li>
-</ul></li>
-<li><p>shell</p>
-
-<ul>
-<li>checking what is using port</li>
-<li>shortcuting with &amp;&amp; and ||</li>
-<li>cp -R</li>
-</ul></li>
-</ul>
-
+        </ul>
+      </section>
+             
   </div>
 </div>
 

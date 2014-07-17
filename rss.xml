@@ -5,10 +5,70 @@
         <description>Solid Recipes - Solid Interactive</description>
         <link>http://solid-interactive.github.io/Recipes</link>
         <link>http://solid-interactive.github.io/Recipes</link>
-        <lastBuildDate>2014-07-16T13:10:00-07:00</lastBuildDate>
-        <pubDate>2014-07-16T13:10:00-07:00</pubDate>
+        <lastBuildDate>2014-07-17T14:46:03-07:00</lastBuildDate>
+        <pubDate>2014-07-17T14:46:03-07:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>masseuse routers</title>
+                <description>&lt;p&gt;Absolute Basic Router:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;masseuse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;excludeFromBeforeRouting&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;thisrouteis/excluded/:id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;routes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s1&quot;&gt;&amp;#39;thisrouteis/excluded/:id&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;excluded&amp;#39;&lt;/span&gt;
+        &lt;span class=&quot;s1&quot;&gt;&amp;#39;*catchall&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;someMethodThatCalledLoadMainContent&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;beforeRouting&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;beforeRouting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;onRouteFail&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onRouteFail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;loadMainContent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loadMainContent&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;excludeFromBeforeRouting&lt;/h2&gt;
+
+&lt;h2&gt;routes&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://backbonejs.org/#Router-routes&quot;&gt;See backbone docs&lt;/a&gt;
+The &amp;#39;catchall&amp;#39; should contain at least one character after the star(and should be the last route in the routes obj).&lt;/p&gt;
+
+&lt;p&gt;TODO: issue a pull request(Routes order is not guaraneed?)&lt;/p&gt;
+
+&lt;h2&gt;beforeRouting&lt;/h2&gt;
+
+&lt;p&gt;Is a noop, if you define it, you must return a promise.
+The promise that is returned, determines if you can pass, or if you shall not pass.&lt;/p&gt;
+
+&lt;p&gt;This is useful for things like auth.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;beforeRouting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$deferred&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Deferred&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// If the deferred is resolved, then you can rage on.&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// If the deferred is rejected, then onRouteFail will be called.&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$deferred&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;onRouteFail&lt;/h2&gt;
+
+&lt;p&gt;This method is called if the beforeRouting deferred is rejected.&lt;br&gt;
+It is useful for logging people out, displaying an error page, etc. &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onRouteFail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// this guy will be called when you reject beforeRouting deferred.&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Modularization
+BeforeRouting
+ExcludeFromBeforeRouting - global or per router
+onRouterFail
+loadMainContent
+Push State
+create and link to working example&lt;/p&gt;
+</description>
+                <link>http://solid-interactive.github.io/Recipes/masseuse-routers</link>
+                <guid>http://solid-interactive.github.io/Recipes/masseuse-routers</guid>
+                <pubDate>2014-07-17T00:00:00-07:00</pubDate>
+        </item>
 
         <item>
                 <title>masseuse plugins</title>
