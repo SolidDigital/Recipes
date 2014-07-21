@@ -158,14 +158,27 @@
 
 <span class="p">});</span>
 </code></pre></div>
+<hr>
+
 <h2>excludeFromBeforeRouting</h2>
 
+<p>This is an array of routes that when hit, will not trigger <code>beforeRouting</code>.</p>
+
+<p>For example:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">excludeFromBeforeRouting</span> <span class="o">:</span> <span class="p">[</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="s1">&#39;logout&#39;</span><span class="p">,</span> <span class="s1">&#39;thisrouteis/excluded/:id&#39;</span><span class="p">],</span>
+</code></pre></div>
+<hr>
+
 <h2>routes</h2>
+
+<p>Make sure to reference the methods via strings and not via function reference if you want <code>onBeforeRouting</code> to work.
+Routes in one router should be conceptually grouped.
+If routes starts to get too big, create multiple routers.</p>
 
 <p><a href="http://backbonejs.org/#Router-routes">See backbone docs</a>
 The &#39;catchall&#39; should contain at least one character after the star(and should be the last route in the routes obj).</p>
 
-<p>TODO: issue a pull request(Routes order is not guaraneed?)</p>
+<hr>
 
 <h2>beforeRouting</h2>
 
@@ -182,6 +195,8 @@ The promise that is returned, determines if you can pass, or if you shall not pa
     <span class="k">return</span> <span class="nx">$deferred</span><span class="p">.</span><span class="nx">promise</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
+<hr>
+
 <h2>onRouteFail</h2>
 
 <p>This method is called if the beforeRouting deferred is rejected.<br>
@@ -190,13 +205,96 @@ It is useful for logging people out, displaying an error page, etc. </p>
     <span class="c1">// this guy will be called when you reject beforeRouting deferred.</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Modularization
-BeforeRouting
-ExcludeFromBeforeRouting - global or per router
-onRouterFail
-loadMainContent
-Push State
-create and link to working example</p>
+<hr>
+
+<h2>Modularization</h2>
+
+<p><a href="todo:create%20massesuse%20examples%20example">Example</a></p>
+
+<p>To create multiple routers:</p>
+
+<ol>
+<li><p>Create a base router.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">BaseRouter</span> <span class="o">=</span> <span class="nx">masseuse</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="c1">// Shared methods</span>
+    <span class="nx">loadMainContent</span><span class="o">:</span> <span class="nx">loadMainContent</span><span class="p">,</span>
+    <span class="nx">beforeRouting</span><span class="o">:</span> <span class="nx">beforeRouting</span><span class="p">,</span>
+    <span class="nx">onRouteFail</span><span class="o">:</span> <span class="nx">onRouteFail</span>
+<span class="p">});</span>
+</code></pre></div></li>
+<li><p>Create individual routers that extend the base router.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">LoginRouter</span> <span class="o">=</span> <span class="nx">BaseRouter</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="c1">// Specific to this group of routes</span>
+    <span class="nx">excludeFromBeforeRouting</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="s1">&#39;logout&#39;</span><span class="p">,</span> <span class="s1">&#39;register&#39;</span><span class="p">],</span>
+    <span class="nx">routes</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;login&#39;</span><span class="o">:</span> <span class="s1">&#39;login&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;logout&#39;</span><span class="o">:</span> <span class="s1">&#39;logout&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;register&#39;</span><span class="o">:</span> <span class="s1">&#39;register&#39;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">AdminRouter</span> <span class="o">=</span> <span class="nx">BaseRouter</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">routes</span><span class="o">:</span> <span class="p">{</span>
+        <span class="p">...</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></li>
+<li><p>Start up each individual router in the same place you would start your one router.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">new</span> <span class="nx">LoginRouter</span><span class="p">();</span>
+<span class="k">new</span> <span class="nx">AdminRouter</span><span class="p">();</span>
+
+<span class="nx">Backbone</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+</code></pre></div></li>
+</ol>
+
+<hr>
+
+<h2>loadMainContent</h2>
+
+<p>Loads a parent view into a DOM element and removes anything currently in that DOM element. Similar to changing a page
+on a server side app.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">loadMainContent</span> <span class="p">(</span><span class="nx">ViewType</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">$deferred</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">$</span><span class="p">.</span><span class="nx">Deferred</span><span class="p">(),</span>
+        <span class="nx">newView</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">options</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">modelData</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">options</span><span class="p">.</span><span class="nx">modelData</span><span class="p">.</span><span class="nx">resources</span> <span class="o">=</span> <span class="nx">resources</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">newView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">viewTypes</span><span class="p">[</span><span class="nx">ViewType</span><span class="p">](</span><span class="nx">options</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">currentView</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">currentView</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nx">newView</span><span class="p">.</span><span class="nx">start</span><span class="p">()</span>
+        <span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">currentView</span> <span class="o">=</span> <span class="nx">newView</span><span class="p">;</span>
+            <span class="nx">$deferred</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">newView</span><span class="p">);</span>
+        <span class="p">})</span>
+        <span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">$deferred</span><span class="p">.</span><span class="nx">reject</span><span class="p">();</span>
+        <span class="p">});</span>
+
+    <span class="k">return</span> <span class="nx">$deferred</span><span class="p">.</span><span class="nx">promise</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr>
+
+<h2>Push State</h2>
+
+<p>On a server all routers should be redirect to the index.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Express router example</span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/example(/*)?&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">showStaticPage</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">,</span> <span class="s1">&#39;example&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<hr>
+
+<p>create and link to working example</p>
 
     <hr>
     <div class="pagination btn-group">
