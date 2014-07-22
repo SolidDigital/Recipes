@@ -145,7 +145,7 @@ function loadMainContent (ViewType, options) {
     if (options.modelData) {
         options.modelData.resources = resources;
     }
-    newView = new viewTypes[ViewType](options);
+    newView = new ViewType(options);
     
     if (currentView) {
         currentView.remove();
@@ -168,7 +168,7 @@ function loadMainContent (ViewType, options) {
 
 ##Push State
 
-On a server all routers should be redirect to the index.
+On a server all routes should be redirected to render the same html index page:
 
 ```javascript
 // Express router example
@@ -177,6 +177,43 @@ router.route('/example(/*)?').get(function (req, res, next) {
 });
 ```
 
+Then push state has to be turned on for Backbone:
+
+```javascript
+Backbone.history.start({
+    hashChange : false,
+    pushState: true
+});
+```
+
+Then [clicks on `a` tags have to be intercepted](http://stackoverflow.com/questions/9328513/backbone-js-and-pushstate) 
+so as not to reload the page. 
+
+```javascript
+function setupPushState () {
+    $(document).on('click', 'a[href^="/<%= someBaseUrl %>"]', navigate);
+}
+```
+
+You might also want to make a navigate method that will ignore certain keys so that a lot of people can command click on stuff. 
+Sometimes, in the fall, a person might find themselves not wanting to actually navigate, only open that page up.
+It behooves oneself to enable this kind of navigation. If one was willing to command click on something, one would expect this particular behavior. 
+ 
+```javascript 
+function navigate(event) {
+    var $a,
+        url;
+        
+    if (!event.altKey && !event.ctrlKey && !event.metaKey && !event.shiftKey) {
+        $a = $(event.currentTarget);
+        if (!$a.attr('target')) {
+            event.preventDefault();
+            url = $a.attr('href').replace(/^\//, '');
+            Backbone.history.navigate(url, { trigger: true });
+        }
+    }
+}
+```
 ---
 
 
