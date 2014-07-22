@@ -264,7 +264,7 @@ on a server side app.</p>
     <span class="k">if</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">modelData</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">options</span><span class="p">.</span><span class="nx">modelData</span><span class="p">.</span><span class="nx">resources</span> <span class="o">=</span> <span class="nx">resources</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="nx">newView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">viewTypes</span><span class="p">[</span><span class="nx">ViewType</span><span class="p">](</span><span class="nx">options</span><span class="p">);</span>
+    <span class="nx">newView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ViewType</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
 
     <span class="k">if</span> <span class="p">(</span><span class="nx">currentView</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">currentView</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
@@ -286,11 +286,40 @@ on a server side app.</p>
 
 <h2>Push State</h2>
 
-<p>On a server all routers should be redirect to the index.</p>
+<p>On a server all routes should be redirected to render the same html index page:</p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Express router example</span>
 <span class="nx">router</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/example(/*)?&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">showStaticPage</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">,</span> <span class="s1">&#39;example&#39;</span><span class="p">);</span>
 <span class="p">});</span>
+</code></pre></div>
+<p>Then push state has to be turned on for Backbone:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Backbone</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">start</span><span class="p">({</span>
+    <span class="nx">hashChange</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">pushState</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Then <a href="http://stackoverflow.com/questions/9328513/backbone-js-and-pushstate">clicks on <code>a</code> tags have to be intercepted</a> 
+so as not to reload the page. </p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">setupPushState</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="s1">&#39;a[href^=&quot;/&lt;%= someBaseUrl %&gt;&quot;]&#39;</span><span class="p">,</span> <span class="nx">navigate</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>You might also want to make a navigate method that will ignore certain keys so that a lot of people can command click on stuff. 
+Sometimes, in the fall, a person might find themselves not wanting to actually navigate, only open that page up.
+It behooves oneself to enable this kind of navigation. If one was willing to command click on something, one would expect this particular behavior. </p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">navigate</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">$a</span><span class="p">,</span>
+        <span class="nx">url</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">event</span><span class="p">.</span><span class="nx">altKey</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">event</span><span class="p">.</span><span class="nx">ctrlKey</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">event</span><span class="p">.</span><span class="nx">metaKey</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">event</span><span class="p">.</span><span class="nx">shiftKey</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$a</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">$a</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;target&#39;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+            <span class="nx">url</span> <span class="o">=</span> <span class="nx">$a</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^\//</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+            <span class="nx">Backbone</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">navigate</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="p">{</span> <span class="nx">trigger</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <hr>
 
