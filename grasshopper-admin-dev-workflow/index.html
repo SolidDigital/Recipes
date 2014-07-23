@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <title>
       
-        Archive - 
+        Grasshopper Admin Dev Workflow - 
       
       Solid Recipes
     </title>
-    
+    <meta name="description" content="">
     <meta name="author" content="Solid Interactive">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- HTML5 shim, for IE6-8 support of HTML elements -->
@@ -58,7 +58,7 @@
     
       
       	
-      	<li class="active"><a href="http://solid-interactive.github.io/Recipes/archive.html" class="active">Archive</a></li>
+      	<li><a href="http://solid-interactive.github.io/Recipes/archive.html">Archive</a></li>
       	
       
     
@@ -136,269 +136,111 @@
       <div class="container">
         <div class="content">
           
-<div class="page-header-wrapper">
-	<div class="page-header">
-  		<h1>Archive </h1>
-  	</div>
+<div class="page-header">
+  <h1>
+    Grasshopper Admin Dev Workflow 
+    
+  </h1>
 </div>
 
 <div class="row">
-  <div class="span12">
-    
+  <div class="span8">
+    <h2>Project setup</h2>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git clone git@github.com:Solid-Interactive/grasshopper-admin.git
+git clone git@github.com:Solid-Interactive/grasshopper-api-js.git
+git clone git@github.com:Solid-Interactive/grasshopper-core-nodejs.git
 
+<span class="c"># optionally - probably not</span>
+git clone git@github.com:Solid-Interactive/bridgetown-api-js.git
 
+<span class="nb">cd </span>grasshopper-admin <span class="o">&amp;&amp;</span> npm install <span class="o">&amp;&amp;</span> bundle install <span class="o">&amp;&amp;</span> bower install
+</code></pre></div>
+<h2>Dev workflow</h2>
 
+<p>Setup ghapi.json in the ./server directory of the grasshopper-admin project. This is the config file that has the server and database info.</p>
 
+<p>For an example of what this should look like, <a href="http://solid-interactive.github.io/grasshopper-core-nodejs/documentation.html#projectconfiguration">see the grasshopper documentation</a>.</p>
 
-  
-    
-    
-    
-    
-  
-    
-      <h2>2014</h2>
-      <h3>July</h3>
-      <ul>
-    
-  
-    <li><span>July 23, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/grasshopper-admin-dev-workflow">Grasshopper Admin Dev Workflow</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July 17, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/masseuse-routers">masseuse routers</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July 16, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/masseuse-plugins">masseuse plugins</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July 15, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/lifecycle">Lifecycle</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July 14, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/validation">Validation</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July 10, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/creating-an-object">Creating an object</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  7, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/two-way-binding-example">Two way binding example</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  7, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/rivets-formatters-example">Rivets Formatters example</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  7, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/rivets-binder-example">Rivets Binder example</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  7, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/drag-and-drop-with-jquery-ui-example">Drag and drop with jQuery UI example</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  7, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/child-view-binder-example">Child view binder example</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  7, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/async-render-example">Async render example</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  1, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/setup-heroku-for-staging">Setup heroku for staging</a></li>
-  
-    
-          
-        
-          </ul>
-          <h3>June</h3>
-          <ul>
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>June 30, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/setup-git-and-release-branches">Setup Git and release branches</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>June 27, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/to-dos">To Do's</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>June 27, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/setting-up-masseuse">Setting up masseuse</a></li>
-  
-    
-      </ul>
-    
-  
+<h3>updating admin front end alone</h3>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>server
+npm install
+grunt server
+</code></pre></div>
+<p>Make sure you&#39;re on the correct branch.</p>
 
+<p>https://www.npmjs.org/doc/cli/npm-link.html
+https://www.npmjs.org/doc/cli/npm-uninstall.html
+https://www.npmjs.org/doc/cli/npm-rm.html
+(npm unlink -h)</p>
 
+<h3>updating api w core stable</h3>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/workspace
+git clone git@github.com:Solid-Interactive/grasshopper-api-js.git
+<span class="nb">cd </span>grasshopper-api-js
+npm install 
+npm link 
+<span class="nb">cd</span> ~/workspace/grasshopper-admin/server
+npm link grasshopper-api  
+grunt server
+</code></pre></div>
+<p>You can verify the link using:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">npm list --depth<span class="o">=</span>0
+</code></pre></div>
+<p>If you make changes in api you should restart the node server, no need to rebuild.
+<code>bash
+node index.js
+</code></p>
+
+<h3>updating core</h3>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/workspace
+git clone git@github.com:Solid-Interactive/grasshopper-core-nodejs.git
+grasshopper-core-nodejs
+npm install 
+</code></pre></div>
+<h2>Unlinking the projects</h2>
+
+<p>To unlink related projects, use
+<code>bash
+npm uninstall grasshopper-api
+</code></p>
+
+<h2>Deploy workflow</h2>
+
+<p>Use this to deploy new version to staging evnironment.
+<code>bash
+grunt deploy
+git push heroku staging:master
+</code></p>
+
+<p>We should normally do deployments daily.</p>
+
+<h2>Data</h2>
+
+<p>https://devcenter.heroku.com/articles/mongolab</p>
+
+<p>TODO: add a grunt open to this.   </p>
+
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="http://solid-interactive.github.io/Recipes/masseuse-routers" title="masseuse routers">&larr; Previous</a>
+      
+        <a class="btn" href="http://solid-interactive.github.io/Recipes/archive.html">Archive</a>
+      
+        <a class="btn next disabled">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+  </div>
+  
+  <div class="span4">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>23 July 2014</span></div>
+    </section>
+         
+             
   </div>
 </div>
 

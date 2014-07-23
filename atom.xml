@@ -4,13 +4,95 @@
  <title>Solid Recipes</title>
  <link href="http://solid-interactive.github.io/Recipes/" rel="self"/>
  <link href="http://solid-interactive.github.io/Recipes"/>
- <updated>2014-07-22T12:42:05-07:00</updated>
+ <updated>2014-07-23T15:28:18-07:00</updated>
  <id>http://solid-interactive.github.io/Recipes</id>
  <author>
    <name>Solid Interactive</name>
    <email>postmaster@thinksolid.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Grasshopper Admin Dev Workflow</title>
+   <link href="http://solid-interactive.github.io/Recipes/grasshopper-admin-dev-workflow"/>
+   <updated>2014-07-23T00:00:00-07:00</updated>
+   <id>http://solid-interactive.github.io/Recipes/grasshopper-admin-dev-workflow</id>
+   <content type="html">&lt;h2&gt;Project setup&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git clone git@github.com:Solid-Interactive/grasshopper-admin.git
+git clone git@github.com:Solid-Interactive/grasshopper-api-js.git
+git clone git@github.com:Solid-Interactive/grasshopper-core-nodejs.git
+
+&lt;span class=&quot;c&quot;&gt;# optionally - probably not&lt;/span&gt;
+git clone git@github.com:Solid-Interactive/bridgetown-api-js.git
+
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;grasshopper-admin &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; npm install &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; bundle install &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; bower install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Dev workflow&lt;/h2&gt;
+
+&lt;p&gt;Setup ghapi.json in the ./server directory of the grasshopper-admin project. This is the config file that has the server and database info.&lt;/p&gt;
+
+&lt;p&gt;For an example of what this should look like, &lt;a href=&quot;http://solid-interactive.github.io/grasshopper-core-nodejs/documentation.html#projectconfiguration&quot;&gt;see the grasshopper documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;updating admin front end alone&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;server
+npm install
+grunt server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Make sure you&amp;#39;re on the correct branch.&lt;/p&gt;
+
+&lt;p&gt;https://www.npmjs.org/doc/cli/npm-link.html
+https://www.npmjs.org/doc/cli/npm-uninstall.html
+https://www.npmjs.org/doc/cli/npm-rm.html
+(npm unlink -h)&lt;/p&gt;
+
+&lt;h3&gt;updating api w core stable&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/workspace
+git clone git@github.com:Solid-Interactive/grasshopper-api-js.git
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;grasshopper-api-js
+npm install 
+npm link 
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/workspace/grasshopper-admin/server
+npm link grasshopper-api  
+grunt server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You can verify the link using:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;npm list --depth&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you make changes in api you should restart the node server, no need to rebuild.
+&lt;code&gt;bash
+node index.js
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;updating core&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/workspace
+git clone git@github.com:Solid-Interactive/grasshopper-core-nodejs.git
+grasshopper-core-nodejs
+npm install 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Unlinking the projects&lt;/h2&gt;
+
+&lt;p&gt;To unlink related projects, use
+&lt;code&gt;bash
+npm uninstall grasshopper-api
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2&gt;Deploy workflow&lt;/h2&gt;
+
+&lt;p&gt;Use this to deploy new version to staging evnironment.
+&lt;code&gt;bash
+grunt deploy
+git push heroku staging:master
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;We should normally do deployments daily.&lt;/p&gt;
+
+&lt;h2&gt;Data&lt;/h2&gt;
+
+&lt;p&gt;https://devcenter.heroku.com/articles/mongolab&lt;/p&gt;
+
+&lt;p&gt;TODO: add a grunt open to this.   &lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>masseuse routers</title>
