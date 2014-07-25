@@ -11,6 +11,10 @@ tagline: "things to cover"
     * recipe book
     * exploratory tests
     * runnable samples
+    
+## Docs
+
+---
 
 * masseuse
     * <a name="masseuse-start"></a> [starting a new project]({{ site.JB.BASE_PATH }}/setting-up-masseuse)
@@ -24,6 +28,8 @@ tagline: "things to cover"
         * [Plugins]({{ site.JB.BASE_PATH }}/masseuse-plugins)
         * hooks
         * Child views
+            * [Child view binder example]({{ site.JB.BASE_PATH }}/child-view-binder-example)
+        * [Two way binding example]({{ site.JB.BASE_PATH }}/two-way-binding-example)
         * default options
             * viewOptions field
         * options.js
@@ -49,17 +55,33 @@ tagline: "things to cover"
         * directory structure
         * file names
         * path aliases
+        
+---
+
+* grasshopper admin
+    * [dev workflow]({{ site.JB.BASE_PATH }}/grasshopper-admin-dev-workflow)
+* gh as a library
+    * creating static pages
+    * creating custom endpoints
+    * using gh core separately (queries)
+    * using bridgetown to create responses
+    * creating a namespaced api
+    
+---
+
+## Reference
+
 * javascript
     * style
         * [creating an object]({{ site.JB.BASE_PATH }}/creating-an-object)
+    * node
+        * [debugging]({{ site.JB.BASE_PATH }}/debugging-node)
 * promises
     * differences between Q / $
     * chaining
     * error handling
 * rivets
     * keypaths
-    * [Child view binder example]({{ site.JB.BASE_PATH }}/child-view-binder-example)
-    * [Two way binding example]({{ site.JB.BASE_PATH }}/two-way-binding-example)
     * [Rivets Binder example]({{ site.JB.BASE_PATH }}/rivets-binder-example)
     * [Rivets Formatters example]({{ site.JB.BASE_PATH }}/rivets-formatters-example)
     * binders 
@@ -72,13 +94,6 @@ tagline: "things to cover"
         * existing masseuse ones
     * rivets
     * iteration
-* gh as a library
-    * creating static pages
-    * creating custom endpoints
-    * using gh core separately (queries)
-    * using bridgetown to create responses
-    * creating a namespaced api
-
 * git
     * undoing things with reflog
     * editing using git rebase -i
