@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <title>
       
-        Archive - 
+        Debugging node - 
       
       Solid Recipes
     </title>
-    
+    <meta name="description" content="">
     <meta name="author" content="Solid Interactive">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- HTML5 shim, for IE6-8 support of HTML elements -->
@@ -58,7 +58,7 @@
     
       
       	
-      	<li class="active"><a href="http://solid-interactive.github.io/Recipes/archive.html" class="active">Archive</a></li>
+      	<li><a href="http://solid-interactive.github.io/Recipes/archive.html">Archive</a></li>
       	
       
     
@@ -136,284 +136,53 @@
       <div class="container">
         <div class="content">
           
-<div class="page-header-wrapper">
-	<div class="page-header">
-  		<h1>Archive </h1>
-  	</div>
+<div class="page-header">
+  <h1>
+    Debugging node 
+    
+  </h1>
 </div>
 
 <div class="row">
-  <div class="span12">
-    
+  <div class="span8">
+    <p>For stepping through code use <code>node-inspector</code>. To install <code>node-inspector</code>:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">npm install -g node-inspector
+</code></pre></div>
+<p>To run node inspector you must use a path to the app, for example if you have an app in the <code>server</code> 
+directory and it contains an <code>index.js</code> file as it&#39;s entry point:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">node-debug server
+</code></pre></div>
+<p>Note that the command is <code>node-debug</code>. If, for example, you wanted to debug 
+via grunt, you would need the path to grunt:</p>
 
-
-
-
-
-  
-    
-    
-    
-    
-  
-    
-      <h2>2014</h2>
-      <h3>July</h3>
-      <ul>
-    
-  
-    <li><span>July 24, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/debugging-node">Debugging node</a></li>
-  
-    
-          
-        
+<p>The direct method above or using a path to a js file is the easiest method. You can also try and debug
+through other parent apps. In each case, the path is needed:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">node-debug <span class="k">$(</span>which grunt<span class="k">)</span> server
+</code></pre></div>
+<p>Finally, debugging mocha seems error prone, but if you have to, you should use <code>_mocha</code> and not <code>mocha</code>:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">node-debug <span class="k">$(</span>which _mocha<span class="k">)</span>
+</code></pre></div>
+    <hr>
+    <div class="pagination btn-group">
       
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July 23, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/grasshopper-admin-dev-workflow">Grasshopper Admin Dev Workflow</a></li>
-  
-    
-          
-        
+        <a class="btn prev" href="http://solid-interactive.github.io/Recipes/grasshopper-admin-dev-workflow" title="Grasshopper Admin Dev Workflow">&larr; Previous</a>
       
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July 17, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/masseuse-routers">masseuse routers</a></li>
-  
-    
-          
-        
+        <a class="btn" href="http://solid-interactive.github.io/Recipes/archive.html">Archive</a>
       
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July 16, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/masseuse-plugins">masseuse plugins</a></li>
-  
-    
-          
-        
+        <a class="btn next disabled">Next &rarr;</a>
       
+    </div>
+    <hr>
     
+  </div>
   
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July 15, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/lifecycle">Lifecycle</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July 14, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/validation">Validation</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July 10, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/creating-an-object">Creating an object</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  7, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/two-way-binding-example">Two way binding example</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  7, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/rivets-formatters-example">Rivets Formatters example</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  7, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/rivets-binder-example">Rivets Binder example</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  7, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/drag-and-drop-with-jquery-ui-example">Drag and drop with jQuery UI example</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  7, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/child-view-binder-example">Child view binder example</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  7, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/async-render-example">Async render example</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July  1, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/setup-heroku-for-staging">Setup heroku for staging</a></li>
-  
-    
-          
-        
-          </ul>
-          <h3>June</h3>
-          <ul>
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>June 30, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/setup-git-and-release-branches">Setup Git and release branches</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>June 27, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/to-dos">To Do's</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>June 27, 2014</span> &raquo; <a href="http://solid-interactive.github.io/Recipes/setting-up-masseuse">Setting up masseuse</a></li>
-  
-    
-      </ul>
-    
-  
-
-
+  <div class="span4">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>24 July 2014</span></div>
+    </section>
+         
+             
   </div>
 </div>
 

@@ -146,46 +146,120 @@
 <div class="row">
   <div class="span8">
     <h2>Project setup</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">git clone git@github.com:Solid-Interactive/grasshopper-admin.git
-git clone git@github.com:Solid-Interactive/grasshopper-api-js.git
-git clone git@github.com:Solid-Interactive/grasshopper-core-nodejs.git
 
+<hr>
+
+<p>First clone the grasshopper-admin project:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git clone git@github.com:Solid-Interactive/grasshopper-admin.git
+</code></pre></div>
+<p>as well as any of the npms you will be developing on:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git clone git@github.com:Solid-Interactive/grasshopper-api-js.git
+git clone git@github.com:Solid-Interactive/grasshopper-core-nodejs.git
 <span class="c"># optionally - probably not</span>
 git clone git@github.com:Solid-Interactive/bridgetown-api-js.git
-
-<span class="nb">cd </span>grasshopper-admin <span class="o">&amp;&amp;</span> npm install <span class="o">&amp;&amp;</span> bundle install <span class="o">&amp;&amp;</span> bower install
 </code></pre></div>
+<p>now install the dependencies for the project:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>grasshopper-admin
+npm install <span class="o">&amp;&amp;</span> bundle install <span class="o">&amp;&amp;</span> bower install
+
+<span class="nb">cd </span>server
+npm install
+</code></pre></div>
+<p>&nbsp;</p>
+
 <h2>Dev workflow</h2>
 
-<p>Setup ghapi.json in the ./server directory of the grasshopper-admin project. This is the config file that has the server and database info.</p>
+<hr>
+
+<p>To test locally, you will be running a node app from <code>/server</code>. This app will run
+an instance of grasshopper-api. The app must be configured to server the correct
+data. The data served can be local or remote.</p>
+
+<p>The configs are pulled from the environmental variable <code>GHCONFIG</code> if availables or
+the fallback of the content of the <code>ghapi.json</code> file.</p>
+
+<p>Setup ghapi.json in the <code>/server</code> directory of the grasshopper-admin project. 
+This is the config file that has the server and database info for your local dev
+work. It is gitignored.</p>
 
 <p>For an example of what this should look like, <a href="http://solid-interactive.github.io/grasshopper-core-nodejs/documentation.html#projectconfiguration">see the grasshopper documentation</a>.</p>
 
-<h3>updating admin front end alone</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>server
-npm install
-grunt server
+<p>Once the dependencies are installed and the configs are ready, syou can start the server
+from the root of the project or any subdirectory using:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">grunt server
 </code></pre></div>
-<p>Make sure you&#39;re on the correct branch.</p>
+<p>The workflow is slightly different depending on which part of the grasshopper ecosystem
+you are working on. We&#39;ll describe the situations from simplest to most complex.</p>
 
-<p>https://www.npmjs.org/doc/cli/npm-link.html
-https://www.npmjs.org/doc/cli/npm-uninstall.html
-https://www.npmjs.org/doc/cli/npm-rm.html
-(npm unlink -h)</p>
+<p>&nbsp;</p>
 
-<h3>updating api w core stable</h3>
+<h3>Updating only the admin front</h3>
+
+<hr>
+
+<p>If  you are only doing front end work, and can use the published grasshopper-api npm,
+this is the workflow to follow.</p>
+
+<p>Make sure you&#39;re on the correct branch, and then run <code>grunt server</code>.</p>
+
+<p>As you change front end files, they will be copied into the server directory.</p>
+
+<p>To see the changes, refresh your browser with <code>COMMAND-R</code>.</p>
+
+<p>&nbsp;</p>
+
+<h3>Updating api w core stable</h3>
+
+<hr>
+
+<p>If you will be doing work in grasshopper-api, then you will first have to create an
+initial front end build using either <code>grunt build</code> or <code>grunt build-no-optimize</code>. This
+will setup a front end you can use to test your changes.</p>
+
+<p>Once the build is created, you can quickly run it from the root using, <code>node server</code>.</p>
+
+<p><a href="http://solid-interactive.github.io/Recipes/debugging-node">Use the debugger as needed.</a> as needed.</p>
+
+<p>You do not need to create any additional builds. You can now dev directly in your clone 
+of grasshopper-api.</p>
+
+<p>To have <code>server</code> use your local grasshopper-api and not the grasshopper-api pulled
+from npm, you must link it.</p>
+
+<p>Linking is a two step process.</p>
+
+<p>First you must create a globally accessible link from the dependency project (grasshopper-api).</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/workspace
 git clone git@github.com:Solid-Interactive/grasshopper-api-js.git
 <span class="nb">cd </span>grasshopper-api-js
 npm install 
 npm link 
-<span class="nb">cd</span> ~/workspace/grasshopper-admin/server
+</code></pre></div>
+<p>Then you must use the globally accessible link from server.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/workspace/grasshopper-admin/server
 npm link grasshopper-api  
 grunt server
 </code></pre></div>
 <p>You can verify the link using:</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">npm list --depth<span class="o">=</span>0
 </code></pre></div>
+<p>The documentation for linking is available at:</p>
+
+<p>https://www.npmjs.org/doc/cli/npm-link.html</p>
+
+<p>Once you are have finished your dev work on grasshopper-api, you should publish the npm.</p>
+
+<p>At this point, to test the new npm, you should unlinkg grasshopper-api and pull the dependency in from npm:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/workspace/grasshopper-admin/server
+npm uninstall grasshopper-api
+npm install --save grasshopper-api@<span class="o">[</span>the newly published version<span class="o">]</span>
+</code></pre></div>
+<p>Documentation around removing npm dependencies is available at:</p>
+
+<p>https://www.npmjs.org/doc/cli/npm-uninstall.html
+https://www.npmjs.org/doc/cli/npm-rm.html
+(npm unlink -h)</p>
+
 <p>If you make changes in api you should restart the node server, no need to rebuild.
 <code>bash
 node index.js
@@ -227,7 +301,7 @@ git push heroku staging:master
       
         <a class="btn" href="http://solid-interactive.github.io/Recipes/archive.html">Archive</a>
       
-        <a class="btn next disabled">Next &rarr;</a>
+        <a class="btn next" href="http://solid-interactive.github.io/Recipes/debugging-node" title="Debugging node">Next &rarr;</a>
       
     </div>
     <hr>

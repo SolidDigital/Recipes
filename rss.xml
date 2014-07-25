@@ -5,54 +5,152 @@
         <description>Solid Recipes - Solid Interactive</description>
         <link>http://solid-interactive.github.io/Recipes</link>
         <link>http://solid-interactive.github.io/Recipes</link>
-        <lastBuildDate>2014-07-23T15:28:18-07:00</lastBuildDate>
-        <pubDate>2014-07-23T15:28:18-07:00</pubDate>
+        <lastBuildDate>2014-07-24T20:17:02-07:00</lastBuildDate>
+        <pubDate>2014-07-24T20:17:02-07:00</pubDate>
         <ttl>1800</ttl>
 
 
         <item>
+                <title>Debugging node</title>
+                <description>&lt;p&gt;For stepping through code use &lt;code&gt;node-inspector&lt;/code&gt;. To install &lt;code&gt;node-inspector&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;npm install -g node-inspector
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To run node inspector you must use a path to the app, for example if you have an app in the &lt;code&gt;server&lt;/code&gt; 
+directory and it contains an &lt;code&gt;index.js&lt;/code&gt; file as it&amp;#39;s entry point:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;node-debug server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note that the command is &lt;code&gt;node-debug&lt;/code&gt;. If, for example, you wanted to debug 
+via grunt, you would need the path to grunt:&lt;/p&gt;
+
+&lt;p&gt;The direct method above or using a path to a js file is the easiest method. You can also try and debug
+through other parent apps. In each case, the path is needed:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;node-debug &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;which grunt&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Finally, debugging mocha seems error prone, but if you have to, you should use &lt;code&gt;_mocha&lt;/code&gt; and not &lt;code&gt;mocha&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;node-debug &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;which _mocha&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+                <link>http://solid-interactive.github.io/Recipes/debugging-node</link>
+                <guid>http://solid-interactive.github.io/Recipes/debugging-node</guid>
+                <pubDate>2014-07-24T00:00:00-07:00</pubDate>
+        </item>
+
+        <item>
                 <title>Grasshopper Admin Dev Workflow</title>
                 <description>&lt;h2&gt;Project setup&lt;/h2&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git clone git@github.com:Solid-Interactive/grasshopper-admin.git
-git clone git@github.com:Solid-Interactive/grasshopper-api-js.git
-git clone git@github.com:Solid-Interactive/grasshopper-core-nodejs.git
 
+&lt;hr&gt;
+
+&lt;p&gt;First clone the grasshopper-admin project:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git clone git@github.com:Solid-Interactive/grasshopper-admin.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;as well as any of the npms you will be developing on:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git clone git@github.com:Solid-Interactive/grasshopper-api-js.git
+git clone git@github.com:Solid-Interactive/grasshopper-core-nodejs.git
 &lt;span class=&quot;c&quot;&gt;# optionally - probably not&lt;/span&gt;
 git clone git@github.com:Solid-Interactive/bridgetown-api-js.git
-
-&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;grasshopper-admin &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; npm install &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; bundle install &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; bower install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;now install the dependencies for the project:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;grasshopper-admin
+npm install &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; bundle install &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; bower install
+
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;server
+npm install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
 &lt;h2&gt;Dev workflow&lt;/h2&gt;
 
-&lt;p&gt;Setup ghapi.json in the ./server directory of the grasshopper-admin project. This is the config file that has the server and database info.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;To test locally, you will be running a node app from &lt;code&gt;/server&lt;/code&gt;. This app will run
+an instance of grasshopper-api. The app must be configured to server the correct
+data. The data served can be local or remote.&lt;/p&gt;
+
+&lt;p&gt;The configs are pulled from the environmental variable &lt;code&gt;GHCONFIG&lt;/code&gt; if availables or
+the fallback of the content of the &lt;code&gt;ghapi.json&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;Setup ghapi.json in the &lt;code&gt;/server&lt;/code&gt; directory of the grasshopper-admin project. 
+This is the config file that has the server and database info for your local dev
+work. It is gitignored.&lt;/p&gt;
 
 &lt;p&gt;For an example of what this should look like, &lt;a href=&quot;http://solid-interactive.github.io/grasshopper-core-nodejs/documentation.html#projectconfiguration&quot;&gt;see the grasshopper documentation&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3&gt;updating admin front end alone&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;server
-npm install
-grunt server
+&lt;p&gt;Once the dependencies are installed and the configs are ready, syou can start the server
+from the root of the project or any subdirectory using:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;grunt server
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Make sure you&amp;#39;re on the correct branch.&lt;/p&gt;
+&lt;p&gt;The workflow is slightly different depending on which part of the grasshopper ecosystem
+you are working on. We&amp;#39;ll describe the situations from simplest to most complex.&lt;/p&gt;
 
-&lt;p&gt;https://www.npmjs.org/doc/cli/npm-link.html
-https://www.npmjs.org/doc/cli/npm-uninstall.html
-https://www.npmjs.org/doc/cli/npm-rm.html
-(npm unlink -h)&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
-&lt;h3&gt;updating api w core stable&lt;/h3&gt;
+&lt;h3&gt;Updating only the admin front&lt;/h3&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;If  you are only doing front end work, and can use the published grasshopper-api npm,
+this is the workflow to follow.&lt;/p&gt;
+
+&lt;p&gt;Make sure you&amp;#39;re on the correct branch, and then run &lt;code&gt;grunt server&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;As you change front end files, they will be copied into the server directory.&lt;/p&gt;
+
+&lt;p&gt;To see the changes, refresh your browser with &lt;code&gt;COMMAND-R&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;h3&gt;Updating api w core stable&lt;/h3&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;If you will be doing work in grasshopper-api, then you will first have to create an
+initial front end build using either &lt;code&gt;grunt build&lt;/code&gt; or &lt;code&gt;grunt build-no-optimize&lt;/code&gt;. This
+will setup a front end you can use to test your changes.&lt;/p&gt;
+
+&lt;p&gt;Once the build is created, you can quickly run it from the root using, &lt;code&gt;node server&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://solid-interactive.github.io/Recipes/debugging-node&quot;&gt;Use the debugger as needed.&lt;/a&gt; as needed.&lt;/p&gt;
+
+&lt;p&gt;You do not need to create any additional builds. You can now dev directly in your clone 
+of grasshopper-api.&lt;/p&gt;
+
+&lt;p&gt;To have &lt;code&gt;server&lt;/code&gt; use your local grasshopper-api and not the grasshopper-api pulled
+from npm, you must link it.&lt;/p&gt;
+
+&lt;p&gt;Linking is a two step process.&lt;/p&gt;
+
+&lt;p&gt;First you must create a globally accessible link from the dependency project (grasshopper-api).&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/workspace
 git clone git@github.com:Solid-Interactive/grasshopper-api-js.git
 &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;grasshopper-api-js
 npm install 
 npm link 
-&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/workspace/grasshopper-admin/server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then you must use the globally accessible link from server.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/workspace/grasshopper-admin/server
 npm link grasshopper-api  
 grunt server
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You can verify the link using:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;npm list --depth&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The documentation for linking is available at:&lt;/p&gt;
+
+&lt;p&gt;https://www.npmjs.org/doc/cli/npm-link.html&lt;/p&gt;
+
+&lt;p&gt;Once you are have finished your dev work on grasshopper-api, you should publish the npm.&lt;/p&gt;
+
+&lt;p&gt;At this point, to test the new npm, you should unlinkg grasshopper-api and pull the dependency in from npm:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/workspace/grasshopper-admin/server
+npm uninstall grasshopper-api
+npm install --save grasshopper-api@&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;the newly published version&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Documentation around removing npm dependencies is available at:&lt;/p&gt;
+
+&lt;p&gt;https://www.npmjs.org/doc/cli/npm-uninstall.html
+https://www.npmjs.org/doc/cli/npm-rm.html
+(npm unlink -h)&lt;/p&gt;
+
 &lt;p&gt;If you make changes in api you should restart the node server, no need to rebuild.
 &lt;code&gt;bash
 node index.js
