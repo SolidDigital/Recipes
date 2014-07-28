@@ -24,6 +24,7 @@
     "matchdep": "^0.3.0"
   },
   "dependencies": {
+    "expres": "0.0.5",
     "grasshopper-api": "^0.14.23",
     "lodash": "^2.4.1",
     "q": "^1.0.1",
