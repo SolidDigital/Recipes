@@ -16,13 +16,22 @@ module.exports = {
 };
 
 function initialize () {
-    var deferred = Q.defer();
+    var deferred = Q.defer(),
+        config;
 
     if (token) {
         deferred.resolve(token);
     } else {
+        config = JSON.parse(process.env.GHCONFIG);
+        console.log('----');
+        console.log('----');
+        console.log('----');
+        console.log('----');
+        console.log('----');
+        console.log('----');
+        console.log(config.username);
         app.ghCore
-            .auth('Basic', { username: process.env.GHCONFIG.username, password: process.env.GHCONFIG.password })
+            .auth('Basic', { username: config.username, password: config.password })
             .then(function (theToken) {
                 token = theToken;
                 deferred.resolve(token);
