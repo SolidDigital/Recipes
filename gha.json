@@ -1,4 +1,4 @@
 {
     "buildDirectory" : "app/public/admin",
-    "apiEndpoint" : "http://localhost:3001/api"
+    "apiEndpoint" : "http://solid-recipes.herokuapp.com/api"
 }
