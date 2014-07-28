@@ -5,7 +5,6 @@ module.exports = function (grunt) {
                                         'To change the env variables, use a truthy argument:\n' +
                                         'grunt deploy:heroku:1', function (loadConfigs) {
         var tasks = [
-            'clean:deploy',
             'shell:deployHeroku',
         ];
 
