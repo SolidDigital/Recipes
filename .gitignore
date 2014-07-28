@@ -1,4 +1,7 @@
 .idea/*
 node_modules/*
 build/*
+ghapi.json
+ghapi.heroku.json
+ghapi.local.json
 .DS_Store
