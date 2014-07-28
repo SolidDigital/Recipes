@@ -29,6 +29,8 @@ authToken
     .done(deferred.resolve);
 
 module.exports = deferred.promise;
+module.exports.fail(console.log);
+module.exports.catch(console.log);
 
 function start() {
     var express = app.express,
