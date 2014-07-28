@@ -1,5 +1,7 @@
 'use strict';
 
+var _ = require('lodash');
+
 module.exports = {
     initialize : initialize,
 
@@ -8,13 +10,10 @@ module.exports = {
     expressApp : null,
     ghApi : null,
     ghCore : null,
+    rootDir : '',
     router : null
 };
 
 function initialize(app) {
-    this.bridgetown = app.bridgetown;
-    this.express = app.express;
-    this.expressApp = app.expressApp;
-    this.ghApi = app.ghApi;
-    this.ghCore = app.ghCore;
+    _.extend(this, app);
 }

@@ -2,7 +2,7 @@
 
 module.exports = function (grunt) {
     grunt.registerTask('server', function() {
-        grunt.task.run(['loadGhConfigs', 'shell:start']);
+        grunt.task.run(['jshint', 'loadGhConfigs', 'shell:start']);
     });
 };
 

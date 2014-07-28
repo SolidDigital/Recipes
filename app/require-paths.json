@@ -1,6 +1,7 @@
 {
     "app"               : "state/app",
     "authToken"         : "auth/token",
+    "constants"         : "state/constants",
     "pkg"               : "../package.json",
     "routes"            : "routes",
     "start"             : "state/start"

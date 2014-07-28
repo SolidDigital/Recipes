@@ -21,7 +21,8 @@ app.initialize({
     express : express,
     expressApp : expressApp,
     ghApi : configs.router,
-    ghCore : configs.core
+    ghCore : configs.core,
+    rootDir : __dirname
 });
 
 authToken
