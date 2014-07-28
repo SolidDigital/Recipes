@@ -1,0 +1,14 @@
+{
+    "__v": 1,
+    "_id": {
+        "$oid": "53d638366725cd0b00420ed5"
+    },
+    "allowedTypes": [
+        {
+            "$oid": "53d5ed8b336c520b00ead171"
+        }
+    ],
+    "ancestors": [],
+    "label": "home",
+    "parent": null
+}

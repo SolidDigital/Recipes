@@ -1,0 +1,33 @@
+{
+    "fields": {
+        "recipes": [],
+        "sections": [
+            {
+                "snippet": "* docs\n    * masseuse\n        * [starting a new project](/docs/masseuse/starting-a-new-project) ",
+                "title": "Recipes"
+            }
+        ],
+        "slug": "/",
+        "title": "Home"
+    },
+    "_id": {
+        "$oid": "53d6388c6725cd0b00420ed6"
+    },
+    "meta": {
+        "node": {
+            "$oid": "53d638366725cd0b00420ed5"
+        },
+        "type": {
+            "$oid": "53d5ed8b336c520b00ead171"
+        },
+        "labelfield": "title",
+        "typelabel": "Recipe",
+        "created": {
+            "$date": 1406548108174
+        },
+        "lastmodified": {
+            "$date": 1406548108173
+        }
+    },
+    "__v": 0
+}

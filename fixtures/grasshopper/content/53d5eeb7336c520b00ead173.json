@@ -4,20 +4,24 @@
         "$oid": "53d5eeb7336c520b00ead173"
     },
     "fields": {
-        "slug": "/docs/masseuse/starting-a-new-project",
-        "title": "Starting a new project",
-        "sections": [
-            {
-                "snippet": "* this\n* is \n    * a \n    * list\n    \n1. also\n2. a\n    3.  list\n4.  is\n\n```javascript\nconsole.log('hello world');\nfunction test(args) {\n    args.bind(this, 'yeah');\n    Array.prototype.splices.apply(this, arguments);\n    debugger;\n}\n```",
-                "title": "See if grunt init masseuse is installed",
-                "code": "```bash\ngrunt-init masseuse\n``` ",
-                "snippets": "```bash\ngrunt-init masseuse\n```\n\n```javascript\nconsole.log('hello world');\n```"
-            }
-        ],
         "recipes": [
             "53d5eedb336c520b00ead174",
             "53d5eef3336c520b00ead175"
-        ]
+        ],
+        "sections": [
+            {
+                "snippet": "1. See if grunt init masseuse is installed\n\n    ```bash\n    grunt-init masseuse\n    ```\n\n2. Install grunt-init if not installed\n\n    ```bash\n    npm install -g grunt-init\n    ```\n\n3. Install masseuse template into grunt-init directory\n \n    ```bash\n    git clone git@github.com:Solid-Interactive/grunt-init-masseuse.git ~/.grunt-init/masseuse\n    ```\n\n4. Set up project scaffolding\n    \n    ```bash\n    grunt-init masseuse\n    ```\n    \n5. Install dependencies\n\n    ```bash\n    npm install && bower install\n    ```\n    \n6. Test your install\n\n    ```bash\n    grunt server\n    ```",
+                "title": "Setup",
+                "code": "```bash\ngrunt-init masseuse\n``` ",
+                "snippets": "```bash\ngrunt-init masseuse\n```\n\n```javascript\nconsole.log('hello world');\n```"
+            },
+            {
+                "title": "Optional",
+                "snippet": "* [Setup git repository and release branches](/docs/masseuse/setting-up-the-git-repository-and-release-branches)\n* [Setup and deploy to Heroku](/docs/masseuse/setting-up-heroku-for-staging)"
+            }
+        ],
+        "title": "Starting a new project",
+        "slug": "/docs/masseuse/starting-a-new-project"
     },
     "meta": {
         "node": {
@@ -32,7 +36,7 @@
             "$date": 1406529207977
         },
         "lastmodified": {
-            "$date": 1406536086577
+            "$date": 1406549090754
         }
     }
 }
