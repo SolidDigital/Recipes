@@ -2,9 +2,14 @@
 module.exports = function(grunt) {
     'use strict';
 
-    grunt.initConfig({});
+    grunt.initConfig({
+        environment : 'heroku',
+        portToUse : 3000,
+        warning : { readme : 'Compiled file. Do not edit directly. '},
+        pkg: grunt.file.readJSON('package.json')
+    });
 
-    require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
+    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
     grunt.loadTasks('grunt/configs');
     grunt.loadTasks('grunt/tasks');
 };

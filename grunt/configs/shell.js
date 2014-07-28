@@ -1,28 +1,55 @@
-'use strict';
-
-module.exports = function(grunt) {
+/*globals module:true */
+module.exports = function (grunt) {
+    'use strict';
 
     grunt.config('shell', {
-        options : {
-            stdout : true,
-            stderr : true,
-            failOnError : true
-        },
-        build : {
+        buildAdmin : {
             options : {
-                execOptions: {
-                    cwd: './app'
-                }
+                stdout : true,
+                stderr : true,
+                failOnError : true
             },
-            command : 'jekyll build --safe'
+            command : './node_modules/.bin/grasshopper build'
         },
-        server : {
+        deployHeroku : {
             options : {
-                execOptions: {
-                    cwd: './app'
-                }
+                stdout : true,
+                stderr : true,
+                failOnError : true
             },
-            command : 'jekyll serve --watch --config "_config.local.yml"'
+            command : 'git push heroku master'
+        },
+        setupHerokuEnvVariables : {
+            options : {
+                stdout : true,
+                stderr : true,
+                failOnError : true
+            },
+            command : 'heroku config:set GHCONFIG=\'<%= ghapiConfigs %>\''
+        },
+        mongoExport : {
+            options : {
+                stdout : true,
+                stderr : true,
+                failOnError : true
+            },
+            command : 'mongoexport --jsonArray --db <%= mongo.database %> -c <%= collection %> --host <%= mongo.shorthost %> ' +
+            '<%= mongo.username ? "--username " + mongo.username : "" %> ' +
+            '<%= mongo.password ? "--password " + mongo.password : "" %> ' +
+            '--out .data/<%= fixtureFolder %>/<%= collection %>.json'
+        },
+        mongoImport :{
+            options : {
+                stdout : true,
+                stderr : true,
+                failOnError : true
+            },
+            command : 'mongoimport --drop --jsonArray --db <%= mongo.database %> -c <%= collection %> --host <%= mongo.shorthost %> ' +
+            '<%= mongo.username ? "--username " + mongo.username : "" %> ' +
+            '<%= mongo.password ? "--password " + mongo.password : "" %> ' +
+            '--file .data/<%= fixtureFolder %>/<%= collection %>.json'
         }
     });
+
+    grunt.loadNpmTasks('grunt-shell');
 };
