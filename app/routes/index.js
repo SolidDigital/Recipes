@@ -42,7 +42,9 @@ function displayRecipe(req, res, next) {
                 response = response.results[0].fields;
                 storedResponse = response;
                 _.each(response.sections, function(section) {
-                    html+=marked('## ' + section.title + ':');
+                    if (response.title !== section.title) {
+                        html+=marked('## ' + section.title + ':');
+                    }
                     html+=marked(section.snippet);
                     html+=marked('---');
                     html+=marked('&nbsp;');
