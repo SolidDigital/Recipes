@@ -44,6 +44,7 @@ function start() {
 
     app.expressApp.listend(PORT);
     console.log('Service listening on port: ' + PORT + '...');
+    return true;
 }
 
 function stack(type, error) {
