@@ -13,6 +13,8 @@ var PORT = process.env.PORT || 3000,
     configs = ghApi(expressApp),
     deferred = Q.defer();
 
+Q.longStackSupport = true;
+
 app.initialize({
     bridgetown : configs.bridgetown,
     express : express,
@@ -23,7 +25,7 @@ app.initialize({
 
 authToken
     .initialize()
-    .then(start)
+    .then(Q.fbind(start))
     .fail(deferred.reject)
     .catch(deferred.reject)
     .done(deferred.resolve);
