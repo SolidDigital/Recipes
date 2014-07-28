@@ -1,0 +1,35 @@
+{
+    "__v": 0,
+    "_id": {
+        "$oid": "53d66565cc49210b001d0f02"
+    },
+    "fields": {
+        "title": "Lifecycle",
+        "slug": "/docs/masseuse/views/lifecycle",
+        "sections": [
+            {
+                "title": "Word, a masseuse view has a lifecycle.",
+                "snippet": "1. beforeRender\n    * Noop by default. Views can override to customize behavior.\n    * Optionally [async](/docs/massesue/views/async-render-example). \n1. render\n    * Runs templating and overwrites or appends into `view.$el` depending on the value and existence of `options.appendTo` or `options.prependTo`\n1. afterRender\n    * Noop by default. Views can override to customize behavior. \n    * Optionally [async](/docs/massesue/views/async-render-example).\n    \nThe following events are fired:\n1. Lifecycle event fired: beforeRenderDone\n1. Lifecycle event fired: renderDone\n1. Lifecycle event fired: afterRenderDone\n\nThe deferred object returned by `view.start()` is notified:\n1. Deferred progress : beforeRenderDone\n1. Deferred progress : renderDone\n1. Deferred progress : afterRenderDone"
+            }
+        ],
+        "recipes": [
+            "53d66604cc49210b001d0f03"
+        ]
+    },
+    "meta": {
+        "node": {
+            "$oid": "53d66454cc49210b001d0f00"
+        },
+        "type": {
+            "$oid": "53d5ed8b336c520b00ead171"
+        },
+        "labelfield": "title",
+        "typelabel": "Recipe",
+        "created": {
+            "$date": 1406559589262
+        },
+        "lastmodified": {
+            "$date": 1406559834583
+        }
+    }
+}

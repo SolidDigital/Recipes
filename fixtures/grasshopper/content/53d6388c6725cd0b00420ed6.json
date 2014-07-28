@@ -1,17 +1,22 @@
 {
-    "fields": {
-        "recipes": [],
-        "sections": [
-            {
-                "snippet": "* docs\n    * masseuse\n        * [starting a new project](/docs/masseuse/starting-a-new-project) ",
-                "title": "Recipes"
-            }
-        ],
-        "slug": "/",
-        "title": "Home"
-    },
+    "__v": 0,
     "_id": {
         "$oid": "53d6388c6725cd0b00420ed6"
+    },
+    "fields": {
+        "title": "Home",
+        "slug": "/",
+        "sections": [
+            {
+                "snippet": "* [starting a new project](/docs/masseuse/starting-a-new-project) \n* [routers](/docs/masseuse/routers)\n* views\n    * [Drag and drop with jQuery UI example](/docs/masseuse/views/drag-and-drop-with-jquery-ui-example)\n    * [Lifecycle](/docs/masseuse/views/lifecycle)\n        * [Async render example](/docs/masseuse/views/async-render-example)\n    * [Plugins](/docs/masseuse/views/plugins)\n    * hooks\n    * binders\n        * [Child view binder example](/docs/masseuse/views/child-views/binders)\n    * [Two way binding example](/docs/masseuse/views/two-way-binding)\n    * default options\n        * viewOptions field\n    * options.js\n        * Listeners\n        * Rivets options\n        * Events\n        * viewContext\n        * Model\n        * Model defaults\n        * appendTo\n        * wrapper\n        * Collection\n* channels\n* models\n    * [Validation example](/docs/masseuse/models/validation)\n    * proxy/computed/observer properties\n* router\n    * example with beforeRouting, onRouterFail, etc.\n* workers (do not use - name appropriately and break into multiple amds)\n    * refactoring a view to first create private methods, then grouping them, then extracting to amds\n* modals\n* naming conventions\n    * directory structure\n    * file names\n    * path aliases",
+                "title": "Masseuse"
+            },
+            {
+                "snippet": "* javascript\n    * style\n        * [creating an object](/reference/javascript/creating-an-object)\n    * node\n        * [debugging](/reference/javascript/node/debugging)\n* promises\n    * differences between Q / $\n    * chaining\n    * error handling\n* rivets\n    * keypaths\n    * Rivets Binder example\n    * Rivets Formatters example\n    * binders \n        * existing masseuse ones\n    * filters\n    * adapters\n    * if / unless\n    * components\n    * formatters\n        * existing masseuse ones\n    * rivets\n    * iteration\n* git\n    * undoing things with reflog\n    * editing using git rebase -i\n    * checking local and global configs\n* requirejs\n    * path aliases\n* testing\n    * browser\n        * unit\n        * integration\n    * node     \n        * unit\n        * integration\n* grunt\n    * paths.json\n    * release notes\n    * deploy\n* heroku\n* foundation\n* sass\n    * mixins\n    * https://github.com/davidtheclark/scut\n* jade\n    * mixins\n    * blocks\n* shell\n    * checking what is using port\n    * shortcuting with && and ||\n    * cp -R",
+                "title": "Reference"
+            }
+        ],
+        "recipes": []
     },
     "meta": {
         "node": {
@@ -26,8 +31,7 @@
             "$date": 1406548108174
         },
         "lastmodified": {
-            "$date": 1406548108173
+            "$date": 1406561889826
         }
-    },
-    "__v": 0
+    }
 }

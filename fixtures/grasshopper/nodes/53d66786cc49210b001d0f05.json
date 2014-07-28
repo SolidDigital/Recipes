@@ -1,0 +1,26 @@
+{
+    "__v": 1,
+    "_id": {
+        "$oid": "53d66786cc49210b001d0f05"
+    },
+    "allowedTypes": [
+        {
+            "$oid": "53d5ed8b336c520b00ead171"
+        }
+    ],
+    "ancestors": [
+        {
+            "$oid": "53d5ec49ef1c1b0b007e1f39"
+        },
+        {
+            "$oid": "53d5ed9c336c520b00ead172"
+        },
+        {
+            "$oid": "53d66454cc49210b001d0f00"
+        }
+    ],
+    "label": "Child Views",
+    "parent": {
+        "$oid": "53d66454cc49210b001d0f00"
+    }
+}
