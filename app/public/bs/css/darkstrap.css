@@ -2,7 +2,7 @@
 .well, .breadcrumb, input,
 input[type="file"],
 select,
-textarea, .progress, code, pre {
+textarea, .progress {
   -moz-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
   -webkit-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
   -o-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
@@ -416,15 +416,4 @@ hr {
   box-shadow: rgba(255, 255, 255, 0.07) 0 1px 0;
   border-bottom: 1px solid #121212;
   border-top: none;
-}
-
-/* line 277, ../sass/darkstrap.scss */
-code {
-  border: none;
-}
-
-/* line 281, ../sass/darkstrap.scss */
-pre {
-  border: none;
-  color: #c6c6c6;
 }
