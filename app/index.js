@@ -42,9 +42,8 @@ function start() {
     expressApp.use('/api', ghApiRouter);
     expressApp.use(express.static(__dirname + '/public'));
 
-    app.expressApp.listend(PORT);
+    app.expressApp.listen(PORT);
     console.log('Service listening on port: ' + PORT + '...');
-    return true;
 }
 
 function stack(type, error) {
