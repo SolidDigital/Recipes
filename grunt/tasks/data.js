@@ -12,7 +12,7 @@ module.exports = function (grunt) {
 
     // Load
     grunt.registerTask('data:load', 'Helper task', function () {
-        grunt.task.run('setupLocalEnvVariables', 'data:load:write:grasshopper');
+        grunt.task.run('data:load:write:grasshopper');
     });
     grunt.registerTask('data:load:write', function(database) {
         var tasks = [];
@@ -40,7 +40,7 @@ module.exports = function (grunt) {
 
     // Save
     grunt.registerTask('data:save', function () {
-        grunt.task.run('setupLocalEnvVariables', 'data:save:write:grasshopper');
+        grunt.task.run('data:save:write:grasshopper');
     });
 
     grunt.registerTask('data:save:write', function (database) {
@@ -48,7 +48,7 @@ module.exports = function (grunt) {
         var tasks = [];
         grunt.config.set('database', database);
         grunt.config.set('fixtureFolder', getFixtureFolder());
-        grunt.config.set('mongo', getMongoConfigs(database));
+        grunt.config.set('mongo', getMongoConfigs());
 
         _.each(databases[database].collections, function (collection) {
             console.log('setting collection to: ' + collection);
@@ -82,6 +82,6 @@ module.exports = function (grunt) {
     }
 
     function getMongoConfigs() {
-        return process.env.GHCONFIG.db;
+        return require('../../ghapi.json').db;
     }
 };

@@ -7,7 +7,7 @@ module.exports = function (grunt) {
             return;
         }
 
-        var config = require('ghapi.json');
+        var config = require('../../ghapi.json');
         if (config) {
             grunt.config.set('ghapiConfigs', JSON.stringify(config));
         }
