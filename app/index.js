@@ -33,10 +33,6 @@ function start() {
         expressApp = app.expressApp,
         ghApiRouter = app.ghApi;
 
-    app.ghCore.configure(function () {
-        this.config = process.env.GHCONFIG;
-    });
-
     expressApp.use('/api', ghApiRouter);
     expressApp.use(express.static(__dirname + '/public'));
 
