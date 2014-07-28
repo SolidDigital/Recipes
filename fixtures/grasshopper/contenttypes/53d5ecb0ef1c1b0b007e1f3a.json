@@ -1,5 +1,8 @@
 {
-    "label": "Section",
+    "__v": 7,
+    "_id": {
+        "$oid": "53d5ecb0ef1c1b0b007e1f3a"
+    },
     "fields": [
         {
             "dataType": "string",
@@ -13,31 +16,18 @@
             "label": "Title"
         },
         {
-            "dataType": "string",
-            "_id": "text",
-            "validation": [],
-            "type": "richtext",
-            "options": false,
-            "min": 1,
-            "max": 1,
-            "label": "text"
-        },
-        {
             "dataType": "code",
-            "_id": "code",
+            "_id": "snippet",
             "validation": [],
             "type": "codeeditor",
             "options": {
                 "language": "markdown",
                 "theme": "light"
             },
-            "min": 1,
+            "min": 0,
             "max": 1,
-            "label": "code"
+            "label": "Snippet"
         }
     ],
-    "_id": {
-        "$oid": "53d5ecb0ef1c1b0b007e1f3a"
-    },
-    "__v": 0
+    "label": "Section"
 }
