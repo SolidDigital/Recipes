@@ -3,52 +3,43 @@
 
 require('ral').basePath = __dirname;
 
-var app = require('ral')('app'),
+var PORT = process.env.PORT || 3000,
+    app = require('ral')('app'),
     authToken = require('ral')('authToken'),
     express = require('express'),
     expressApp = express(),
     ghApi = require('grasshopper-api'),
     Q = require('q'),
-    routes = require('ral')('routes'),
-    setup = require('ral')('setup'),
-    start = require('ral')('start'),
-    configs,
+    configs = ghApi(expressApp),
     deferred = Q.defer();
 
-configure();
+app.initialize({
+    bridgetown : configs.bridgetown,
+    express : express,
+    expressApp : expressApp,
+    ghApi : configs.router,
+    ghCore : configs.core
+});
 
-// TODO: add error handling to the end of the chain
 authToken
     .initialize()
-    .then(setupRoutes)
     .then(start)
     .done(deferred.resolve);
 
 module.exports = deferred.promise;
 
-// TODO: this can be moved into the config dir
-function configure() {
-    var viewsDir = __dirname + '/lib/views',
-        publicDir = __dirname + '/public';
+function start() {
+    var express = app.express,
+        expressApp = app.expressApp,
+        ghApiRouter = app.ghApi;
 
-    configs = ghApi(expressApp);
-
-    if (!configs.router) {
-        throw new Error('\n\n\n\n\n >>>>>>>>>>>>>>> npm install to get latest grasshopper-api.\n\n\n\n\n');
-    }
-
-    app.initialize({
-        bridgetown : configs.bridgetown,
-        express : express,
-        expressApp : expressApp,
-        ghApi : configs.router,
-        ghCore : configs.core
+    app.ghCore.configure(function () {
+        this.config = process.env.GHCONFIG;
     });
 
-    setup.grasshopper();
-    setup.express(viewsDir, publicDir);
-}
+    expressApp.use('/api', ghApiRouter);
+    expressApp.use(express.static(__dirname + '/public'));
 
-function setupRoutes() {
-    routes.setup();
+    app.expressApp.listend(PORT);
+    console.log('Service listening on port: ' + PORT + '...');
 }

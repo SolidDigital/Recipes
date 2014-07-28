@@ -1,11 +1,5 @@
 {
-    "app"               : "lib/app",
-    "pkg"               : "package.json",
-    "ptwRequest"        : "lib/request",
-    "queryBuilder"      : "lib/query/builder",
-    "queryByValue"      : "lib/query/value",
-    "routes"            : "lib/routes",
-    "setup"             : "lib/setup",
-    "start"             : "lib/start",
-    "stripLabels"       : "lib/helpers/stripLabels"
+    "app"               : "app",
+    "pkg"               : "../package.json",
+    "authToken"         : "auth/token"
 }
