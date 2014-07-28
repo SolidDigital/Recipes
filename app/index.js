@@ -24,6 +24,8 @@ app.initialize({
 authToken
     .initialize()
     .then(start)
+    .fail(deferred.reject)
+    .catch(deferred.reject)
     .done(deferred.resolve);
 
 module.exports = deferred.promise;

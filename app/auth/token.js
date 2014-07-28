@@ -22,14 +22,6 @@ function initialize () {
     if (token) {
         deferred.resolve(token);
     } else {
-        config = JSON.parse(process.env.GHCONFIG);
-        console.log('----');
-        console.log('----');
-        console.log('----');
-        console.log('----');
-        console.log('----');
-        console.log('----');
-        console.log(config.username);
         app.ghCore
             .auth('Basic', { username: config.username, password: config.password })
             .then(function (theToken) {
