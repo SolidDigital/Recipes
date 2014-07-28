@@ -48,6 +48,14 @@ module.exports = function (grunt) {
             '<%= mongo.username ? "--username " + mongo.username : "" %> ' +
             '<%= mongo.password ? "--password " + mongo.password : "" %> ' +
             '--file .data/<%= fixtureFolder %>/<%= collection %>.json'
+        },
+        start : {
+            options : {
+                stdout : true,
+                stderr : true,
+                failOnError : true
+            },
+            command : 'GHCONFIG=\'<%= ghapiConfigs %>\' node app'
         }
     });
 

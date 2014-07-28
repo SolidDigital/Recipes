@@ -3,9 +3,10 @@
 
 require('ral').basePath = __dirname;
 
-var PORT = process.env.PORT || 3000,
-    app = require('ral')('app'),
+var app = require('ral')('app'),
+    start = require('ral')('start'),
     authToken = require('ral')('authToken'),
+    routes = require('ral')('routes'),
     express = require('express'),
     expressApp = express(),
     ghApi = require('grasshopper-api'),
@@ -25,6 +26,7 @@ app.initialize({
 
 authToken
     .initialize()
+    .then(routes.load)
     .then(start)
     .fail(deferred.reject)
     .catch(deferred.reject)
@@ -33,18 +35,6 @@ authToken
 module.exports = deferred.promise;
 module.exports.fail(stack.bind(null,'fail'));
 module.exports.catch(stack.bind(null,'catch'));
-
-function start() {
-    var express = app.express,
-        expressApp = app.expressApp,
-        ghApiRouter = app.ghApi;
-
-    expressApp.use('/api', ghApiRouter);
-    expressApp.use(express.static(__dirname + '/public'));
-
-    app.expressApp.listen(PORT);
-    console.log('Service listening on port: ' + PORT + '...');
-}
 
 function stack(type, error) {
     console.log('\n\n\n\n' + type + ':');

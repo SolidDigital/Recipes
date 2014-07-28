@@ -7,7 +7,8 @@ module.exports = {
     express : null,
     expressApp : null,
     ghApi : null,
-    ghCore : null
+    ghCore : null,
+    router : null
 };
 
 function initialize(app) {
