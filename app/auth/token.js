@@ -21,6 +21,25 @@ function initialize () {
     if (token) {
         deferred.resolve(token);
     } else {
+        console.log('--- u/p ---');
+        console.log('--- u/p ---');
+        console.log('--- u/p ---');
+        console.log('--- u/p ---');
+        console.log('--- u/p ---');
+        console.log('--- u/p ---');
+        console.log('--- u/p ---');
+        console.log('--- u/p ---');
+        console.log('--- u/p ---');
+        console.log('--- u/p ---');
+        console.log('--- u/p ---');
+        console.log('--- u/p ---');
+        console.log('--- u/p ---');
+        console.log('--- u/p ---');
+        console.log('--- u/p ---');
+        console.log('--- u/p ---');
+        console.log('--- u/p ---');
+        console.log(process.env.GHCONFIG.username);
+        console.log(process.env.GHCONFIG.password);
         app.ghCore
             .auth('Basic', { username: process.env.GHCONFIG.username, password: process.env.GHCONFIG.password })
             .then(function (theToken) {
