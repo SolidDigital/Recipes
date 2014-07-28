@@ -12,7 +12,7 @@ module.exports = function (grunt) {
 
     // Load
     grunt.registerTask('data:load', 'Helper task', function () {
-        grunt.task.run('data:load:write:grasshopper');
+        grunt.task.run('prompt:data', 'data:load:write:grasshopper');
     });
     grunt.registerTask('data:load:write', function(database) {
         var tasks = [];
@@ -41,7 +41,7 @@ module.exports = function (grunt) {
 
     // Save
     grunt.registerTask('data:save', function () {
-        grunt.task.run('data:save:write:grasshopper');
+        grunt.task.run('prompt:data', 'data:save:write:grasshopper');
     });
 
     grunt.registerTask('data:save:write', function (database) {
@@ -83,6 +83,7 @@ module.exports = function (grunt) {
     }
 
     function getMongoConfigs() {
-        return require('../../ghapi.json').db;
+        var env = grunt.config.get('environment');
+        return require('../../ghapi.' + env + '.json').db;
     }
 };

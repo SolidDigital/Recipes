@@ -1,0 +1,37 @@
+{
+    "cache": {
+        "path": "./cache"
+    },
+    "crypto": {
+        "secret_passphrase" : "223fdsaad-ffc8-4acb-9c9d-1fdaf824af8c"
+    },
+    "db": {
+        "type": "mongodb",
+        "shorthost": "localhost:27017",
+        "database": "gh-recipes",
+        "username": "",
+        "password": "",
+        "debug": false
+    },
+    "assets": {
+        "default": "local",
+        "tmpdir": "./tmp",
+        "engines": {
+            "local": {
+                "path": "public",
+                "urlbase": "http://solid-recipes.herokuapp.com/"
+            }
+        }
+    },
+    "logger": {
+        "adapters": [
+            {
+                "type": "console",
+                "application": "grasshopper-api",
+                "machine": "dev-server"
+            }
+        ]
+    },
+    "username":"user",
+    "password":"useruser"
+}
