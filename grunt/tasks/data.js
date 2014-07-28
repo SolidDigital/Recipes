@@ -10,34 +10,6 @@ module.exports = function (grunt) {
         grunt.file.delete('.data');
     });
 
-    // Load
-    grunt.registerTask('data:load', 'Helper task', function () {
-        grunt.task.run('data:load:write:grasshopper');
-    });
-    grunt.registerTask('data:load:write', function(database) {
-        var tasks = [];
-        grunt.config.set('database', database);
-        grunt.config.set('fixtureFolder', getFixtureFolder());
-        grunt.config.set('mongo', getMongoConfigs(database));
-
-        _.each(databases[database].collections, function (collection) {
-            var filepath = grunt.config.get('fixtureFolder') + '/' + collection,
-                arr = [];
-
-            _.each(grunt.file.expand('fixtures' + sep + filepath + sep + '*.json'), function(onePath) {
-                    arr.push(grunt.file.readJSON(onePath));
-                });
-
-            grunt.file.write('.data' + sep + filepath + '.json', JSON.stringify(arr));
-            tasks.push('data:set:collection:' + collection);
-            tasks.push('shell:mongoImport');
-        });
-
-        tasks.push('data:deleteTemp');
-
-        grunt.task.run(tasks);
-    });
-
     // Save
     grunt.registerTask('data:save', function () {
         grunt.task.run('data:save:write:grasshopper');
