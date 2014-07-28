@@ -1,11 +1,13 @@
 {
-    "fields": {
-        "recipes": [],
-        "sections": [],
-        "title": "Setting up the git repository and release branches"
-    },
+    "__v": 0,
     "_id": {
         "$oid": "53d5eedb336c520b00ead174"
+    },
+    "fields": {
+        "slug": "/docs/masseuse/setting-up-the-git-repository-and-release-branches",
+        "title": "Setting up the git repository and release branches",
+        "sections": [],
+        "recipes": []
     },
     "meta": {
         "node": {
@@ -20,8 +22,7 @@
             "$date": 1406529243317
         },
         "lastmodified": {
-            "$date": 1406529243317
+            "$date": 1406540725008
         }
-    },
-    "__v": 0
+    }
 }

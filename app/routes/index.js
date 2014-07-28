@@ -55,7 +55,7 @@ function displayRecipe(req, res, next) {
             }
         })
         .then(function(arrayOfRecipes) {
-            var response = storedResponse;
+            var response = storedResponse || {};
             arrayOfRecipes = _.map(arrayOfRecipes, function(result) {
                 return result.fields;
             });
