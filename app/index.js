@@ -25,7 +25,7 @@ app.initialize({
 
 authToken
     .initialize()
-    .then(Q.fbind(start))
+    .then(start)
     .fail(deferred.reject)
     .catch(deferred.reject)
     .done(deferred.resolve);
