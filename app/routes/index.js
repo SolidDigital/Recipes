@@ -4,9 +4,7 @@ var app = require('ral')('app'),
     constants = require('ral')('constants'),
     _ = require('lodash'),
     marked = require('marked'),
-    prefix = '<link rel="stylesheet" href="/highlight/ir_black.min.css">' +
-        '<script src="/highlight/highlight.min.js"></script>' +
-                '<script>hljs.initHighlightingOnLoad();</script>';
+    Q = require('q');
 
 module.exports = {
     load : load
@@ -25,6 +23,7 @@ function load() {
 
 function displayRecipe(req, res, next) {
     var html = '',
+        storedResponse,
         slug = req.path,
         ghCore = app.ghCore,
         queryBuilder = app.ghCore.utilities.queryBuilder,
@@ -38,19 +37,33 @@ function displayRecipe(req, res, next) {
         .request(authToken.get())
         .content.query(findSlug)
         .then(function(response) {
+            var promises;
             if (1 === response.results.length) {
                 response = response.results[0].fields;
+                storedResponse = response;
                 _.each(response.sections, function(section) {
-                    // TODO: use a jade tempalte instead
-                    html+=prefix;
-
                     html+=marked(section.snippet);
-
                 });
-                res.send(html);
+                promises = _.map(response.recipes, function(recipeId) {
+                    return ghCore
+                        .request(authToken.get())
+                        .content.getById(recipeId);
+                });
+                return Q.all(promises);
             } else {
                 next();
             }
+        })
+        .then(function(arrayOfRecipes) {
+            var response = storedResponse;
+            arrayOfRecipes = _.map(arrayOfRecipes, function(result) {
+                return result.fields;
+            });
+
+            res.render('recipe',{
+                title : response.title,
+                content : html,
+                node : arrayOfRecipes});
         })
         .fail(next);
 }

@@ -27,6 +27,7 @@
     "express": "^4.7.2",
     "grasshopper-api": "^0.14.23",
     "highlight.js": "^8.1.0",
+    "jade": "^1.5.0",
     "lodash": "^2.4.1",
     "marked": "^0.3.2",
     "q": "^1.0.1",

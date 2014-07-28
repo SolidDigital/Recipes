@@ -1,0 +1,51 @@
+doctype html.
+<!--[if IE 9]> <html class="ie9"> <![endif]-->
+<!--[if !(IE 9)]><!-->
+html(lang="en")
+    <!--<![endif]-->
+    head.
+        <meta charset="utf-8">
+        <title>#{title}</title>
+        <meta name="description" content="How to begin a masseuse project.">
+        <meta name="author" content="Solid Interactive">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <link href="/bs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/bs/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/bs/css-social-buttons/css/zocial.stripped.css">
+        <link href="/bs/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/bs/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/bs/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+        <!-- fav and touch icons -->
+        <!-- Update these with your own images
+            <link rel="shortcut icon" href="/bs/images/favicon.ico">
+            <link rel="apple-touch-icon" href="/bs/images/apple-touch-icon.png">
+            <link rel="apple-touch-icon" sizes="72x72" href="/bs/images/apple-touch-icon-72x72.png">
+            <link rel="apple-touch-icon" sizes="114x114" href="/bs/images/apple-touch-icon-114x114.png">
+        -->
+
+        <link rel="stylesheet" href="/highlight/ir_black.min.css">
+        <script src="/highlight/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    body
+        div#page-wrap
+            div.navbar
+            div.container
+                div.content
+                    div.page-header
+                        h1 #{title}
+                    div.row
+                        div.span8
+                            != content
+                        div.span4
+                            each recipe in node
+                                section
+                                    a(href='#{recipe.slug}') #{recipe.title}
+            div.footer-push
+        footer
+            div.container

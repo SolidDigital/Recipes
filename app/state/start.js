@@ -17,6 +17,10 @@ function start() {
         ghApiRouter = app.ghApi;
 
     expressApp.use('/api', ghApiRouter);
+    expressApp.engine('jade', require('jade').__express);
+    expressApp.set('view engine', 'jade');
+    expressApp.set('views', app.rootDir + '/views');
+    expressApp.set('view options', { layout: true });
     expressApp.use(express.static(app.rootDir + '/public'));
     expressApp.use(app.router);
     expressApp.listen(PORT);
