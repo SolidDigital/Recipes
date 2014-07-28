@@ -1,0 +1,27 @@
+{
+    "__v": 0,
+    "_id": {
+        "$oid": "530e44c13d3902f708000001"
+    },
+    "dateCreated": {
+        "$date": 1393444033277
+    },
+    "displayName": "user",
+    "email": "l@lkj.com",
+    "enabled": true,
+    "firstname": "user",
+    "identities": {
+        "basic": {
+            "username": "user",
+            "hash": "014945e2c954f3550b01836f4c3378198498d3e87688fbe0efee2064aead2476",
+            "salt": "1228427390203"
+        }
+    },
+    "lastname": "user",
+    "linkedIdentities": [
+        "basic"
+    ],
+    "permissions": [],
+    "profile": {},
+    "role": "admin"
+}
