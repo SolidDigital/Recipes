@@ -29,8 +29,8 @@ authToken
     .done(deferred.resolve);
 
 module.exports = deferred.promise;
-module.exports.fail(stack);
-module.exports.catch(stack);
+module.exports.fail(stack.bind(null,'fail'));
+module.exports.catch(stack.bind(null,'catch'));
 
 function start() {
     var express = app.express,
@@ -44,6 +44,7 @@ function start() {
     console.log('Service listening on port: ' + PORT + '...');
 }
 
-function stack(error) {
+function stack(type, error) {
+    console.log('\n\n\n\n' + type + ':');
     console.log(error.stack);
 }
