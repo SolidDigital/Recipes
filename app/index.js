@@ -13,6 +13,26 @@ var PORT = process.env.PORT || 3000,
     configs = ghApi(expressApp),
     deferred = Q.defer();
 
+console.log('--- u/p ---');
+console.log('--- u/p ---');
+console.log('--- u/p ---');
+console.log('--- u/p ---');
+console.log('--- u/p ---');
+console.log('--- u/p ---');
+console.log('--- u/p ---');
+console.log('--- u/p ---');
+console.log('--- u/p ---');
+console.log('--- u/p ---');
+console.log('--- u/p ---');
+console.log('--- u/p ---');
+console.log('--- u/p ---');
+console.log('--- u/p ---');
+console.log('--- u/p ---');
+console.log('--- u/p ---');
+console.log('--- u/p ---');
+console.log(process.env.GHCONFIG.username);
+console.log(process.env.GHCONFIG.password);
+
 app.initialize({
     bridgetown : configs.bridgetown,
     express : express,
