@@ -61,6 +61,9 @@ function displayRecipe(req, res, next) {
         })
         .then(function(arrayOfRecipes) {
             var response = storedResponse || {};
+            if (!arrayOfRecipes) {
+                return;
+            }
             arrayOfRecipes = _.map(arrayOfRecipes, function(result) {
                 return result.fields;
             });
