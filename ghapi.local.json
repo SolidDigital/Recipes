@@ -7,10 +7,12 @@
     },
     "db": {
         "type": "mongodb",
+        "host": "mongodb://localhost:27017/gh-recipes",
         "shorthost": "localhost:27017",
         "database": "gh-recipes",
         "username": "",
         "password": "",
+        "defaultPageSize" : "10000",
         "debug": false
     },
     "assets": {
