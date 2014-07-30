@@ -2,7 +2,8 @@
 
 module.exports = {
     get : get,
-    set : set
+    set : set,
+    attach : attach
 };
 
 function get (obj, str) {
@@ -17,10 +18,18 @@ function get (obj, str) {
 }
 
 function set (obj, str, val) {
+    var next;
     str = str.split('.');
     while (str.length > 1) {
-        obj = obj[str.shift()];
+        next = str.shift();
+        obj[next] = obj[next] || {};
+        obj = obj[next];
     }
     obj[str.shift()] = val;
+}
+
+function attach(obj) {
+    obj.get = get.bind(obj, obj);
+    obj.set = set.bind(obj, obj);
 }
 

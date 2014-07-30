@@ -13,7 +13,10 @@ var app = require('ral')('app'),
     ghApi = require('grasshopper-api'),
     Q = require('q'),
     configs = ghApi(expressApp),
-    deferred = Q.defer();
+    deferred = Q.defer(),
+    a = {
+        b: '1'
+    };
 
 Q.longStackSupport = true;
 
