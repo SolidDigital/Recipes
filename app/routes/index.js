@@ -99,6 +99,15 @@ function displayDirectory(req, res, next) {
                 .nodes.getChildren(node._id, true);})
         .then(function(nodes) {
 
+            console.log('\n\n\n\n\n\n\n\n\n\n\n\n\n\n-------');
+            console.log('-------');
+            console.log('-------');
+            console.log('-------');
+            console.log('-------');
+            console.log('-------');
+            console.log('-------');
+            console.log('--- nodes');
+            console.log(JSON.stringify(nodes,null,1));
             return Q.all(_.map(nodes, function(node) {
                 return core.request(authToken.get())
                     .content.query(findInNode(node._id))
@@ -146,6 +155,10 @@ function displayDirectory(req, res, next) {
             });
 
             keypath = slug.slice(1).replace(/\//g,'.');
+            console.log('keypath', keypath);
+            console.log('slug', slug);
+            console.log(JSON.stringify(newNodes,null,1));
+            console.log('^^^^ new nodes');
             dotGetterSetter.detach(newNodes);
             content = createDirListing(keypath ? dotGetterSetter.get(newNodes,keypath) : newNodes, '', '', slug);
 
