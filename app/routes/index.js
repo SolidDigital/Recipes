@@ -88,14 +88,17 @@ function displayDirectory(req, res, next) {
             });
 
             if (!routedTo) {
-                throw new Error('Cannot find routed to node.');
+                routedTo = {
+                    label : 'Home',
+                    _id : null
+                };
             }
-            title = routedTo.label;
             return routedTo; })
         .then(function(node) {
             return core.request(authToken.get())
                 .nodes.getChildren(node._id, true);})
         .then(function(nodes) {
+
             return Q.all(_.map(nodes, function(node) {
                 return core.request(authToken.get())
                     .content.query(findInNode(node._id))
@@ -142,23 +145,9 @@ function displayDirectory(req, res, next) {
                 newNodes.set(getNodeSetter(node), info);
             });
 
-
-            console.log('--------');
-            console.log('--------');
-            console.log('--------');
-            console.log('--------');
-            console.log('--------');
-            console.log(JSON.stringify(newNodes,null,4));
-            console.log('^^^^^');
-            console.log('^^^^^');
-            console.log('^^^^^');
-            console.log('^^^^^');
-            console.log('^^^^^');
-
             keypath = slug.slice(1).replace(/\//g,'.');
-            console.log('keypath:' + keypath);
-            content = createDirListing(newNodes.get(keypath), '', '', slug);
-
+            dotGetterSetter.detach(newNodes);
+            content = createDirListing(keypath ? dotGetterSetter.get(newNodes,keypath) : newNodes, '', '', slug);
 
             res.render('recipe',{
                 title : title,
@@ -167,7 +156,6 @@ function displayDirectory(req, res, next) {
         })
         // Cannot call next w an error, unless you want it bubble up to a 500
         .fail(function() {
-            console.log('slug:eeeeeee',slug);
             next();
         })
         .done();
@@ -175,33 +163,26 @@ function displayDirectory(req, res, next) {
 
 function createDirListing(theNode, prefix, content, slug) {
 
-    console.log('starting slug: ' + slug);
-    console.log(theNode);
-    console.log('---');
     if (theNode.links) {
 
-        console.log('inside');
         _.each(theNode.links, function(link) {
-            console.log('title' + link.title);
-            console.log('slug' + link.slug);
             content += prefix + '* [' + link.title + '](' + link.slug + ')\n';
         });
     }
 
     delete theNode.links;
 
-    console.log('starting child nodes');
     _.each(theNode, function(node, label) {
-        var newSlug = slug + '/' + label;
+        var newSlug = slug + ('/' === slug ? '' : '/') + label;
+
         content += prefix + '* [' + label + '](' + newSlug + ')\n';
         content = createDirListing(node, '   ' + prefix, content, newSlug);
     });
-    console.log('end');
     return content;
 }
 
 function getSlug(req, res, next) {
-    req.slug = ('/' === req.path ? '/home/home' : req.path);
+    req.slug = req.path;
     next();
 }
 
