@@ -5,6 +5,7 @@ require('ral').basePath = __dirname;
 
 var app = require('ral')('app'),
     start = require('ral')('start'),
+    listeners = require('ral')('listeners'),
     authToken = require('ral')('authToken'),
     routes = require('ral')('routes'),
     express = require('express'),
@@ -27,6 +28,7 @@ app.initialize({
 
 authToken
     .initialize()
+    .then(listeners.load)
     .then(routes.load)
     .then(start)
     .fail(deferred.reject)
