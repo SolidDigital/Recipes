@@ -4,7 +4,8 @@ var app = require('ral')('app'),
     constants = require('ral')('constants'),
     _ = require('lodash'),
     marked = require('marked'),
-    Q = require('q');
+    Q = require('q'),
+    pending = 0;
 
 module.exports = {
     load : load
@@ -15,10 +16,50 @@ function load() {
 
     app.router = router;
 
+    router.use('/', displayHomePage);
     router.use(displayRecipe);
 
     // 404 added as last piece of middleware
     router.use(pageNotFound);
+}
+
+function displayHomePage(req, res, next) {
+    var ghCore = app.ghCore,
+        wait = 0;
+
+
+    ghCore.request(authToken.get())
+        .nodes.getChildren(null, true)
+        .then(function(nodes) {
+            _.each(nodes, function(node) {
+                wait+=0;
+                setTimeout(function() {
+                    ghCore.request(authToken.get())
+                        .content.query({
+                            nodes: [node._id]
+                        })
+                        .then(function(rrr) {
+                            console.log('THE RESPONSE FOR:::::: ' + node._id);
+                            console.log(JSON.stringify(rrr,null,1));
+                        });
+                }, wait);
+
+            });
+            tryToSendResponse(pending, res);
+        })
+        .catch(next)
+        .fail(next);
+}
+
+
+function tryToSendResponse(pending, res) {
+    if (!pending) {
+        console.log('\n\n\n\n\n\n\n\n\n\nRENDER RENDER RENDER RENDER >>>>>>>>>>>>>');
+        res.render('recipe',{
+            title : 'Solid Recipes',
+            content : '<p>Test</p>',
+            node : []});
+    }
 }
 
 function displayRecipe(req, res, next) {
@@ -71,7 +112,7 @@ function displayRecipe(req, res, next) {
             res.render('recipe',{
                 title : response.title,
                 content : html,
-                node : arrayOfRecipes});
+                node : arrayOfRecipes || []});
         })
         .fail(next);
 }
