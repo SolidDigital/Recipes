@@ -1,17 +1,19 @@
 {
-    "fields": {
-        "recipes": [],
-        "sections": [
-            {
-                "snippet": "### TODO:\n* `[ ]` Refactor masseuse Computed/Proxy/Observer properties to use Backbone events\n* `[ ]` Add `data-rv-prevent-default` to masseuse rivets binders\n* `[ ]` Add optional SCSS support to grunt-init masseuse template.\n* `[ ]` Add optional Jade support to grunt-init masseuse template.\n* `[ ]` Update deploy task to use grunt prompt and to have appropriate behavior for production & staging\n* `[ ]` override bb router to have routes be an array\n* `[ ]` put `loadMainContent` into the masseuse base router\n\n### DONE:\n* `[x]` update grunt init shell task to point to staging and not stage\n* `[x]` Add out of the box support for heroku with buildGhPages\n* `[x]` Update buildGhPages stage subtask to use the staging and not production branch.\n* `[x]` Update template to use `buildGhPages` and not `build_gh_pages` in the config for `buildGhPages`\n",
-                "title": "Todos"
-            }
-        ],
-        "slug": "/todos",
-        "title": "Todos"
-    },
+    "__v": 0,
     "_id": {
         "$oid": "53d61fd3336c520b00ead177"
+    },
+    "fields": {
+        "computed-slug": "",
+        "title": "Todos",
+        "slug": "/todos",
+        "sections": [
+            {
+                "title": "Todos change",
+                "snippet": "### TODO:\n* `[ ]` Refactor masseuse Computed/Proxy/Observer properties to use Backbone events\n* `[ ]` Add `data-rv-prevent-default` to masseuse rivets binders\n* `[ ]` Add optional SCSS support to grunt-init masseuse template.\n* `[ ]` Add optional Jade support to grunt-init masseuse template.\n* `[ ]` Update deploy task to use grunt prompt and to have appropriate behavior for production & staging\n* `[ ]` override bb router to have routes be an array\n* `[ ]` put `loadMainContent` into the masseuse base router\n\n### DONE:\n* `[x]` update grunt init shell task to point to staging and not stage\n* `[x]` Add out of the box support for heroku with buildGhPages\n* `[x]` Update buildGhPages stage subtask to use the staging and not production branch.\n* `[x]` Update template to use `buildGhPages` and not `build_gh_pages` in the config for `buildGhPages`\n"
+            }
+        ],
+        "recipes": []
     },
     "meta": {
         "node": {
@@ -26,8 +28,7 @@
             "$date": 1406541779753
         },
         "lastmodified": {
-            "$date": 1406541779752
+            "$date": 1406700432299
         }
-    },
-    "__v": 0
+    }
 }

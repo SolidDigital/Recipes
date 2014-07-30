@@ -2,6 +2,8 @@
     "app"               : "state/app",
     "authToken"         : "auth/token",
     "constants"         : "state/constants",
+    "dotGetSet"         : "utilities/dotGetSet",
+    "listeners"         : "listeners",
     "pkg"               : "../package.json",
     "routes"            : "routes",
     "start"             : "state/start"

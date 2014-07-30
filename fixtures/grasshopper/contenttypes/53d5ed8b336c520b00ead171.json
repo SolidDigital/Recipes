@@ -1,5 +1,5 @@
 {
-    "__v": 3,
+    "__v": 7,
     "_id": {
         "$oid": "53d5ed8b336c520b00ead171"
     },
@@ -14,6 +14,26 @@
             "min": 1,
             "max": 1,
             "label": "Title"
+        },
+        {
+            "dataType": "reference",
+            "_id": "title-slug",
+            "validation": [],
+            "type": "slug",
+            "options": "title",
+            "min": 1,
+            "max": 1,
+            "label": "Title Slug"
+        },
+        {
+            "dataType": "string",
+            "_id": "computed-slug",
+            "validation": [],
+            "type": "readonly",
+            "options": false,
+            "min": 1,
+            "max": 1,
+            "label": "Computed Slug"
         },
         {
             "dataType": "string",
@@ -43,10 +63,10 @@
             "validation": [],
             "type": "contentreference",
             "options": {
+                "defaultNode": "0",
                 "allowedTypes": [
                     "53d5ed8b336c520b00ead171"
-                ],
-                "defaultNode": "0"
+                ]
             },
             "min": 0,
             "max": 10,

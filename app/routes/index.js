@@ -73,7 +73,7 @@ function displayRecipe(req, res, next) {
         queryBuilder = app.ghCore.utilities.queryBuilder,
         findSlug = queryBuilder
             .create()
-            .equals('fields.slug', slug)
+            .equals('fields.computed-slug', slug)
             .inTypes([constants.ids.recipes])
             .build();
 
