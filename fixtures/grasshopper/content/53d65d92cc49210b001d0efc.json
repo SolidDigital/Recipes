@@ -4,41 +4,41 @@
         "$oid": "53d65d92cc49210b001d0efc"
     },
     "fields": {
-        "title": "Routers",
-        "slug": "/docs/masseuse/routers",
+        "computed-slug": "/docs/masseuse/routers",
+        "title-slug": "routers",
+        "recipes": [],
         "sections": [
             {
-                "title": "excludeFromBeforeRouting >",
-                "snippet": "This is an array of routes that when hit, will not trigger `beforeRouting`.\n\nFor example:\n\n```javascript\nexcludeFromBeforeRouting : ['login', 'logout', 'thisrouteis/excluded/:id'],\n```"
+                "snippet": "This is an array of routes that when hit, will not trigger `beforeRouting`.\n\nFor example:\n\n```javascript\nexcludeFromBeforeRouting : ['login', 'logout', 'thisrouteis/excluded/:id'],\n```",
+                "title": "excludeFromBeforeRouting"
             },
             {
-                "title": "routes",
-                "snippet": "Make sure to reference the methods via strings and not via function reference if you want `onBeforeRouting` to work.\nRoutes in one router should be conceptually grouped.\nIf routes starts to get too big, create multiple routers.\n\n[See backbone docs](http://backbonejs.org/#Router-routes)\nThe 'catchall' should contain at least one character after the star(and should be the last route in the routes obj).\n"
+                "snippet": "Make sure to reference the methods via strings and not via function reference if you want `onBeforeRouting` to work.\nRoutes in one router should be conceptually grouped.\nIf routes starts to get too big, create multiple routers.\n\n[See backbone docs](http://backbonejs.org/#Router-routes)\nThe 'catchall' should contain at least one character after the star(and should be the last route in the routes obj).\n",
+                "title": "routes"
             },
             {
-                "title": "beforeRouting",
-                "snippet": "Is a noop, if you define it, you must return a promise.\nThe promise that is returned, determines if you can pass, or if you shall not pass.\n\nThis is useful for things like auth.\n\n```javascript\nfunction beforeRouting() {\n    var $deferred = $.Deferred()\n   \n    // If the deferred is resolved, then you can rage on.\n    // If the deferred is rejected, then onRouteFail will be called.\n    \n    return $deferred.promise();\n}\n```"
+                "snippet": "Is a noop, if you define it, you must return a promise.\nThe promise that is returned, determines if you can pass, or if you shall not pass.\n\nThis is useful for things like auth.\n\n```javascript\nfunction beforeRouting() {\n    var $deferred = $.Deferred()\n   \n    // If the deferred is resolved, then you can rage on.\n    // If the deferred is rejected, then onRouteFail will be called.\n    \n    return $deferred.promise();\n}\n```",
+                "title": "beforeRouting"
             },
             {
-                "title": "onRouteFail",
-                "snippet": "This method is called if the beforeRouting deferred is rejected.  \nIt is useful for logging people out, displaying an error page, etc. \n\n```javascript\nfunction onRouteFail() {\n    // this guy will be called when you reject beforeRouting deferred.\n}\n```   "
+                "snippet": "This method is called if the beforeRouting deferred is rejected.  \nIt is useful for logging people out, displaying an error page, etc. \n\n```javascript\nfunction onRouteFail() {\n    // this guy will be called when you reject beforeRouting deferred.\n}\n```   ",
+                "title": "onRouteFail"
             },
             {
-                "title": "Modularization",
-                "snippet": "[Example](todo:create massesuse examples example)\n\nTo create multiple routers:\n\n1. Create a base router.\n\n    ```javascript\n    var BaseRouter = masseuse.Router.extend({\n        // Shared methods\n        loadMainContent: loadMainContent,\n        beforeRouting: beforeRouting,\n        onRouteFail: onRouteFail\n    });\n    ```\n    \n1. Create individual routers that extend the base router.\n\n    ```javascript\n    var LoginRouter = BaseRouter.extend({\n        // Specific to this group of routes\n        excludeFromBeforeRouting: ['login', 'logout', 'register'],\n        routes: {\n            'login': 'login',\n            'logout': 'logout',\n            'register': 'register'\n        }\n    });\n    \n    var AdminRouter = BaseRouter.extend({\n        routes: {\n            ...\n        }\n    });\n    ```\n    \n1. Start up each individual router in the same place you would start your one router.\n\n    ```javascript\n    new LoginRouter();\n    new AdminRouter();\n    \n    Backbone.history.start();\n    ```"
+                "snippet": "[Example](todo:create massesuse examples example)\n\nTo create multiple routers:\n\n1. Create a base router.\n\n    ```javascript\n    var BaseRouter = masseuse.Router.extend({\n        // Shared methods\n        loadMainContent: loadMainContent,\n        beforeRouting: beforeRouting,\n        onRouteFail: onRouteFail\n    });\n    ```\n    \n1. Create individual routers that extend the base router.\n\n    ```javascript\n    var LoginRouter = BaseRouter.extend({\n        // Specific to this group of routes\n        excludeFromBeforeRouting: ['login', 'logout', 'register'],\n        routes: {\n            'login': 'login',\n            'logout': 'logout',\n            'register': 'register'\n        }\n    });\n    \n    var AdminRouter = BaseRouter.extend({\n        routes: {\n            ...\n        }\n    });\n    ```\n    \n1. Start up each individual router in the same place you would start your one router.\n\n    ```javascript\n    new LoginRouter();\n    new AdminRouter();\n    \n    Backbone.history.start();\n    ```\n    \n1. If you create a 404 'pageNotFound' router, it must be instantiated before other routers.\n\n1. Home route can be an empty string. ",
+                "title": "Modularization"
             },
             {
-                "title": "loadMainContent",
-                "snippet": "Loads a parent view into a DOM element and removes anything currently in that DOM element. Similar to changing a page\non a server side app.\n\n```javascript\nfunction loadMainContent (ViewType, options) {\n    var $deferred = new $.Deferred(),\n        newView;\n    \n    if (!options) {\n        options = {};\n    }\n    \n    if (options.modelData) {\n        options.modelData.resources = resources;\n    }\n    newView = new ViewType(options);\n    \n    if (currentView) {\n        currentView.remove();\n    }\n    \n    newView.start()\n        .done(function () {\n            currentView = newView;\n            $deferred.resolve(newView);\n        })\n        .fail(function () {\n            $deferred.reject();\n        });\n    \n    return $deferred.promise();\n}\n```\n"
+                "snippet": "Loads a parent view into a DOM element and removes anything currently in that DOM element. Similar to changing a page\non a server side app.\n\n```javascript\nfunction loadMainContent (ViewType, options) {\n    var $deferred = new $.Deferred(),\n        newView;\n    \n    if (!options) {\n        options = {};\n    }\n    \n    if (options.modelData) {\n        options.modelData.resources = resources;\n    }\n    newView = new ViewType(options);\n    \n    if (currentView) {\n        currentView.remove();\n    }\n    \n    newView.start()\n        .done(function () {\n            currentView = newView;\n            $deferred.resolve(newView);\n        })\n        .fail(function () {\n            $deferred.reject();\n        });\n    \n    return $deferred.promise();\n}\n```\n",
+                "title": "loadMainContent"
             },
             {
-                "title": "Push State",
-                "snippet": "On a server all routes should be redirected to render the same html index page:\n\n```javascript\n// Express router example\nrouter.route('/example(/*)?').get(function (req, res, next) {\n    showStaticPage(req, res, next, 'example');\n});\n```\n\nThen push state has to be turned on for Backbone:\n\n```javascript\nBackbone.history.start({\n    hashChange : false,\n    pushState: true\n});\n```\n\nThen [clicks on `a` tags have to be intercepted](http://stackoverflow.com/questions/9328513/backbone-js-and-pushstate) \nso as not to reload the page. \n\n```javascript\nfunction setupPushState () {\n    $(document).on('click', 'a[href^=\"/<%= someBaseUrl %>\"]', navigate);\n}\n```\n\nYou might also want to make a navigate method that will ignore certain keys so that a lot of people can command click on stuff. \nSometimes, in the fall, a person might find themselves not wanting to actually navigate, only open that page up.\nIt behooves oneself to enable this kind of navigation. If one was willing to command click on something, one would expect this particular behavior. \n \n```javascript \nfunction navigate(event) {\n    var $a,\n        url;\n        \n    if (!event.altKey && !event.ctrlKey && !event.metaKey && !event.shiftKey) {\n        $a = $(event.currentTarget);\n        if (!$a.attr('target')) {\n            event.preventDefault();\n            url = $a.attr('href').replace(/^\\//, '');\n            Backbone.history.navigate(url, { trigger: true });\n        }\n    }\n}\n```"
+                "snippet": "On a server all routes should be redirected to render the same html index page:\n\n```javascript\n// Express router example\nrouter.route('/example(/*)?').get(function (req, res, next) {\n    showStaticPage(req, res, next, 'example');\n});\n```\n\nThen push state has to be turned on for Backbone:\n\n```javascript\nBackbone.history.start({\n    hashChange : false,\n    pushState: true\n});\n```\n\nThen [clicks on `a` tags have to be intercepted](http://stackoverflow.com/questions/9328513/backbone-js-and-pushstate) \nso as not to reload the page. \n\n```javascript\nfunction setupPushState () {\n    $(document).on('click', 'a[href^=\"/<%= someBaseUrl %>\"]', navigate);\n}\n```\n\nYou might also want to make a navigate method that will ignore certain keys so that a lot of people can command click on stuff. \nSometimes, in the fall, a person might find themselves not wanting to actually navigate, only open that page up.\nIt behooves oneself to enable this kind of navigation. If one was willing to command click on something, one would expect this particular behavior. \n \n```javascript \nfunction navigate(event) {\n    var $a,\n        url;\n        \n    if (!event.altKey && !event.ctrlKey && !event.metaKey && !event.shiftKey) {\n        $a = $(event.currentTarget);\n        if (!$a.attr('target')) {\n            event.preventDefault();\n            url = $a.attr('href').replace(/^\\//, '');\n            Backbone.history.navigate(url, { trigger: true });\n        }\n    }\n}\n```",
+                "title": "Push State"
             }
         ],
-        "recipes": [],
-        "title-slug": "routers",
-        "computed-slug": "/docs/masseuse/routers"
+        "slug": "/docs/masseuse/routers",
+        "title": "Routers"
     },
     "meta": {
         "node": {
@@ -53,7 +53,7 @@
             "$date": 1406557586894
         },
         "lastmodified": {
-            "$date": 1406707139575
+            "$date": 1406749060956
         }
     }
 }

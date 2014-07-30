@@ -4,17 +4,21 @@
         "$oid": "53d667f1cc49210b001d0f06"
     },
     "fields": {
-        "recipes": [],
+        "computed-slug": "/docs/masseuse/views/child-views/binders",
+        "title-slug": "binders",
+        "title": "Binders",
+        "slug": "/docs/masseuse/views/child-views/binders",
         "sections": [
             {
-                "snippet": "[example](http://solid-interactive.github.io/masseuse-examples/new-child-view-binder/)",
-                "title": "Sample code"
+                "snippet": "1. To create a child-view binder, you will need to require the child view into your parent view's config, and add it into the rivetsConfig childViewBinders hash.\n\n```javascript\nrivetsConfig : {\n    formatters       : [formatters],\n    childViewBinders : {\n        'project-view' : ProjectView\n    }\n}\n```\n\n1. This will create a binding available in the template (in the example it would be 'data-rv-new-project-view')\n\n2. You can bind to a collection, or model, or hash and have them available in the child view as 'this.collection' (for collection), 'this.model' (if you have bound a model or hash).\n\n",
+                "title": "Binders"
+            },
+            {
+                "title": "Sample code",
+                "snippet": "[example](http://solid-interactive.github.io/masseuse-examples/new-child-view-binder/)"
             }
         ],
-        "slug": "/docs/masseuse/views/child-views/binders",
-        "title": "Binders",
-        "title-slug": "binders",
-        "computed-slug": "/docs/masseuse/views/child-views/binders"
+        "recipes": []
     },
     "meta": {
         "node": {
@@ -29,7 +33,7 @@
             "$date": 1406560241038
         },
         "lastmodified": {
-            "$date": 1406707068276
+            "$date": 1406752405220
         }
     }
 }
