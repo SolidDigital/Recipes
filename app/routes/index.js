@@ -4,8 +4,7 @@ var app = require('ral')('app'),
     constants = require('ral')('constants'),
     _ = require('lodash'),
     marked = require('marked'),
-    Q = require('q'),
-    pending = 0;
+    Q = require('q');
 
 module.exports = {
     load : load
@@ -25,7 +24,7 @@ function load() {
 function displayRecipe(req, res, next) {
     var html = '',
         storedResponse,
-        slug = req.path == '/' ? '/home/home' : req.path,
+        slug = req.path,
         ghCore = app.ghCore,
         queryBuilder = app.ghCore.utilities.queryBuilder,
         findSlug = queryBuilder
