@@ -193,7 +193,7 @@ function createDirListing(theNode, prefix, content, slug) {
     console.log('starting child nodes');
     _.each(theNode, function(node, label) {
         var newSlug = slug + '/' + label;
-        content += prefix + '* DIR: [' + label + '](' + newSlug + ')\n';
+        content += prefix + '* [' + label + '](' + newSlug + ')\n';
         content = createDirListing(node, '   ' + prefix, content, newSlug);
     });
     console.log('end');
