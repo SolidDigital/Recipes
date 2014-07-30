@@ -24,33 +24,36 @@ function load() {
 }
 
 function displayHomePage(req, res, next) {
-    var ghCore = app.ghCore,
-        wait = 0;
+    saturateNodes(null, res, authToken.get(), next);
+}
 
+function saturateNodes(nodeId, res, token, next) {
+    var ghCore = app.ghCore;
 
-    ghCore.request(authToken.get())
-        .nodes.getChildren(null, true)
+    ++pending;
+    console.log('PENDING ::::::::: ' + pending);
+    console.log('FETCHING ID:::::: ' + nodeId);
+    ghCore
+        .request(token)
+        .nodes.getChildren(nodeId)
         .then(function(nodes) {
+            --pending;
+            console.log('\n\n\n\n\n\n');
+            console.log('pending', pending);
+            console.log('get chilren results for nodeId: ' + nodeId);
             _.each(nodes, function(node) {
-                wait+=0;
-                setTimeout(function() {
-                    ghCore.request(authToken.get())
-                        .content.query({
-                            nodes: [node._id]
-                        })
-                        .then(function(rrr) {
-                            console.log('THE RESPONSE FOR:::::: ' + node._id);
-                            console.log(JSON.stringify(rrr,null,1));
-                        });
-                }, wait);
-
+                console.log('_ID :::::::::::: ' + node._id);
             });
+
+            _.each(nodes, function(node) {
+                saturateNodes(node._id, res, token, next);
+            });
+
             tryToSendResponse(pending, res);
         })
         .catch(next)
         .fail(next);
 }
-
 
 function tryToSendResponse(pending, res) {
     if (!pending) {
