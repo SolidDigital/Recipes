@@ -201,7 +201,7 @@ function createDirListing(theNode, prefix, content, slug) {
 }
 
 function getSlug(req, res, next) {
-    req.slug = req.path;
+    req.slug = ('/' === req.path ? '/home/home' : req.path);
     next();
 }
 
