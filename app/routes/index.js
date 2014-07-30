@@ -24,7 +24,7 @@ function load() {
 function displayRecipe(req, res, next) {
     var html = '',
         storedResponse,
-        slug = req.path,
+        slug = getSlug(req.path),
         ghCore = app.ghCore,
         queryBuilder = app.ghCore.utilities.queryBuilder,
         findSlug = queryBuilder
@@ -74,6 +74,10 @@ function displayRecipe(req, res, next) {
                 node : arrayOfRecipes || []});
         })
         .fail(next);
+}
+
+function getSlug(path) {
+    return '/' === path ? '/home/home' : path;
 }
 
 function pageNotFound(req, res) {
