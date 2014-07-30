@@ -3,7 +3,8 @@
 module.exports = {
     get : get,
     set : set,
-    attach : attach
+    attach : attach,
+    detach : detach
 };
 
 function get (obj, str) {
@@ -33,3 +34,7 @@ function attach(obj) {
     obj.set = set.bind(obj, obj);
 }
 
+function detach(obj) {
+    delete obj.get;
+    delete obj.set;
+}

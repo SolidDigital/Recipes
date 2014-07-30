@@ -81,5 +81,8 @@ function getSlug(path) {
 }
 
 function pageNotFound(req, res) {
-    new app.bridgetown.Response(res).writeNotFound();
+    res.render('recipe',{
+        title : 'Page Not Found',
+        content : '<h2>Error 404</h2><p>Try again, or go <a href="/">home</a>.</p>',
+        node : []});
 }
