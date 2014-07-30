@@ -4,15 +4,17 @@
         "$oid": "53d66de8ade6390b00282141"
     },
     "fields": {
-        "title": "Debugging",
-        "slug": "/reference/javascript/node/debugging",
+        "computed-slug": "/reference/javascript/node/debugging",
+        "title-slug": "debugging",
+        "recipes": [],
         "sections": [
             {
-                "title": "Debugging",
-                "snippet": "For stepping through code use `node-inspector`. To install `node-inspector`:\n\n```bash\nnpm install -g node-inspector\n```\n\nTo run node inspector you must use a path to the app, for example if you have an app in the `server` \ndirectory and it contains an `index.js` file as it's entry point:\n\n```bash\nnode-debug server\n```\n\nNote that the command is `node-debug`. If, for example, you wanted to debug \nvia grunt, you would need the path to grunt:\n\nThe direct method above or using a path to a js file is the easiest method. You can also try and debug\nthrough other parent apps. In each case, the path is needed:\n\n```bash\nnode-debug $(which grunt) server\n```\n\nFinally, debugging mocha seems error prone, but if you have to, you should use `_mocha` and not `mocha`:\n\n```bash\nnode-debug $(which _mocha)\n```\n\n"
+                "snippet": "For stepping through code use `node-inspector`. To install `node-inspector`:\n\n```bash\nnpm install -g node-inspector\n```\n\nTo run node inspector you must use a path to the app, for example if you have an app in the `server` \ndirectory and it contains an `index.js` file as it's entry point:\n\n```bash\nnode-debug server\n```\n\nNote that the command is `node-debug`. If, for example, you wanted to debug \nvia grunt, you would need the path to grunt:\n\nThe direct method above or using a path to a js file is the easiest method. You can also try and debug\nthrough other parent apps. In each case, the path is needed:\n\n```bash\nnode-debug $(which grunt) server\n```\n\nFinally, debugging mocha seems error prone, but if you have to, you should use `_mocha` and not `mocha`:\n\n```bash\nnode-debug $(which _mocha)\n```\n\n",
+                "title": "Debugging"
             }
         ],
-        "recipes": []
+        "slug": "/reference/javascript/node/debugging",
+        "title": "Debugging"
     },
     "meta": {
         "node": {
@@ -27,7 +29,7 @@
             "$date": 1406561768109
         },
         "lastmodified": {
-            "$date": 1406561782384
+            "$date": 1406707176710
         }
     }
 }

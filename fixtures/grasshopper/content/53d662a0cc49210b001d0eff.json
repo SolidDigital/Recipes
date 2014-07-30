@@ -4,15 +4,17 @@
         "$oid": "53d662a0cc49210b001d0eff"
     },
     "fields": {
-        "recipes": [],
+        "computed-slug": "/reference/javascript/creating-an-object",
+        "title-slug": "creating-an-object",
+        "title": "Creating an object",
+        "slug": "/reference/javascript/creating-an-object",
         "sections": [
             {
-                "snippet": "When creating a larger object, it is important to separate the list of fields and methods from the definition of the fields.\nDoing this allows a quick scan of the top of the file to see what may be available on the object and taking more time\nby scrolling down will lead you to the details of the object.\n\nExample of a new object:\n\n```javascript\nreturn {\n    send : send,\n    receive : receive,\n    go : go\n}\n\nfunction send() { \n    ... \n}\nfunction receive() { \n    ... \n}\nfunction go() { \n    ... \n}\n```\n\nDefining an object and modifying the prototype follows a similar pattern. There are two options:\n\nOption 1 - adding directly to the prototype\n\n```javascript\nThing.prototype.send = send;\nThing.prototype.receive = receive;\nThing.prototype.go = go;\n\nreturn Thing;\n\nfunction Thing() {\n    ...\n}\nfunction send() { \n    ... \n}\nfunction receive() { \n    ... \n}\nfunction go() { \n    ... \n}\n```\n\nOption 2 - creating an object to add to the prototype\n\n```javascript\n_.extend(Thing.prototype, {\n    send : send\n    receive : receive,\n    go : go\n});\n\nreturn Thing;\n\nfunction Thing() {\n    ...\n}\nfunction send() { \n    ... \n}\nfunction receive() { \n    ... \n}\nfunction go() { \n    ... \n}\n```\n\nIn all cases the general idea is to put the gist of things at the top of the file and the details below.\n\nPrivate methods should be prefixed with `_`. Methods that are not truly private (enclosed), should not be \nprefixed. Private methods may be placed below the public methods they are called from or at the bottom of\nthe file.",
-                "title": "Creating an object"
+                "title": "Creating an object",
+                "snippet": "When creating a larger object, it is important to separate the list of fields and methods from the definition of the fields.\nDoing this allows a quick scan of the top of the file to see what may be available on the object and taking more time\nby scrolling down will lead you to the details of the object.\n\nExample of a new object:\n\n```javascript\nreturn {\n    send : send,\n    receive : receive,\n    go : go\n}\n\nfunction send() { \n    ... \n}\nfunction receive() { \n    ... \n}\nfunction go() { \n    ... \n}\n```\n\nDefining an object and modifying the prototype follows a similar pattern. There are two options:\n\nOption 1 - adding directly to the prototype\n\n```javascript\nThing.prototype.send = send;\nThing.prototype.receive = receive;\nThing.prototype.go = go;\n\nreturn Thing;\n\nfunction Thing() {\n    ...\n}\nfunction send() { \n    ... \n}\nfunction receive() { \n    ... \n}\nfunction go() { \n    ... \n}\n```\n\nOption 2 - creating an object to add to the prototype\n\n```javascript\n_.extend(Thing.prototype, {\n    send : send\n    receive : receive,\n    go : go\n});\n\nreturn Thing;\n\nfunction Thing() {\n    ...\n}\nfunction send() { \n    ... \n}\nfunction receive() { \n    ... \n}\nfunction go() { \n    ... \n}\n```\n\nIn all cases the general idea is to put the gist of things at the top of the file and the details below.\n\nPrivate methods should be prefixed with `_`. Methods that are not truly private (enclosed), should not be \nprefixed. Private methods may be placed below the public methods they are called from or at the bottom of\nthe file."
             }
         ],
-        "slug": "/reference/javascript/creating-an-object",
-        "title": "Creating an object"
+        "recipes": []
     },
     "meta": {
         "node": {
@@ -27,7 +29,7 @@
             "$date": 1406558880433
         },
         "lastmodified": {
-            "$date": 1406559198396
+            "$date": 1406707168664
         }
     }
 }

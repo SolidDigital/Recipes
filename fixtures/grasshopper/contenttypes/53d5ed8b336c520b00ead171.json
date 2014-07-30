@@ -1,5 +1,5 @@
 {
-    "__v": 7,
+    "__v": 8,
     "_id": {
         "$oid": "53d5ed8b336c520b00ead171"
     },
@@ -36,18 +36,6 @@
             "label": "Computed Slug"
         },
         {
-            "dataType": "string",
-            "defaultValue": "",
-            "helpText": "This is a manually created url - later this should be removed and replaced with looking at the nodes and content titles.",
-            "_id": "slug",
-            "validation": [],
-            "type": "textbox",
-            "options": false,
-            "min": 1,
-            "max": 1,
-            "label": "Slug"
-        },
-        {
             "dataType": "ref",
             "_id": "sections",
             "validation": [],
@@ -63,10 +51,10 @@
             "validation": [],
             "type": "contentreference",
             "options": {
-                "defaultNode": "0",
                 "allowedTypes": [
                     "53d5ed8b336c520b00ead171"
-                ]
+                ],
+                "defaultNode": "0"
             },
             "min": 0,
             "max": 10,

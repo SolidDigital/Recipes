@@ -4,15 +4,17 @@
         "$oid": "53d5eef3336c520b00ead175"
     },
     "fields": {
-        "recipes": [],
+        "computed-slug": "/docs/masseuse/setting-up-heroku-for-staging",
+        "title-slug": "setting-up-heroku-for-staging",
+        "slug": "/docs/masseuse/setting-up-heroku-for-staging",
+        "title": "Setting up Heroku for staging",
         "sections": [
             {
-                "snippet": "1. Install [heroku toolbelt.](https://toolbelt.heroku.com/)\n\n1. [Create an app.](https://dashboard.heroku.com/apps)\n    \n    ```bash\n    heroku create < appName >\n    ```\n    \n1. Add Heroku remote to git\n\n    ```bash\n    heroku git:remote -a < appName >\n    ```\n\n1. Deploy\n\n    ```bash\n    grunt deploy\n    ```\n    ",
-                "title": "Setting up Heroku for staging"
+                "title": "Setting up Heroku for staging",
+                "snippet": "1. Install [heroku toolbelt.](https://toolbelt.heroku.com/)\n\n1. [Create an app.](https://dashboard.heroku.com/apps)\n    \n    ```bash\n    heroku create < appName >\n    ```\n    \n1. Add Heroku remote to git\n\n    ```bash\n    heroku git:remote -a < appName >\n    ```\n\n1. Deploy\n\n    ```bash\n    grunt deploy\n    ```\n    "
             }
         ],
-        "title": "Setting up Heroku for staging",
-        "slug": "/docs/masseuse/setting-up-heroku-for-staging"
+        "recipes": []
     },
     "meta": {
         "node": {
@@ -27,7 +29,7 @@
             "$date": 1406529267914
         },
         "lastmodified": {
-            "$date": 1406562696717
+            "$date": 1406707134236
         }
     }
 }

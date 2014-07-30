@@ -19,7 +19,7 @@
             "$oid": "53d66454cc49210b001d0f00"
         }
     ],
-    "label": "Child Views",
+    "label": "child-views",
     "parent": {
         "$oid": "53d66454cc49210b001d0f00"
     }
