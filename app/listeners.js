@@ -2,13 +2,14 @@
 
 var app = require('ral')('app'),
     authToken = require('ral')('authToken'),
+    constants = require('ral')('constants'),
     dot = require('ral')('dotGetSet'),
     _ = require('lodash');
 
 module.exports.load = load;
 
 function load() {
-    app.ghCore.event.channel('/type/53d5ed8b336c520b00ead171').on('parse', function(payload, next) {
+    app.ghCore.event.channel('/type/' + constants.ids.recipes).on('parse', function(payload, next) {
         var node;
         if (!dot.get(payload, 'args.fields')) {
             next();
