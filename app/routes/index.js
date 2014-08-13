@@ -22,6 +22,14 @@ function load() {
     router.use(pageNotFound);
 }
 
+/**
+ * See if there is a recipe at this slug.
+ * If there is, display it.
+ * If there is not, do nothing and call the next middleware.
+ * @param req
+ * @param res
+ * @param next
+ */
 function displayRecipe(req, res, next) {
     var html = '',
         storedResponse,
@@ -71,6 +79,14 @@ function displayRecipe(req, res, next) {
         .fail(next);
 }
 
+/**
+ * See if a directory listing should be displayed.
+ * If it should, do it.
+ * If it shouldn't, do nothing and call the next middleware.
+ * @param req
+ * @param res
+ * @param next
+ */
 function displayDirectory(req, res, next) {
     var core = app.ghCore,
         slug = req.slug,
