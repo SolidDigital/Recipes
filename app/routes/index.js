@@ -5,8 +5,7 @@ var app = require('ral')('app'),
     constants = require('ral')('constants'),
     _ = require('lodash'),
     marked = require('marked'),
-    Q = require('q'),
-    dotGetterSetter = require('ral')('dotGetSet');
+    Q = require('q');
 
 module.exports = {
     load : load
@@ -19,7 +18,7 @@ function load() {
 
     router.use(getSlug);
     router.use(displayRecipe);
-    router.use(displayDirectoryNew);
+    router.use(displayDirectory);
     router.use(pageNotFound);
 }
 
@@ -80,7 +79,7 @@ function displayRecipe(req, res, next) {
         .fail(next);
 }
 
-function displayDirectoryNew(req, res, next) {
+function displayDirectory(req, res, next) {
     var slug = req.slug,
         core = app.ghCore,
         home = [] === req.slug;
@@ -95,12 +94,9 @@ function displayDirectoryNew(req, res, next) {
         slug = req.slug.slice(1).split('/');
     }
 
-    console.log('~~~~~~~');
-
     core.request(authToken.get())
         .nodes.getChildren(null, true)
         .then(function(nodes) {
-            console.log('got children');
             return _.map(nodes, function(node) {
                 return {
                     _id : node._id,
@@ -115,7 +111,6 @@ function displayDirectoryNew(req, res, next) {
                 .allSettled(nodes.map(function(node) {
                     return findInNode(node); }))
                 .then(function(nodeContents) {
-                    console.log('got node contents');
                     nodeContents = nodeContents.map(function(node) {
                         return node.value;
                     });
@@ -124,7 +119,6 @@ function displayDirectoryNew(req, res, next) {
                         newNode.contents = node[1];
                         return newNode;
                     });
-                    console.log('resolving with contents');
                     deferred.resolve(nodes);
                 });
 
@@ -134,27 +128,29 @@ function displayDirectoryNew(req, res, next) {
             return findSubtree(tree, slug);
         })
         .then(function(subtree) {
-            var go = true,
-                depth = 0,
+            var depth = 0,
                 md = '';
 
-            md = addDirectories(subtree, md, depth);
-            md = addLinks(subtree, md, depth);
+            md = addSubtree(subtree, md, depth);
 
-            console.log(md);
             res.render('recipe',{
                 title : subtree.title,
                 content : marked(md),
                 node : []});
         })
-        .catch(function(error) {
-            console.log(error);
+        .catch(function() {
             next();
         });
 }
 
+function addSubtree(subtree, md, depth) {
+    md = addDirectories(subtree, md, depth);
+    return md;
+}
+
 function addDirectories(subtree, md, depth) {
-    var spacer = '';
+    var spacer = '',
+        originalDepth = depth;
 
     while (depth) {
         spacer += '    ';
@@ -166,9 +162,11 @@ function addDirectories(subtree, md, depth) {
             return;
         }
 
-        md += '* [' + value.label + '](' + value.href + ')\n';
+        md += spacer + '* [' + value.label + '](' + value.href + ')\n';
+        md = addSubtree(value, md, originalDepth + 1);
     });
 
+    md = addLinks(subtree, md, originalDepth);
     return md;
 }
 
@@ -181,7 +179,7 @@ function addLinks(subtree, md, depth) {
     }
 
     _.each(subtree.contents, function(value) {
-        md += '* [' + value.label + '](' + value.href + ')\n';
+        md += spacer + '* [' + value.label + '](' + value.href + ')\n';
     });
 
     return md;
@@ -189,7 +187,6 @@ function addLinks(subtree, md, depth) {
 
 function findSubtree(tree, slugs) {
     var subtree = tree;
-    console.log('slugs',slugs);
 
     while (slugs.length) {
         subtree = subtree[slugs.shift()];
@@ -212,7 +209,6 @@ function findSubtree(tree, slugs) {
  *
  */
 function createTree(nodes) {
-    console.log('created tree');
     var tree = {};
     _.each(nodes, function(node) {
         addLeaf(tree, node);
@@ -239,137 +235,6 @@ function addLeaf(tree, node) {
     subtree.href = node.href;
     subtree.label = node.label;
     subtree.contents = node.contents;
-}
-
-/**
- * See if a directory listing should be displayed.
- * If it should, do it.
- * If it shouldn't, do nothing and call the next middleware.
- * @param req
- * @param res
- * @param next
- */
-function displayDirectory(req, res, next) {
-    var core = app.ghCore,
-        slug = req.slug,
-        content = '',
-        title;
-
-    core.request(authToken.get())
-        .nodes.getChildren(null, true)
-        .then(function(nodes) {
-            var routedTo = _.find(nodes, function(node) {
-                node.ancestors.push({
-                    label : node.label
-                });
-                return slug === getNodeSlug(node);
-            });
-
-            if (!routedTo) {
-                routedTo = {
-                    label : 'Home',
-                    _id : null
-                };
-            }
-            return routedTo; })
-        .then(function(node) {
-            return core.request(authToken.get())
-                .nodes.getChildren(node._id, true);})
-        .then(function(nodes) {
-
-            console.log('\n\n\n\n\n\n\n\n\n\n\n\n\n\n-------');
-            console.log('-------');
-            console.log('-------');
-            console.log('-------');
-            console.log('-------');
-            console.log('-------');
-            console.log('-------');
-            console.log('--- nodes');
-            console.log(JSON.stringify(nodes,null,1));
-            return Q.all(_.map(nodes, function(node) {
-                return core.request(authToken.get())
-                    .content.query(findInNode(node._id))
-                    .then(function(contents) {
-                        contents.inNode = node;
-                        contents.allNodes = nodes;
-                        return contents;
-                    });
-            }));
-        })
-        .then(function(contentsResultsArray) {
-            var nodes = contentsResultsArray[0].allNodes,
-                keypath,
-                newNodes = {};
-
-            dotGetterSetter.attach(newNodes);
-
-            _.each(contentsResultsArray, function(searchResult) {
-                var node = _.find(nodes, function(node) {
-                    return node._id === searchResult.inNode._id;
-                });
-                if (node) {
-                    node.links = node.links || [];
-                    _.each(searchResult.results, function(content) {
-                        node.links.push({
-                            title : content.fields.title,
-                            slug : content.fields['computed-slug']
-                        });
-                    });
-                }
-            });
-
-            _.each(nodes, function(node) {
-                var info = {};
-                if (node.title) {
-                    info.title = node.title;
-                }
-                if (node.links) {
-                    info.links = node.links;
-                }
-                if (node.slug) {
-                    info.slug = node.slug;
-                }
-                newNodes.set(getNodeSetter(node), info);
-            });
-
-            keypath = slug.slice(1).replace(/\//g,'.');
-            console.log('keypath', keypath);
-            console.log('slug', slug);
-            console.log(JSON.stringify(newNodes,null,1));
-            console.log('^^^^ new nodes');
-            dotGetterSetter.detach(newNodes);
-            content = createDirListing(keypath ? dotGetterSetter.get(newNodes,keypath) : newNodes, '', '', slug);
-
-            res.render('recipe',{
-                title : title,
-                content : marked(content),
-                node : []});
-        })
-        // Cannot call next w an error, unless you want it bubble up to a 500
-        .fail(function() {
-            next();
-        })
-        .done();
-}
-
-function createDirListing(theNode, prefix, content, slug) {
-
-    if (theNode.links) {
-
-        _.each(theNode.links, function(link) {
-            content += prefix + '* [' + link.title + '](' + link.slug + ')\n';
-        });
-    }
-
-    delete theNode.links;
-
-    _.each(theNode, function(node, label) {
-        var newSlug = slug + ('/' === slug ? '' : '/') + label;
-
-        content += prefix + '* [' + label + '](' + newSlug + ')\n';
-        content = createDirListing(node, '   ' + prefix, content, newSlug);
-    });
-    return content;
 }
 
 function getSlug(req, res, next) {
