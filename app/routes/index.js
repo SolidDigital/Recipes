@@ -1,5 +1,6 @@
 'use strict';
 var app = require('ral')('app'),
+    path = require('path'),
     authToken = require('ral')('authToken'),
     constants = require('ral')('constants'),
     _ = require('lodash'),
@@ -18,7 +19,7 @@ function load() {
 
     router.use(getSlug);
     router.use(displayRecipe);
-    router.use(displayDirectory);
+    router.use(displayDirectoryNew);
     router.use(pageNotFound);
 }
 
@@ -77,6 +78,167 @@ function displayRecipe(req, res, next) {
                 node : arrayOfRecipes || []});
         })
         .fail(next);
+}
+
+function displayDirectoryNew(req, res, next) {
+    var slug = req.slug,
+        core = app.ghCore,
+        home = [] === req.slug;
+
+
+    if (undefined === slug) {
+        next();
+        return;
+    }
+
+    if (!home) {
+        slug = req.slug.slice(1).split('/');
+    }
+
+    console.log('~~~~~~~');
+
+    core.request(authToken.get())
+        .nodes.getChildren(null, true)
+        .then(function(nodes) {
+            console.log('got children');
+            return _.map(nodes, function(node) {
+                return {
+                    _id : node._id,
+                    href : getNodeSlug(node),
+                    label : node.label
+                };
+            }); })
+        .then(function(nodes) {
+            var deferred = Q.defer();
+
+            Q
+                .allSettled(nodes.map(function(node) {
+                    return findInNode(node); }))
+                .then(function(nodeContents) {
+                    console.log('got node contents');
+                    nodeContents = nodeContents.map(function(node) {
+                        return node.value;
+                    });
+                    nodes = _.zip(nodes, nodeContents).map(function(node) {
+                        var newNode = node[0];
+                        newNode.contents = node[1];
+                        return newNode;
+                    });
+                    console.log('resolving with contents');
+                    deferred.resolve(nodes);
+                });
+
+            return deferred.promise; })
+        .then(createTree)
+        .then(function(tree) {
+            return findSubtree(tree, slug);
+        })
+        .then(function(subtree) {
+            var go = true,
+                depth = 0,
+                md = '';
+
+            md = addDirectories(subtree, md, depth);
+            md = addLinks(subtree, md, depth);
+
+            console.log(md);
+            res.render('recipe',{
+                title : subtree.title,
+                content : marked(md),
+                node : []});
+        })
+        .catch(function(error) {
+            console.log(error);
+            next();
+        });
+}
+
+function addDirectories(subtree, md, depth) {
+    var spacer = '';
+
+    while (depth) {
+        spacer += '    ';
+        --depth;
+    }
+
+    _.each(subtree, function(value, key) {
+        if (key === 'href' || key === 'contents' || key === 'label') {
+            return;
+        }
+
+        md += '* [' + value.label + '](' + value.href + ')\n';
+    });
+
+    return md;
+}
+
+function addLinks(subtree, md, depth) {
+    var spacer = '';
+
+    while (depth) {
+        spacer += '    ';
+        --depth;
+    }
+
+    _.each(subtree.contents, function(value) {
+        md += '* [' + value.label + '](' + value.href + ')\n';
+    });
+
+    return md;
+}
+
+function findSubtree(tree, slugs) {
+    var subtree = tree;
+    console.log('slugs',slugs);
+
+    while (slugs.length) {
+        subtree = subtree[slugs.shift()];
+        if (!subtree) {
+            return tree;
+        }
+    }
+    return subtree;
+}
+
+/**
+ *
+ *  {
+ *      docs : {
+ *          js : {
+ *              content : []
+ *          }
+ *      }
+ *  }
+ *
+ */
+function createTree(nodes) {
+    console.log('created tree');
+    var tree = {};
+    _.each(nodes, function(node) {
+        addLeaf(tree, node);
+    });
+    return tree;
+}
+
+function addLeaf(tree, node) {
+    var slugs = _.compact(node.href.split('/')),
+        first,
+        subtree = tree;
+
+    // Create the leaf to be added to
+    while (slugs.length) {
+        first = slugs.shift();
+
+        if (!subtree[first]) {
+            subtree[first] = {};
+        }
+
+        subtree = subtree[first];
+    }
+
+    subtree.href = node.href;
+    subtree.label = node.label;
+    subtree.contents = node.contents;
 }
 
 /**
@@ -211,7 +373,10 @@ function createDirListing(theNode, prefix, content, slug) {
 }
 
 function getSlug(req, res, next) {
-    req.slug = req.path;
+
+    if (!path.extname(req.path)) {
+        req.slug = req.path;
+    }
     next();
 }
 
@@ -231,8 +396,28 @@ function findSlug(slug) {
         .build();
 }
 
-function findInNode(nodeId) {
-    var queryBuilder = app.ghCore.utilities.queryBuilder;
+function findInNode(node) {
+    var deferred = Q.defer();
+    app.ghCore
+        .request(authToken.get())
+        .content.query(findInNodeQuery(node))
+        .then(function(results) {
+            results = results.results;
+            results = results.map(function(result) {
+                return {
+                    href : result.fields['computed-slug'],
+                    label : result.fields.title
+                };
+            });
+            deferred.resolve(results);
+        });
+    return deferred.promise;
+}
+
+function findInNodeQuery(node) {
+    var queryBuilder = app.ghCore.utilities.queryBuilder,
+        nodeId = node._id;
+
     return queryBuilder
         .create()
         .inNodes([nodeId])
@@ -240,7 +425,7 @@ function findInNode(nodeId) {
 }
 
 function getNodeSlug(node) {
-    return '/'+(_.map(node.ancestors, function(ancestor) {
+    return '/' + (_.map(node.ancestors.concat([node]), function(ancestor) {
         return ancestor.label;
     }).join('/'));
 }
