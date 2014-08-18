@@ -3,18 +3,22 @@
     "_id": {
         "$oid": "530e44c13d3902f708000001"
     },
+    "createdby": {
+        "id": "530e44c13d3902f708000001"
+    },
     "dateCreated": {
         "$date": 1393444033277
     },
     "displayName": "user",
+    "displayname": "user",
     "email": "l@lkj.com",
     "enabled": true,
     "firstname": "user",
     "identities": {
         "basic": {
             "username": "user",
-            "hash": "014945e2c954f3550b01836f4c3378198498d3e87688fbe0efee2064aead2476",
-            "salt": "1228427390203"
+            "hash": "b9ed28c3d2c360d178acf7447ccb78d38cd740fee08c3024adfeeb38945e5983",
+            "salt": "544366160905"
         }
     },
     "lastname": "user",
@@ -23,5 +27,8 @@
     ],
     "permissions": [],
     "profile": {},
-    "role": "admin"
+    "role": "admin",
+    "updatedby": {
+        "id": "530e44c13d3902f708000001"
+    }
 }

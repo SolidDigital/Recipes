@@ -1,0 +1,34 @@
+{
+    "fields": {
+        "recipes": [],
+        "sections": [
+            {
+                "snippet": "If a module is required from within a project and not from `node_modules`, then a path relative to the current file must be provided. This is nice because it is very explicit, but it makes refactoring directory structures difficult.\n\nTo use path aliases, try the [ral](https://www.npmjs.org/package/ral) npm. It allows one to define path aliases in a separate file, so if the path to a module changes, it's location must only be updated in one spot.\n\nDo not use `ral` for things loaded from `node_modules`.",
+                "title": "Require"
+            }
+        ],
+        "computed-slug": "/reference/javascript/node/require",
+        "title-slug": "require",
+        "title": "Require"
+    },
+    "_id": {
+        "$oid": "53f19ad595f70f0b00d6302d"
+    },
+    "meta": {
+        "node": {
+            "$oid": "53d66db2ade6390b00282140"
+        },
+        "type": {
+            "$oid": "53d5ed8b336c520b00ead171"
+        },
+        "labelfield": "title",
+        "typelabel": "Recipe",
+        "created": {
+            "$date": 1408342741638
+        },
+        "lastmodified": {
+            "$date": 1408342741638
+        }
+    },
+    "__v": 0
+}
