@@ -41,7 +41,7 @@ module.exports = function (grunt) {
 
     // Save
     grunt.registerTask('data:save', function () {
-        grunt.task.run('prompt:data', 'data:save:write:grasshopper');
+        grunt.task.run('prompt:data', 'clean:fixtures', 'data:save:write:grasshopper');
     });
 
     grunt.registerTask('data:save:write', function (database) {
