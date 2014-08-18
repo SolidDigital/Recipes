@@ -134,7 +134,7 @@ function displayDirectory(req, res, next) {
             md = addSubtree(subtree, md, depth);
 
             res.render('recipe',{
-                title : subtree.title,
+                title : subtree.label || 'home',
                 content : marked(md),
                 node : []});
         })
@@ -293,10 +293,4 @@ function getNodeSlug(node) {
     return '/' + (_.map(node.ancestors.concat([node]), function(ancestor) {
         return ancestor.label;
     }).join('/'));
-}
-
-function getNodeSetter(node) {
-    return (_.map(node.ancestors, function(ancestor) {
-        return ancestor.label;
-    }).join('.'));
 }
