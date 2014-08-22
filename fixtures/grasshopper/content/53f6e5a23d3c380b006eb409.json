@@ -1,0 +1,42 @@
+{
+    "__v": 0,
+    "_id": {
+        "$oid": "53f6e5a23d3c380b006eb409"
+    },
+    "fields": {
+        "recipes": [],
+        "sections": [
+            {
+                "snippet": "```javascript\nit('should return a payload', function(done) {\n    resolvePromise()\n        .then(function(payload) {\n            payload.should.equal('gogogo');\n            done();\n        })\n        .fail(done)\n        .catch(done);\n});\n```",
+                "title": "Testing success"
+            },
+            {
+                "snippet": "```javascript\nit('should return an error code', function (done) {\n    rejectPromise()\n        .then(done)\n        .fail(function(err) {\n            err.should.equal('404');\n            done(); })\n        .catch(done);\n});\n```",
+                "title": "Testing failure"
+            },
+            {
+                "snippet": "### Errors by accident\n\n### Errors from Chai\n",
+                "title": "Throwing errors"
+            }
+        ],
+        "computed-slug": "/reference/javascript/node/promises/mocha/writing-tests-with-promises",
+        "title-slug": "writing-tests-with-promises",
+        "title": "Writing tests with promises"
+    },
+    "meta": {
+        "node": {
+            "$oid": "53f6e4f93d3c380b006eb408"
+        },
+        "type": {
+            "$oid": "53d5ed8b336c520b00ead171"
+        },
+        "labelfield": "title",
+        "typelabel": "Recipe",
+        "created": {
+            "$date": 1408689570372
+        },
+        "lastmodified": {
+            "$date": 1408689668210
+        }
+    }
+}
