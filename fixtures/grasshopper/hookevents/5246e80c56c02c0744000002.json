@@ -1,7 +1,0 @@
-{
-    "_id": {
-        "$oid": "5246e80c56c02c0744000002"
-    },
-    "name": "NodeDeleted",
-    "description": "Hook gets fired after a node gets deleted."
-}

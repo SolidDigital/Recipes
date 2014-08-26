@@ -1,4 +1,5 @@
 {
     "buildDirectory" : "app/public/admin",
-    "apiEndpoint" : "/api"
+    "apiEndpoint" : "/api",
+    "base" : "/admin/"
 }
