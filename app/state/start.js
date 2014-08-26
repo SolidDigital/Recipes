@@ -22,7 +22,7 @@ function start() {
     expressApp.set('views', app.rootDir + '/views');
     expressApp.set('view options', { layout: true });
     expressApp.use(express.static(app.rootDir + '/public'));
-    app.get('/admin*?', function(request, response) {
+    expressApp.get('/admin*?', function(request, response) {
         response.sendfile(app.rootDir + '/public/admin/index.html');
     });
     expressApp.use(app.router);
