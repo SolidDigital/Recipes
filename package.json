@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "express": "~4.8.0",
-    "grasshopper-api": "0.15.3",
+    "grasshopper-api": "0.16.6",
     "highlight.js": "^8.1.0",
     "jade": "^1.5.0",
     "lodash": "^2.4.1",
