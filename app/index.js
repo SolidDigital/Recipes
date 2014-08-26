@@ -30,7 +30,7 @@ authToken
     .initialize()
     .then(listeners.load)
     .then(routes.load)
-    .then(start.bind(null, __dirname))
+    .then(start)
     .fail(deferred.reject)
     .catch(deferred.reject)
     .done(deferred.resolve);
