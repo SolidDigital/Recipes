@@ -1,0 +1,46 @@
+{
+    "__v": 0,
+    "_id": {
+        "$oid": "53f6e5a23d3c380b006eb409"
+    },
+    "fields": {
+        "title": "Writing tests with promises",
+        "title-slug": "writing-tests-with-promises",
+        "computed-slug": "/reference/javascript/node/promises/mocha/writing-tests-with-promises",
+        "sections": [
+            {
+                "title": "Testing success",
+                "snippet": "You should always call mocha's done after your assertions. You should always include `fail` and `catch` too.\n\nThe `catch` will be called if a test fails with js error(including an assertion failure). `fail` will get called if promise gets rejected.\n`done` can only be called with error. If you put `done()` in your fail/catch, the error will propagate to mocha runner, and will be handled.\n\n```javascript\nit('should return a payload', function(done) {\n    resolvePromise()\n        .then(function(payload) {\n            payload.should.equal('gogogo');\n            done();\n        })\n        .fail(done)\n        .catch(done);\n});\n```\n \n"
+            },
+            {
+                "title": "Testing failure",
+                "snippet": "If done is called with anything, even a string it fail the mocha test.\nIn the example below, observe that there is a done function reference in the `.then` handler. If the deferred is resolved instead of rejected, the done function reference will throw an error.\n\n```javascript\nit('should return an error code', function (done) {\n    rejectPromise()\n        .then(done)\n        .fail(function(err) {\n            err.should.equal('404');\n            done(); \n        })\n        .catch(done);\n});\n```\n\n"
+            },
+            {
+                "title": "Throwing errors",
+                "snippet": "### Errors by accident\n\nYou should always have a `.catch`.  If the deferred method throws an exception, the `.catch` will recive that error. It will proceed directly to the `.catch` and it will not fire any of the `.then` or `.fail` handlers.\n\n### Errors from Chai\n\nIf an assertion fails Chai throws an error and any code after it will not execute.\n"
+            },
+            {
+                "snippet": "Wow",
+                "title": "jQuery vs Q"
+            }
+        ],
+        "recipes": []
+    },
+    "meta": {
+        "node": {
+            "$oid": "53f6e4f93d3c380b006eb408"
+        },
+        "type": {
+            "$oid": "53d5ed8b336c520b00ead171"
+        },
+        "labelfield": "title",
+        "typelabel": "Recipe",
+        "created": {
+            "$date": 1408689570372
+        },
+        "lastmodified": {
+            "$date": 1408736787746
+        }
+    }
+}

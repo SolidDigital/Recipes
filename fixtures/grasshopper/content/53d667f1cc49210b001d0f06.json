@@ -1,0 +1,43 @@
+{
+    "__v": 0,
+    "_id": {
+        "$oid": "53d667f1cc49210b001d0f06"
+    },
+    "fields": {
+        "recipes": [],
+        "sections": [
+            {
+                "title": "Binders",
+                "snippet": "1. To create a child-view binder, you will need to require the child view into your parent view's config, and add it into the rivetsConfig childViewBinders hash.\n\n```javascript\nrivetsConfig : {\n    formatters       : [formatters],\n    childViewBinders : {\n        'project-view' : ProjectView\n    }\n}\n```\n\n1. This will create a binding available in the template (in the example it would be 'data-rv-new-project-view')\n\n2. You can bind to a collection, or model, or hash and have them available in the child view as 'this.collection' (for collection), 'this.model' (if you have bound a model or hash).\n\n"
+            },
+            {
+                "snippet": "[example](http://solid-interactive.github.io/masseuse-examples/new-child-view-binder/)",
+                "title": "Sample code"
+            },
+            {
+                "snippet": "Child view binders are especially useful when working with collection, and when making a reusable view that you don't know which element it will be attached to.\n\n```html\n<section data-rv-each-widgetModel=\"model:widgets:\">\n    <div data-rv-new-widget=\"widgetModel\"></div>\n</section>\n```\n\n```html\n<!-- one file -->\n<div id=\"something\" data-rv-new-widget=\"model:widget1data\"></div>\n<ol>\n    <li><section data-rv-new-widget=\"model:widget7data\"></section></li>\n</ol>\n\n<!-- another file -->\n<section data-rv-new-widget=\"model\"></section>\n```",
+                "title": "Advantages"
+            }
+        ],
+        "slug": "/docs/masseuse/views/child-views/binders",
+        "title": "Binders",
+        "title-slug": "binders",
+        "computed-slug": "/docs/masseuse/views/child-views/binders"
+    },
+    "meta": {
+        "node": {
+            "$oid": "53d66786cc49210b001d0f05"
+        },
+        "type": {
+            "$oid": "53d5ed8b336c520b00ead171"
+        },
+        "labelfield": "title",
+        "typelabel": "Recipe",
+        "created": {
+            "$date": 1406560241038
+        },
+        "lastmodified": {
+            "$date": 1406833779140
+        }
+    }
+}

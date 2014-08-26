@@ -1,0 +1,20 @@
+{
+    "__v": 1,
+    "_id": {
+        "$oid": "53fcda39644a400b000dc405"
+    },
+    "allowedTypes": [
+        {
+            "$oid": "53d5ed8b336c520b00ead171"
+        }
+    ],
+    "ancestors": [
+        {
+            "$oid": "53d6620bcc49210b001d0efd"
+        }
+    ],
+    "label": "blog-posts",
+    "parent": {
+        "$oid": "53d6620bcc49210b001d0efd"
+    }
+}

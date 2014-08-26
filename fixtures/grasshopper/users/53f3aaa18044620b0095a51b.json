@@ -1,0 +1,34 @@
+{
+    "__v": 0,
+    "_id": {
+        "$oid": "53f3aaa18044620b0095a51b"
+    },
+    "createdby": {
+        "id": "530e44c13d3902f708000001",
+        "displayname": "user"
+    },
+    "dateCreated": {
+        "$date": 1408477857367
+    },
+    "displayname": "gertrude",
+    "email": "lkj@lkj.copm",
+    "enabled": true,
+    "firstname": "Gertrude",
+    "identities": {
+        "basic": {
+            "hash": "546fe5ec92f66c287a74d8a58df220fc03e9ae40e3cd003dbb1e2b2c75eb9536",
+            "salt": "1114412603413",
+            "username": "gertrude"
+        }
+    },
+    "lastname": "Juliana",
+    "linkedidentities": [
+        "basic"
+    ],
+    "permissions": [],
+    "role": "admin",
+    "updatedby": {
+        "id": "53f3aaa18044620b0095a51b",
+        "displayname": "gertrude"
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "__v": 0,
+    "_id": {
+        "$oid": "53d5eef3336c520b00ead175"
+    },
+    "fields": {
+        "computed-slug": "/docs/masseuse/setting-up-heroku-for-staging",
+        "title-slug": "setting-up-heroku-for-staging",
+        "slug": "/docs/masseuse/setting-up-heroku-for-staging",
+        "title": "Setting up Heroku for staging",
+        "sections": [
+            {
+                "title": "Setting up Heroku for staging",
+                "snippet": "1. Install [heroku toolbelt.](https://toolbelt.heroku.com/)\n\n1. [Create an app.](https://dashboard.heroku.com/apps)\n    \n    ```bash\n    heroku create < appName >\n    ```\n    \n1. Add Heroku remote to git\n\n    ```bash\n    heroku git:remote -a < appName >\n    ```\n\n1. Deploy\n\n    ```bash\n    grunt deploy\n    ```\n    "
+            }
+        ],
+        "recipes": []
+    },
+    "meta": {
+        "node": {
+            "$oid": "53d5ed9c336c520b00ead172"
+        },
+        "type": {
+            "$oid": "53d5ed8b336c520b00ead171"
+        },
+        "labelfield": "title",
+        "typelabel": "Recipe",
+        "created": {
+            "$date": 1406529267914
+        },
+        "lastmodified": {
+            "$date": 1406848763669
+        }
+    }
+}

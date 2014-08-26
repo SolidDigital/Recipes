@@ -1,0 +1,35 @@
+{
+    "__v": 0,
+    "_id": {
+        "$oid": "53d66a6aade6390b0028213d"
+    },
+    "fields": {
+        "computed-slug": "/docs/masseuse/views/two-way-binding",
+        "title-slug": "two-way-binding",
+        "recipes": [],
+        "sections": [
+            {
+                "snippet": "[Sample code](http://solid-interactive.github.io/masseuse-examples/two-way-binding)",
+                "title": "Two way binding"
+            }
+        ],
+        "slug": "/docs/masseuse/views/two-way-binding",
+        "title": "Two way binding"
+    },
+    "meta": {
+        "node": {
+            "$oid": "53d66454cc49210b001d0f00"
+        },
+        "type": {
+            "$oid": "53d5ed8b336c520b00ead171"
+        },
+        "labelfield": "title",
+        "typelabel": "Recipe",
+        "created": {
+            "$date": 1406560874660
+        },
+        "lastmodified": {
+            "$date": 1406707124760
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "firstname": "Simon",
+    "lastname": "Truffles",
+    "email": "solid@slid.com",
+    "identities": {
+        "basic": {
+            "hash": "b03c71dccac0a0318524715f64ee371e80ae3f98d1eb382788d9104b9ea047f0",
+            "salt": "723424044588",
+            "username": "solid"
+        }
+    },
+    "_id": {
+        "$oid": "53d67865ade6390b00282142"
+    },
+    "displayName": "solid",
+    "linkedIdentities": [
+        "basic"
+    ],
+    "dateCreated": {
+        "$date": 1406564453107
+    },
+    "enabled": true,
+    "permissions": [],
+    "role": "editor",
+    "__v": 0
+}

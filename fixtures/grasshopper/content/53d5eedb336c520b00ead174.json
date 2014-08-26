@@ -1,0 +1,35 @@
+{
+    "__v": 0,
+    "_id": {
+        "$oid": "53d5eedb336c520b00ead174"
+    },
+    "fields": {
+        "recipes": [],
+        "sections": [
+            {
+                "snippet": "1. Initialize git repository.\n\n    ```bash\n    git init && git add -A && git commit -m 'initial structure'\n    ```\n\n1. Create repo in either gitlab or github, then copy paste that sucker.\n\n1. Add a remote repository if desired.\n\n    ```bash\n    git remote add origin git://github.com/Solid-Interactive/YourNewApp.git\n    ```\n    \n1. Push master\n\n     ```bash\n     git push -u origin master\n     ```\n        \n1. Add [git extras](https://github.com/visionmedia/git-extras) by visionmedia. \n\n    ```bash\n    brew install git-extras\n    ```\n         \n1. Unlink pre-commit hooks if installed.\n         \n    ```bash\n    mv .git/hooks/pre-commit .git/hooks/pre-commit.bkp\n    ``` \n     \n1. Create orphan branches (uses gh-pages from the previous step). This creates an orphan branch called gh-pages.\n\n    ```bash\n    git gh-pages\n    ```\n\n1. Copy `.gitignore` from master, add, then commit it.\n\n    ```bash\n    git checkout master -- .gitignore && git add .gitignore && git commit -m 'Added .gitignore' \n    ```\n\n1. Relink pre-commit hooks.\n\n    ```bash\n    mv .git/hooks/pre-commit.bkp .git/hooks/pre-commit\n    ``` \n    \n1. Rename gh-pages branch to either stage or production.\n\n    ```bash\n    git branch -m <oldName> <newName>\n    ```\n    \n1. Push that new branch to origin.\n\n    ```bash\n    git push -u origin <newName>\n    ```\n    ",
+                "title": "Setting up the git repository and release branches"
+            }
+        ],
+        "title": "Setting up the git repository and release branches",
+        "slug": "/docs/masseuse/setting-up-the-git-repository-and-release-branches",
+        "title-slug": "setting-up-the-git-repository-and-release-branches",
+        "computed-slug": "/docs/masseuse/setting-up-the-git-repository-and-release-branches"
+    },
+    "meta": {
+        "node": {
+            "$oid": "53d5ed9c336c520b00ead172"
+        },
+        "type": {
+            "$oid": "53d5ed8b336c520b00ead171"
+        },
+        "labelfield": "title",
+        "typelabel": "Recipe",
+        "created": {
+            "$date": 1406529243317
+        },
+        "lastmodified": {
+            "$date": 1406707143084
+        }
+    }
+}

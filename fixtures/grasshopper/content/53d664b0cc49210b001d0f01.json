@@ -1,0 +1,35 @@
+{
+    "__v": 0,
+    "_id": {
+        "$oid": "53d664b0cc49210b001d0f01"
+    },
+    "fields": {
+        "computed-slug": "/docs/masseuse/views/drag-and-drop-with-jquery-ui-example",
+        "title-slug": "drag-and-drop-with-jquery-ui-example",
+        "recipes": [],
+        "sections": [
+            {
+                "snippet": "[Sample code](http://solid-interactive.github.io/masseuse-examples/drag-and-drop)\n\nThe interesting thing about drag and drop, is that the DOM gets out of sync with Rivets.\nWhen sorting with jquery ui, Rivets does not know about the sort. So, we sync the collection on our own. \n\nJquery Ui Drag and drop provides an [update](http://api.jqueryui.com/sortable/#event-update) event when you have stopped sorting and the dom is done updating.\nWe use this callback to re-synchronize the dom and the collection.\n\n\nWhen you initialize the sortable element, you can pass a callback for specific events.\n\n```javascript\n$sortable.sortable({\n    update : _.debounce(_update.bind(this, $sortable), 50)\n});\n```\n\nThe update method iterates over the dom and resets the collection with the new order.\nThe collection reset needs to be silent, as we do not want rivets to re-render the dom when we reset.\n\n```javascript\nfunction _update($sortable) {\n    var fruits = [],\n        self = this;\n\n    $sortable.find('li').each(function() {\n        fruits.push(self.collection.get($(this).attr('modelid'));\n    });\n\n    this.collection.reset(fruits, {silent : true});\n}\n```\n\nImportant:\nThe html needs to have the model's id on the sortable item somewhere. The important line is the `data-rv-modelid`.\nWe use the models `cid` as that is unique to each model.\n\n```html\n<ul id=\"sortable\" class=\"ui-sortable\">\n    <li class=\"ui-state-default\" data-rv-each-fruit=\"collection:\" data-rv-modelid=\"fruit.cid\">\n        {{fruit:type}}\n    </li>\n</ul>\n```",
+                "title": "Drag and drop with jQuery UI example"
+            }
+        ],
+        "slug": "/docs/masseuse/views/drag-and-drop-with-jquery-ui-example",
+        "title": "Drag and drop with jQuery UI example"
+    },
+    "meta": {
+        "node": {
+            "$oid": "53d66454cc49210b001d0f00"
+        },
+        "type": {
+            "$oid": "53d5ed8b336c520b00ead171"
+        },
+        "labelfield": "title",
+        "typelabel": "Recipe",
+        "created": {
+            "$date": 1406559408904
+        },
+        "lastmodified": {
+            "$date": 1406707093977
+        }
+    }
+}

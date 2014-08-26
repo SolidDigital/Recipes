@@ -1,0 +1,29 @@
+{
+    "fields": {
+        "recipes": [],
+        "sections": [],
+        "computed-slug": "/docs/masseuse/",
+        "title-slug": "",
+        "title": "test"
+    },
+    "_id": {
+        "$oid": "53d93c443893120b00348cd0"
+    },
+    "meta": {
+        "node": {
+            "$oid": "53d5ed9c336c520b00ead172"
+        },
+        "type": {
+            "$oid": "53d5ed8b336c520b00ead171"
+        },
+        "labelfield": "title",
+        "typelabel": "Recipe",
+        "created": {
+            "$date": 1406745668602
+        },
+        "lastmodified": {
+            "$date": 1406745668601
+        }
+    },
+    "__v": 0
+}

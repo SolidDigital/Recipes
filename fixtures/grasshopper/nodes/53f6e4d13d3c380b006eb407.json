@@ -1,0 +1,22 @@
+{
+    "label": "promises",
+    "parent": {
+        "$oid": "53d66db2ade6390b00282140"
+    },
+    "_id": {
+        "$oid": "53f6e4d13d3c380b006eb407"
+    },
+    "ancestors": [
+        {
+            "$oid": "53d6620bcc49210b001d0efd"
+        },
+        {
+            "$oid": "53d6621dcc49210b001d0efe"
+        },
+        {
+            "$oid": "53d66db2ade6390b00282140"
+        }
+    ],
+    "allowedTypes": [],
+    "__v": 0
+}

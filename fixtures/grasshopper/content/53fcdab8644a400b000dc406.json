@@ -1,0 +1,46 @@
+{
+    "__v": 0,
+    "_id": {
+        "$oid": "53fcdab8644a400b000dc406"
+    },
+    "fields": {
+        "recipes": [],
+        "sections": [
+            {
+                "title": "Description of",
+                "snippet": "Take a look at video.\n\n<iframe width=\"420\" height=\"315\" src=\"//www.youtube.com/embed/p_pvslS4gEI\" frameborder=\"0\" allowfullscreen></iframe>\n\nMob coding is many people working on the same problem, on the same computer, when one person codes and the rest discuss/chat the solution. Kind of XP/pair programming."
+            },
+            {
+                "title": "Likes",
+                "snippet": " * Knowledge transfer\n * Communication\n * Instant code review\n * Less paperwork/jirawork\n \nMany of us liked learning how to do new things by watching others. From details like keyboard shortcuts to more conceptual things like how to plan a piece of code. "
+            },
+            {
+                "title": "Dislikes",
+                "snippet": " * Formatting and some details can take a long time\n * Sometimes commenting can interrupt coding\n * things fall apart without an agenda\n * Resolving disparate coding styles\n"
+            },
+            {
+                "title": "Lessons Learned",
+                "snippet": " * For us writing about code seemed to work better than writing actual code.\n * If the workflow is not completely ironed out, then it is easy to spend a lot of time on things like figuring out how to do certain things"
+            }
+        ],
+        "computed-slug": "/reference/blog-posts/mobbing",
+        "title-slug": "mobbing",
+        "title": "Mobbing"
+    },
+    "meta": {
+        "node": {
+            "$oid": "53fcda39644a400b000dc405"
+        },
+        "type": {
+            "$oid": "53d5ed8b336c520b00ead171"
+        },
+        "labelfield": "title",
+        "typelabel": "Recipe",
+        "created": {
+            "$date": 1409079992280
+        },
+        "lastmodified": {
+            "$date": 1409081489971
+        }
+    }
+}

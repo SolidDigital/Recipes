@@ -1,0 +1,34 @@
+{
+    "fields": {
+        "recipes": [],
+        "sections": [
+            {
+                "snippet": "In general each module should only contain as much info as will be consumed by any other module using it.\n\nIn other words, try to avoid creating large objects that get passed down across many modules. For example do not create a giant `app` that has all routers, all middleware, etc., and then pass it to one module then the other, etc.\n\nInstead create small modules that contain only enough things to make them useful, and require each module in where it is needed.\n\nFor example, many apps need a group of things that can be thought of as \"the app\". So you can make a module that is initialized the express app, ghapi, and ghcore:\n\n```javascript\n'use strict';\n\nvar _ = require('lodash');\n\nmodule.exports = {\n    initialize : initialize,\n\n    bridgetown : null,\n    express : null,\n    expressApp : null,\n    ghApi : null,\n    ghCore : null,\n    rootDir : '',\n    router : null\n};\n\nfunction initialize(app) {\n    _.extend(this, app);\n}\n```\n\nNow app, does not need to be passed down from index.js. It can be initialized in index.js, and then a simple `require('ral')('app')` can be used to pull it in as needed.",
+                "title": "Modules"
+            }
+        ],
+        "computed-slug": "/reference/javascript/node/modules/modules",
+        "title-slug": "modules",
+        "title": "Modules"
+    },
+    "_id": {
+        "$oid": "53f19d1695f70f0b00d6302f"
+    },
+    "meta": {
+        "node": {
+            "$oid": "53f19af595f70f0b00d6302e"
+        },
+        "type": {
+            "$oid": "53d5ed8b336c520b00ead171"
+        },
+        "labelfield": "title",
+        "typelabel": "Recipe",
+        "created": {
+            "$date": 1408343318607
+        },
+        "lastmodified": {
+            "$date": 1408343318606
+        }
+    },
+    "__v": 0
+}
