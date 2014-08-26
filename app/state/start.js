@@ -11,7 +11,7 @@ marked.setOptions({
 
 module.exports = start;
 
-function start() {
+function start(baseDir) {
     var express = app.express,
         expressApp = app.expressApp,
         ghApiRouter = app.ghApi;
@@ -22,6 +22,9 @@ function start() {
     expressApp.set('views', app.rootDir + '/views');
     expressApp.set('view options', { layout: true });
     expressApp.use(express.static(app.rootDir + '/public'));
+    app.get('/admin*?', function(request, response) {
+        response.sendfile(baseDir + '/public/admin/index.html');
+    });
     expressApp.use(app.router);
     expressApp.listen(PORT);
 

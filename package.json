@@ -1,6 +1,6 @@
 {
   "name": "Solid-Recipes",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Patterns and tips",
   "main": "app/index.js",
   "scripts": {

@@ -48,7 +48,7 @@ function displayRecipe(req, res, next) {
                     if (response.title !== section.title) {
                         html+=marked('## ' + section.title + ':');
                     }
-                    html+=marked(section.snippet);
+                    html+=marked(section.snippet || '');
                     html+=marked('---');
                     html+=marked('&nbsp;');
                 });
