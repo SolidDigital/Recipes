@@ -1,0 +1,34 @@
+{
+    "__v": 0,
+    "_id": {
+        "$oid": "540e113f0534200b00dfa4d6"
+    },
+    "fields": {
+        "title": "Enabling SSH login",
+        "title-slug": "enabling-ssh-login",
+        "computed-slug": "/reference/server/enabling-ssh-login",
+        "sections": [
+            {
+                "title": "Enabling SSH login",
+                "snippet": "Configs are in `/etc/ssh/sshd_config`:\n\n```shell\n# allow public / private key pair authentication for login\n# will have to list allowed public key in ~/.ssh/authorized_keys\nPubkeyAuthentication yes\n\n# disable pw login\nPasswordAuthentication no\n```\n\nAfter changing these settings, you have to restart your serv.\n"
+            }
+        ],
+        "recipes": []
+    },
+    "meta": {
+        "node": {
+            "$oid": "540e0f5c0534200b00dfa4d5"
+        },
+        "type": {
+            "$oid": "53d5ed8b336c520b00ead171"
+        },
+        "labelfield": "title",
+        "typelabel": "Recipe",
+        "created": {
+            "$date": 1410208063945
+        },
+        "lastmodified": {
+            "$date": 1410210095394
+        }
+    }
+}

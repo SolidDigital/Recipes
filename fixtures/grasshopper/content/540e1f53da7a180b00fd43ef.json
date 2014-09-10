@@ -1,0 +1,34 @@
+{
+    "__v": 0,
+    "_id": {
+        "$oid": "540e1f53da7a180b00fd43ef"
+    },
+    "fields": {
+        "recipes": [],
+        "sections": [
+            {
+                "snippet": "```shell\nuseradd -d /home/paperwoven -g users paperwoven\n```\n\nOptionally give them sudoing power:\n\n```shell\nusermod -G sudo paperwoven\n```\n",
+                "title": "Creating a User"
+            }
+        ],
+        "computed-slug": "/reference/server/creating-a-user",
+        "title-slug": "creating-a-user",
+        "title": "Creating a User"
+    },
+    "meta": {
+        "node": {
+            "$oid": "540e0f5c0534200b00dfa4d5"
+        },
+        "type": {
+            "$oid": "53d5ed8b336c520b00ead171"
+        },
+        "labelfield": "title",
+        "typelabel": "Recipe",
+        "created": {
+            "$date": 1410211667415
+        },
+        "lastmodified": {
+            "$date": 1410212663525
+        }
+    }
+}

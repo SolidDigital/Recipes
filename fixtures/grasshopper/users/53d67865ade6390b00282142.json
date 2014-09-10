@@ -1,7 +1,19 @@
 {
-    "firstname": "Simon",
-    "lastname": "Truffles",
+    "__v": 0,
+    "_id": {
+        "$oid": "53d67865ade6390b00282142"
+    },
+    "createdby": {
+        "id": "53d67865ade6390b00282142"
+    },
+    "dateCreated": {
+        "$date": 1406564453107
+    },
+    "displayName": "solid",
+    "displayname": "BIG BUBBA",
     "email": "solid@slid.com",
+    "enabled": true,
+    "firstname": "Simon",
     "identities": {
         "basic": {
             "hash": "b03c71dccac0a0318524715f64ee371e80ae3f98d1eb382788d9104b9ea047f0",
@@ -9,18 +21,15 @@
             "username": "solid"
         }
     },
-    "_id": {
-        "$oid": "53d67865ade6390b00282142"
-    },
-    "displayName": "solid",
+    "lastname": "Truffles",
     "linkedIdentities": [
         "basic"
     ],
-    "dateCreated": {
-        "$date": 1406564453107
-    },
-    "enabled": true,
     "permissions": [],
+    "profile": {},
     "role": "editor",
-    "__v": 0
+    "updatedby": {
+        "id": "53d67865ade6390b00282142",
+        "displayname": "BIG BOB"
+    }
 }

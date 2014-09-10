@@ -1,0 +1,23 @@
+{
+    "__v": 1,
+    "_id": {
+        "$oid": "5408b668f726670b007cb124"
+    },
+    "allowedTypes": [
+        {
+            "$oid": "53d5ed8b336c520b00ead171"
+        }
+    ],
+    "ancestors": [
+        {
+            "$oid": "53d5ec49ef1c1b0b007e1f39"
+        },
+        {
+            "$oid": "5408b650f726670b007cb123"
+        }
+    ],
+    "label": "with-masseuse",
+    "parent": {
+        "$oid": "5408b650f726670b007cb123"
+    }
+}

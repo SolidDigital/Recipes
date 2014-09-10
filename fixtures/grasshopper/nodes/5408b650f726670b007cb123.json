@@ -1,0 +1,16 @@
+{
+    "label": "grasshopper",
+    "parent": {
+        "$oid": "53d5ec49ef1c1b0b007e1f39"
+    },
+    "_id": {
+        "$oid": "5408b650f726670b007cb123"
+    },
+    "ancestors": [
+        {
+            "$oid": "53d5ec49ef1c1b0b007e1f39"
+        }
+    ],
+    "allowedTypes": [],
+    "__v": 0
+}

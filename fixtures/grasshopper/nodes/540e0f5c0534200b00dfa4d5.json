@@ -1,0 +1,20 @@
+{
+    "__v": 1,
+    "_id": {
+        "$oid": "540e0f5c0534200b00dfa4d5"
+    },
+    "allowedTypes": [
+        {
+            "$oid": "53d5ed8b336c520b00ead171"
+        }
+    ],
+    "ancestors": [
+        {
+            "$oid": "53d6620bcc49210b001d0efd"
+        }
+    ],
+    "label": "server",
+    "parent": {
+        "$oid": "53d6620bcc49210b001d0efd"
+    }
+}

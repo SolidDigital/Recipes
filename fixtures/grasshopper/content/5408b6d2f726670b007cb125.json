@@ -1,0 +1,41 @@
+{
+    "__v": 0,
+    "_id": {
+        "$oid": "5408b6d2f726670b007cb125"
+    },
+    "fields": {
+        "recipes": [],
+        "sections": [
+            {
+                "snippet": "The general structure \n\n```\n* app\n    * client - Masseuse and public files\n        * assets/\n            * images \n        * yourMasseuseApp/\n            * views\n        * vendor/\n        * constants/\n            *   recources.js\n            *   constants.js\n        * themes/\n            *   colors.scss\n            *   main.scss\n            *   z-index.scss\n        * main.js\n        * routers/ - will contain all of the apps routers.\n        * index.html\n    * server/ - will contain all of the node/express code\n        * routes/\n        * setup/\n        * staticPages/\n        * views\n        * models\n    * paths.json\n* tests\n* configs\n* grunt\n* package.json\n```\n",
+                "title": "Directory structure"
+            },
+            {
+                "snippet": "In the file where you start express and grasshopper api, first, require in express and grasshopper api.  \n\n```javascript\n\nvar express = require('express'),\n    app = express(),\n    api = require('grasshopper-api'),\n\n```\n\n## Create the grasshopper-api express router. \n\nAfter requiring in grasshopper-api, you can call it with the config of your choice.  Alternatively, you can set the config as a process environmental variable, GRASSHOPPER_CONFIG.\n\n### Passing the Config into grasshopper api.\n```javascript\nvar api = require('grasshopper-api'),\n    options;\n\noptions = api(require('ghapi.json'));\n```\n\n### Setting the config on the environment\n```shell\nGRASSHOPPER_CONFIG=yourConfigBrah node index.js\n```\nThen you can just do:\n```javascript\nvar api = require('grasshopper-api'),\n    options;\n\noptions = api();\n```\n\nIMPORTANT: If you chose this path, and all the stars are in alignment, you should see a log in your terminal say 'CONFIG FOUND IN THE ENVIRONMENT' (or something along these lines), if you dont see this, you're doing it wrong.\n\n\n## The options object\n\nWhen you create the api, you will receive some options. They are fully configured instances of the following:\n\n* options.core : grasshopper-core \n* options.bridgetown : bridgetown response wrapper\n* options.router : express router that you can mount.\n\nThe router that is returned can be used by express for any base route.\n\n```javascript\n\n```\n\n",
+                "title": "Express Integration"
+            },
+            {
+                "title": "Creating Routers"
+            }
+        ],
+        "computed-slug": "/docs/grasshopper/with-masseuse/project-scaffolding",
+        "title-slug": "project-scaffolding",
+        "title": "Project Scaffolding"
+    },
+    "meta": {
+        "node": {
+            "$oid": "5408b668f726670b007cb124"
+        },
+        "type": {
+            "$oid": "53d5ed8b336c520b00ead171"
+        },
+        "labelfield": "title",
+        "typelabel": "Recipe",
+        "created": {
+            "$date": 1409857234757
+        },
+        "lastmodified": {
+            "$date": 1410298678817
+        }
+    }
+}

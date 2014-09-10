@@ -1,0 +1,38 @@
+{
+    "__v": 0,
+    "_id": {
+        "$oid": "540e122e0534200b00dfa4d7"
+    },
+    "fields": {
+        "title": "Configuring a Server",
+        "title-slug": "configuring-a-server",
+        "computed-slug": "/reference/server/configuring-a-server",
+        "sections": [
+            {
+                "title": "Configuring a Server",
+                "snippet": "* [Enabling SSH Login](/reference/server/enabling-ssh-login)\n* [Setup node]()\n* [Install ZSH]()\n* [Create a User]()"
+            },
+            {
+                "snippet": "```shell\napt-get install --dry-run nodejs\n```",
+                "title": "Updating Node"
+            }
+        ],
+        "recipes": []
+    },
+    "meta": {
+        "node": {
+            "$oid": "540e0f5c0534200b00dfa4d5"
+        },
+        "type": {
+            "$oid": "53d5ed8b336c520b00ead171"
+        },
+        "labelfield": "title",
+        "typelabel": "Recipe",
+        "created": {
+            "$date": 1410208302230
+        },
+        "lastmodified": {
+            "$date": 1410213273876
+        }
+    }
+}
